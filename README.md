@@ -55,9 +55,8 @@
 
 | 📁 文件 | 🔗 链接 |
 |---|---|
-| 闪电演讲 PPT（.pptx） | [点此下载](docs/ToKnow-V15.6-PPT-Damia.pptx) |
-| 闪电演讲文档（.docx） | [点此下载](docs/ToKnow-V15.6-Pitch-Damia.docx) |
-| 在线幻灯片预览 | [点此打开](https://your-slides-link.example.com) |
+| 产品介绍 PPT（.pptx） | [点此下载][ToKnow-V15.6-PPT-Damia-演示文稿及视频.pptx](https://github.com/user-attachments/files/29176569/ToKnow-V15.6-PPT-Damia-.pptx) |
+| 项目说明文档（.docx） | [点此下载]([ToKnow-V15.6-ProductDoc-Damia-产品说明文档.pdf](https://github.com/user-attachments/files/29176592/ToKnow-V15.6-ProductDoc-Damia-.pdf) |
 
 <img src="docs/slides-preview.png" alt="Slides Preview" width="720"/>
 
