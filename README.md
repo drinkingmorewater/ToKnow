@@ -209,15 +209,11 @@ open ToKnow-V15.6-Damia.html
 
 > "做一个真正能把私人知识调用起来的系统——不是再做一个笔记本，是一台复活机。"
 
-- 📮 Email: `your@email.com`
-- 🐦 Twitter / X: `@yourhandle`
-- 📕 小红书 / 公众号: `抟知 ToKnow`
-
 ---
 
 ## 📜 License
 
-MIT © 2026 Damia · 自由使用、自由魔改、用之有德。
+MIT © 2026 Damia · 自由使用、用之有德。
 
 ---
 
