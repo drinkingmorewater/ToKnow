@@ -35,7 +35,7 @@
 
 ## 🎞 Demo 视频
 
-<!-- 替换为你的视频：把 mp4 拖到任意 GitHub Issue 评论框，会自动生成直链 -->
+<(https://github.com/drinkingmorewater/ToKnow/releases/download/introvedio_v1.0/ToKnow.mp4)>
 
 <div align="center">
 
