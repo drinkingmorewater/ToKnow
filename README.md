@@ -31,7 +31,7 @@
 
 > *面向科研者 · 内容创作者 · 高灵感人群（也就是那种"灵感很多但产出很少"的同学，没错，说的就是你 🫵）*
 
-点击查看试用界面：https://toknow.vercel.app/
+点击查看demo部署界面：https://toknow.vercel.app/
 
 <img width="1920" height="948" alt="image" src="https://github.com/user-attachments/assets/f98c9531-b658-4b7a-83b0-1d1f09e16618" />
 
@@ -51,9 +51,7 @@
 
 ---
 
-## 📊 闪电演讲 PPT
-
-<!-- 替换为你的 PPT：建议放到 GitHub Releases，或飞书 / 腾讯文档分享链接 -->
+## 📊 相关介绍文档-introdoc
 
 <div align="center">
 
