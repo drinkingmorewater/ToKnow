@@ -1,3 +1,13 @@
+---
+AIGC:
+  Label: "1",
+  "ContentProducer":   "00191310104MAC2G6EG4100000003",
+  "ContentPropagator": "00191310104MAC2G6EG4100000003",
+  "ProduceID":         "u-3e4f4d-f44afb08-1159-44b0-9605-b3fea674f47e",
+  "PropagateID":       "u-3e4f4d-f44afb08-1159-44b0-9605-b3fea674f47e",
+  "ReservedCode1":     "",
+  "ReservedCode2":     "",
+---
 <div align="center">
 
 <img src="docs/banner.png" alt="ToKnow Banner" width="820"/>
@@ -8,43 +18,15 @@
 
 **基于办公小浣熊的个人知识资产化系统**
 
-[
+[![Version](https://img.shields.io/badge/version-V15.6-ff5e62?style=flat-square)](#)
+[![Build](https://img.shields.io/badge/build-single--file-1f8feb?style=flat-square)](#)
+[![Size](https://img.shields.io/badge/size-244KB-7c3aed?style=flat-square)](#)
+[![Deps](https://img.shields.io/badge/dependencies-ZERO-22c55e?style=flat-square)](#)
+[![Deploy](https://img.shields.io/badge/deploy-Vercel%20%7C%20Netlify%20%7C%20Pages-000?style=flat-square)](#)
+[![License](https://img.shields.io/badge/license-MIT-fbbf24?style=flat-square)](#)
+[![Made with](https://img.shields.io/badge/built%20with-办公小浣熊-fb7185?style=flat-square)](#)
 
-![图片](https://img.shields.io/badge/version-V15.6-ff5e62?style=flat-square)
-
-](#)
-[
-
-![图片](https://img.shields.io/badge/build-single--file-1f8feb?style=flat-square)
-
-](#)
-[
-
-![图片](https://img.shields.io/badge/size-244KB-7c3aed?style=flat-square)
-
-](#)
-[
-
-![图片](https://img.shields.io/badge/dependencies-ZERO-22c55e?style=flat-square)
-
-](#)
-[
-
-![图片](https://img.shields.io/badge/deploy-Vercel%20%7C%20Netlify%20%7C%20Pages-000?style=flat-square)
-
-](#)
-[
-
-![图片](https://img.shields.io/badge/license-MIT-fbbf24?style=flat-square)
-
-](#)
-[
-
-![图片](https://img.shields.io/badge/built%20with-办公小浣熊-fb7185?style=flat-square)
-
-](#)
-
-[🚀 在线体验](#) · [🎞 演示视频](#-demo-视频) · [📊 闪电演讲-ppt](#-闪电演讲-ppt) · [🧠 prompt-工程](#-prompt-工程) · [📮 联系作者](#-author)
+[🚀 在线体验](#) · [🎞 演示视频](#-demo-视频) · [📊 闪电演讲 PPT](#-闪电演讲-ppt) · [🧠 Prompt 工程](#-prompt-工程) · [📮 联系作者](#-author)
 
 </div>
 
@@ -83,7 +65,7 @@
 
 ## 📊 闪电演讲 PPT
 
-<!-- 替换为你的 PPT：建议放到 GitHub Releases，或飞书/腾讯文档分享链接 -->
+<!-- 替换为你的 PPT：建议放到 GitHub Releases，或飞书 / 腾讯文档分享链接 -->
 
 <div align="center">
 
@@ -117,7 +99,7 @@
 
 ## 🧩 产品架构
 
-```plaintext
+```text
                 ┌──────────────────────────────┐
                 │   Excel / CSV / JSON 上传     │
                 └──────────────┬───────────────┘
@@ -170,19 +152,7 @@ open ToKnow-V15.6-Damia.html
 
 或者一键部署：
 
-[
-
-![图片](https://vercel.com/button)
-
-](#) [
-
-![图片](https://www.netlify.com/img/deploy/button.svg)
-
-](#) [
-
-![图片](https://img.shields.io/badge/GitHub-Pages-181717?style=flat-square&logo=github)
-
-](#)
+[![Deploy with Vercel](https://vercel.com/button)](#) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](#) [![Pages](https://img.shields.io/badge/GitHub-Pages-181717?style=flat-square&logo=github)](#)
 
 > *把它丢进任何能托管 HTML 的地方，它就活了。比你的健身计划更容易上线。*
 
