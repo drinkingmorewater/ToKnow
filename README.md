@@ -1,17 +1,3 @@
----
-AIGC:
-  Label: "1",
-  "ContentProducer":   "00191310104MAC2G6EG4100000003",
-  "ContentPropagator": "00191310104MAC2G6EG4100000003",
-  "ProduceID":         "u-3e4f4d-f44afb08-1159-44b0-9605-b3fea674f47e",
-  "PropagateID":       "u-3e4f4d-f44afb08-1159-44b0-9605-b3fea674f47e",
-  "ReservedCode1":     "",
-  "ReservedCode2":     "",
----
-<div align="center">
-
-<img src="docs/banner.png" alt="ToKnow Banner" width="820"/>
-
 # 抟知 · ToKnow
 
 ### 把你收藏夹里的"数字灰尘"，重新捏成知识。
