@@ -35,7 +35,7 @@
 
 ## 🎞 Demo 视频
 
-<(https://github.com/drinkingmorewater/ToKnow/releases/download/introvedio_v1.0/ToKnow.mp4)>
+<https://github.com/drinkingmorewater/ToKnow/issues/1#issue-4710592481>
 
 <div align="center">
 
