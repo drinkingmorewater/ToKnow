@@ -35,15 +35,13 @@
 
 ## 🎞 Demo 视频
 
-<https://github.com/drinkingmorewater/ToKnow/issues/1#issue-4710592481>
-
 <div align="center">
 
-<a href="https://your-video-link.example.com">
+<a href="https://github.com/drinkingmorewater/ToKnow/issues/1#issue-4710592481">
   <img src="docs/video-cover.png" alt="ToKnow Demo Video" width="720"/>
 </a>
 
-▶️ *点击封面观看 90 秒完整演示（替换为你的视频地址）*
+▶️ *点击封面观看 100 秒完整演示*
 
 </div>
 
