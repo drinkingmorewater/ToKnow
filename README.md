@@ -31,6 +31,9 @@
 
 > *面向科研者 · 内容创作者 · 高灵感人群（也就是那种"灵感很多但产出很少"的同学，没错，说的就是你 🫵）*
 
+点击查看试用界面：https://toknow.vercel.app/
+<img width="1920" height="948" alt="image" src="https://github.com/user-attachments/assets/f98c9531-b658-4b7a-83b0-1d1f09e16618" />
+
 ---
 
 ## 🎞 Demo 视频
@@ -206,6 +209,8 @@ open ToKnow-V15.6-Damia.html
 ## 👤 Author
 
 **Damia** · 2026.06.21
+
+📫sobremesa2048@gmail.com
 
 > "做一个真正能把私人知识调用起来的系统——不是再做一个笔记本，是一台复活机。"
 
