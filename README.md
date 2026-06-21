@@ -56,7 +56,7 @@
 | 📁 文件 | 🔗 链接 |
 |---|---|
 | 产品介绍 PPT（.pptx） | [ToKnow-V15.6-PPT-Damia-演示文稿及视频.pptx](https://github.com/user-attachments/files/29176569/ToKnow-V15.6-PPT-Damia-.pptx) |
-| 项目说明文档（.docx） | ([ToKnow-V15.6-ProductDoc-Damia-产品说明文档.pdf](https://github.com/user-attachments/files/29176592/ToKnow-V15.6-ProductDoc-Damia-.pdf) |
+| 项目说明文档（.pdf） | [ToKnow-V15.6-ProductDoc-Damia-产品说明文档.pdf](https://github.com/user-attachments/files/29176592/ToKnow-V15.6-ProductDoc-Damia-.pdf) |
 | 技术说明文档（.docx） | [ToKnow-V15.6-TechDoc-Damia-技术说明文档.docx](https://github.com/user-attachments/files/29176637/ToKnow-V15.6-TechDoc-Damia-.docx)|
 
 </div>
