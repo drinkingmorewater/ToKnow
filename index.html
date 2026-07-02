@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>抟知 ToKnow · V15.6 · 个人知识资产化系统</title>
+<title>抟知 ToKnow · V16.3 · 个人知识资产化系统</title>
 <style>* { box-sizing: border-box; margin: 0; padding: 0; }
 :root{
   --bg: #f7f4ec;
@@ -382,6 +382,26 @@ button{ font-family: var(--font); cursor: pointer; }
 
 /* ============= OutputPage ============= */
 .output-layout{ display:grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: start; }
+.v16-guide{
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+.v16-guide h3{ font-size: 16px; color: var(--ink); margin-bottom: 8px; }
+.v16-guide p{ font-size: 13px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+.v16-guide-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+.v16-guide-card{
+  background: var(--bg-alt);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.v16-guide-card b{ display:block; margin-bottom: 6px; color: var(--ink); font-size: 13px; }
+.v16-guide-card span{ display:block; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.v16-guide-actions{ display:flex; flex-wrap:wrap; gap: 10px; }
+.v16-guide-actions a{ text-decoration:none; }
 .output-sidebar{
   position: sticky; top: 84px;
   background: var(--paper); border-radius: var(--radius); padding: 16px;
@@ -532,6 +552,451 @@ button{ font-family: var(--font); cursor: pointer; }
 .next-btn .ntxt{ font-size: 12px; color: var(--ink-soft); font-weight: 600; }
 .next-btn:hover .ntxt{ color: #fff; }
 
+.workbench-hero{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.workbench-panel,
+.workbench-card{
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.workbench-panel{ padding: 22px 24px; }
+.workbench-panel h2{
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.workbench-panel p{
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+.workbench-kpis{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.wb-kpi{
+  background: linear-gradient(180deg, #fff 0%, var(--bg-alt) 100%);
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  padding: 18px 16px;
+}
+.wb-kpi .label{ font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.wb-kpi .value{ font-size: 28px; color: var(--terra-dark); font-family: var(--font-en); font-weight: 700; }
+.wb-kpi .desc{ font-size: 12px; color: var(--ink-soft); margin-top: 6px; line-height: 1.6; }
+.workbench-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.workbench-card{
+  padding: 22px 24px;
+  min-width: 0;
+}
+.workbench-card.full{ grid-column: 1 / -1; }
+.workbench-card h3{
+  font-size: 14px;
+  color: var(--terra);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.wb-card-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.wb-card-head p{
+  font-size: 12px;
+  color: var(--muted);
+}
+.wb-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.wb-input,
+.wb-textarea,
+.wb-search-input{
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  padding: 12px 14px;
+  font-size: 13px;
+  font-family: var(--font);
+  outline: none;
+}
+.wb-input:focus,
+.wb-textarea:focus,
+.wb-search-input:focus,
+.profile-soul-editor:focus{
+  border-color: var(--terra);
+  box-shadow: 0 0 0 3px rgba(184,101,74,0.08);
+}
+.wb-textarea{
+  min-height: 170px;
+  line-height: 1.8;
+  resize: vertical;
+}
+.wb-helper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.wb-tag-list,
+.recommend-chip-row,
+.search-tag-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.wb-chip{
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-alt);
+  color: var(--ink-soft);
+  font-size: 11.5px;
+}
+.wb-chip.active,
+.wb-chip.strong{
+  background: var(--terra);
+  border-color: var(--terra);
+  color: #fff;
+}
+.source-list,
+.search-results{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 460px;
+  overflow: auto;
+}
+.source-item,
+.search-item{
+  padding: 14px 16px;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff 0%, var(--bg-alt) 100%);
+}
+.source-item.recommended{
+  border-color: var(--terra-light);
+  box-shadow: inset 0 0 0 1px rgba(184,101,74,0.12);
+}
+.source-check{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.source-check input,
+.search-item input{
+  margin-top: 4px;
+  accent-color: var(--terra);
+}
+.source-main,
+.search-main{
+  flex: 1;
+  min-width: 0;
+}
+.source-title,
+.search-title{
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+.source-meta,
+.search-meta{
+  font-size: 11.5px;
+  color: var(--muted);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.source-desc,
+.search-desc{
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+.recommend-flag{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--terra-bg);
+  color: var(--terra-dark);
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.search-toolbar{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.mock-note{
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff8ef;
+  border: 1px dashed #e8c98f;
+  color: #8a6337;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.workflow-shell{
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+}
+.workflow-palette{
+  background: var(--bg-alt);
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  padding: 16px;
+}
+.workflow-palette h4,
+.workflow-canvas h4,
+.run-preview h4{
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.palette-card,
+.workflow-node{
+  border-radius: 14px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+  padding: 14px 16px;
+}
+.palette-card{
+  margin-bottom: 10px;
+  cursor: grab;
+  transition: all 0.15s;
+}
+.palette-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--terra-light);
+}
+.palette-card .type,
+.workflow-node .type{
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--terra-bg);
+  color: var(--terra-dark);
+  font-size: 10.5px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.palette-card .name,
+.workflow-node .name{
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.palette-card .desc,
+.workflow-node .desc{
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.palette-card .mini{
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.workflow-canvas{
+  border: 1px dashed var(--terra-light);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fff 0%, #fdf9ef 100%);
+  padding: 16px;
+  min-height: 280px;
+}
+.workflow-track{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.workflow-node{
+  cursor: grab;
+  position: relative;
+}
+.workflow-node.drag-over{
+  border-color: var(--terra);
+  box-shadow: 0 0 0 2px rgba(184,101,74,0.12);
+}
+.workflow-node .step{
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+.workflow-node-actions{
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.workflow-node-actions button{
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+.workflow-node-actions button:hover{
+  border-color: var(--terra);
+  color: var(--terra-dark);
+}
+.canvas-empty{
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 24px;
+}
+.run-preview{
+  margin-top: 18px;
+  background: var(--bg-alt);
+  border-radius: 14px;
+  border: 1px solid var(--line-soft);
+  padding: 16px;
+}
+.preview-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.preview-step{
+  padding: 12px 14px;
+  border-radius: 10px;
+  border-left: 3px solid var(--terra);
+  background: #fff;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.preview-step b{ color: var(--ink); }
+.preview-summary{
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+.profile-extra-section{
+  margin-top: 24px;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.profile-extra-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.profile-extra-head h2{
+  font-size: 20px;
+  color: var(--ink);
+}
+.profile-extra-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.profile-portrait-layout{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.profile-soul-editor{
+  width: 100%;
+  min-height: 240px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  resize: vertical;
+  background: #fff;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink);
+  font-family: var(--font);
+}
+.soul-toolbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--muted);
+}
+.profile-mini-dir{
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line-soft);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.profile-mini-dir:hover{
+  transform: translateY(-2px);
+  border-color: var(--terra-light);
+  box-shadow: var(--shadow-sm);
+}
+.profile-mini-dir b{
+  display: block;
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.profile-mini-dir span{
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 /* ============= ProfilePage ============= */
 .profile-card{
   background: linear-gradient(135deg, #fdf9ef 0%, #fff 100%);
@@ -607,8 +1072,14 @@ button{ font-family: var(--font); cursor: pointer; }
   .directions-grid, .recent-grid, .inspi-grid{ grid-template-columns: 1fr 1fr; }
   .platforms-grid{ grid-template-columns: 1fr; }
   .next-actions{ grid-template-columns: repeat(2,1fr); }
+  .v16-guide-grid{ grid-template-columns: 1fr; }
   .output-layout{ grid-template-columns: 1fr; }
   .output-sidebar{ position: static; max-height: none; }
+  .workbench-hero,
+  .workbench-grid,
+  .workflow-shell,
+  .profile-portrait-layout,
+  .workbench-kpis{ grid-template-columns: 1fr; }
   .nav-menu{ display: none; }
 }
 
@@ -1374,6 +1845,815 @@ button{ font-family: var(--font); cursor: pointer; }
 .guest-banner .gb-cta:hover{ background: var(--terra-dark); }
 
 
+
+
+/* ============ Damia Fix · 输出/方向/工作流融合 ============ */
+.flow-bridge,
+.result-workbench,
+.direction-workflow-section,
+.output-jump-strip{
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 22px 24px;
+  margin-bottom: 18px;
+}
+.bridge-head,
+.result-head,
+.direction-bridge-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:16px;
+}
+.bridge-head h2,
+.result-head h2,
+.direction-bridge-head h2{
+  font-size:20px;
+  color:var(--ink);
+  margin-bottom:5px;
+}
+.bridge-head p,
+.result-head p,
+.direction-bridge-head p{
+  font-size:13px;
+  color:var(--ink-soft);
+  line-height:1.75;
+  max-width:760px;
+}
+.output-bridge-actions,
+.bridge-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.flow-lite-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:12px;
+  margin-bottom:14px;
+}
+.flow-module{
+  position:relative;
+  padding:16px 18px;
+  min-height:130px;
+  border:1px solid var(--line-soft);
+  border-radius:16px;
+  background:linear-gradient(180deg,#fff 0%,var(--bg-alt) 100%);
+  cursor:grab;
+  transition:all .18s ease;
+  outline:none;
+}
+.flow-module:hover,
+.flow-module.active{
+  transform:translateY(-2px);
+  border-color:var(--terra-light);
+  box-shadow:var(--shadow-sm);
+}
+.flow-module.active{
+  background:linear-gradient(180deg,#fff8ef 0%,#fff 100%);
+  box-shadow:0 0 0 2px rgba(184,101,74,.10), var(--shadow-sm);
+}
+.flow-module .fm-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+}
+.flow-module .fm-pill{
+  display:inline-flex;
+  padding:3px 9px;
+  border-radius:999px;
+  background:var(--terra-bg);
+  color:var(--terra-dark);
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.5px;
+}
+.flow-module .fm-drag{
+  color:var(--muted);
+  font-size:16px;
+  letter-spacing:1px;
+}
+.flow-module h3{
+  font-size:15px;
+  color:var(--ink);
+  margin-bottom:6px;
+}
+.flow-module p{
+  font-size:12px;
+  color:var(--ink-soft);
+  line-height:1.7;
+}
+.flow-module .fm-stat{
+  margin-top:10px;
+  font-size:11.5px;
+  color:var(--terra-dark);
+  font-weight:700;
+}
+.flow-canvas-compact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  align-items:start;
+}
+.flow-sequence{
+  min-height:220px;
+  padding:14px;
+  border:1px dashed var(--terra-light);
+  border-radius:16px;
+  background:linear-gradient(180deg,#fff 0%,#fdf9ef 100%);
+}
+.flow-sequence-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  margin-bottom:10px;
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:.5px;
+}
+.flow-detail-panel{
+  min-height:220px;
+  padding:16px 18px;
+  border:1px solid var(--line-soft);
+  border-radius:16px;
+  background:var(--bg-alt);
+}
+.flow-detail-panel h3{
+  font-size:14px;
+  color:var(--terra);
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.flow-detail-panel p{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  line-height:1.8;
+  margin-bottom:10px;
+}
+.flow-detail-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin:10px 0 12px;
+}
+.flow-detail-item{
+  padding:10px 12px;
+  border-radius:10px;
+  background:#fff;
+  border-left:3px solid var(--terra-light);
+  font-size:12px;
+  color:var(--ink-soft);
+  line-height:1.65;
+}
+.flow-detail-item b{
+  display:block;
+  color:var(--ink);
+  font-size:12.5px;
+  margin-bottom:2px;
+}
+.direction-output-strip{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:14px;
+  align-items:center;
+  padding:16px 18px;
+  border:1px solid var(--line-soft);
+  border-radius:16px;
+  background:linear-gradient(135deg,#fff8ef,#fff);
+  margin-bottom:18px;
+}
+.direction-output-strip h3{
+  font-size:16px;
+  color:var(--ink);
+  margin-bottom:4px;
+}
+.direction-output-strip p{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  line-height:1.7;
+}
+.direction-card-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.direction-card-actions .dir-cta.secondary{
+  background:#fff;
+  color:var(--terra-dark);
+  border:1px solid var(--terra-light);
+}
+.dir-card.selected{
+  border-color:var(--terra-light);
+  box-shadow:0 0 0 2px rgba(184,101,74,.10), var(--shadow-sm);
+}
+.result-summary-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:12px;
+  margin:12px 0 18px;
+}
+.result-summary-card{
+  border:1px solid var(--line-soft);
+  background:var(--bg-alt);
+  border-radius:14px;
+  padding:14px 16px;
+}
+.result-summary-card b{
+  display:block;
+  color:var(--ink);
+  font-size:13px;
+  margin-bottom:5px;
+}
+.result-summary-card span{
+  display:block;
+  color:var(--muted);
+  font-size:11.5px;
+  line-height:1.6;
+}
+.draft-output-stack{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.draft-output-card{
+  border:1px solid var(--line-soft);
+  border-radius:16px;
+  background:linear-gradient(180deg,#fff 0%,#fdfaf2 100%);
+  overflow:hidden;
+}
+.draft-output-head{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:flex-start;
+  padding:16px 18px;
+  border-bottom:1px solid var(--line-soft);
+  background:#fff;
+}
+.draft-output-head h4{
+  font-size:16px;
+  color:var(--ink);
+  margin-bottom:4px;
+}
+.draft-output-head p{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  line-height:1.7;
+}
+.draft-word-badge{
+  flex-shrink:0;
+  padding:5px 12px;
+  border-radius:999px;
+  background:var(--terra);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  font-family:var(--font-en);
+}
+.draft-output-body{
+  padding:22px 26px;
+  font-size:14px;
+  color:var(--ink);
+  line-height:1.95;
+}
+.draft-output-body p{ margin-bottom:12px; text-indent:2em; }
+.draft-output-body p:last-child{ margin-bottom:0; }
+.draft-output-foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:13px 18px;
+  border-top:1px dashed var(--line);
+  background:rgba(255,255,255,.72);
+  color:var(--muted);
+  font-size:11.5px;
+}
+.output-jump-strip{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  background:linear-gradient(135deg,#fdf9ef 0%,#fff 100%);
+}
+.output-jump-strip h3{
+  font-size:16px;
+  color:var(--ink);
+  margin-bottom:4px;
+}
+.output-jump-strip p{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  line-height:1.7;
+}
+.direction-module-panel{
+  margin-top:14px;
+}
+.direction-module-panel .source-list,
+.direction-module-panel .search-results{
+  max-height:360px;
+}
+@media (max-width:1024px){
+  .flow-lite-grid,
+  .flow-canvas-compact,
+  .direction-output-strip,
+  .result-summary-grid{
+    grid-template-columns:1fr;
+  }
+  .bridge-head,
+  .result-head,
+  .direction-bridge-head,
+  .draft-output-head,
+  .draft-output-foot,
+  .output-jump-strip{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .output-bridge-actions,
+  .bridge-actions{ justify-content:flex-start; }
+}
+
+
+
+/* ============ Damia V4 · V16 游戏化三源画布覆盖 ============ */
+.dir-card.selected{ outline:2px solid rgba(184,101,74,.24); box-shadow:var(--shadow-md); }
+.v4-direction-header{ display:flex; justify-content:space-between; gap:18px; align-items:flex-end; margin-bottom:18px; }
+.v4-direction-header .status-pill{ margin-left:8px; }
+.triad-workflow-zone.v4-zone{ margin-top:28px; }
+.v4-zone .triad-head{ padding:18px 20px; border-radius:18px; background:linear-gradient(135deg,#fff,#fdf9ef); border:1px solid var(--line-soft); }
+.v4-zone .triad-head h2{ margin:0; }
+.v4-zone .triad-head p{ display:none; }
+.v4-topic-strip{ display:grid; grid-template-columns:90px 1fr auto; gap:10px; align-items:center; margin:14px 0; padding:12px 14px; background:#fff; border:1px solid var(--line-soft); border-radius:16px; }
+.v4-game-layout{ display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:18px; align-items:start; }
+.v4-game-board,.v4-node-editor,.v4-output-panel{ background:#fff; border:1px solid var(--line-soft); border-radius:20px; box-shadow:var(--shadow-sm); }
+.v4-game-board{ padding:18px; min-width:0; }
+.v4-board-top{ display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:14px; }
+.v4-board-top h3{ font-size:16px; color:var(--ink); margin:0; }
+.v4-board-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+.v4-canvas-track{ min-height:330px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; align-items:stretch; padding:16px; border-radius:18px; border:1px dashed var(--terra-light); background:radial-gradient(circle at 20% 10%,rgba(216,149,120,.18),transparent 26%),linear-gradient(180deg,#fff,#fdf9ef); }
+.v4-workflow-node{ position:relative; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; padding:16px; border-radius:18px; border:1px solid var(--line-soft); background:linear-gradient(180deg,#fff,#fbf8f0); cursor:grab; transition:all .18s; overflow:hidden; }
+.v4-workflow-node::after{ content:""; position:absolute; right:-42px; bottom:-42px; width:120px; height:120px; border-radius:50%; background:rgba(184,101,74,.07); }
+.v4-workflow-node:hover,.v4-workflow-node.active{ transform:translateY(-3px); border-color:var(--terra-light); box-shadow:0 10px 28px rgba(184,101,74,.13); }
+.v4-workflow-node.active{ outline:2px solid rgba(184,101,74,.16); }
+.v4-node-orb{ width:34px; height:34px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:var(--ink); color:#fff; font-family:var(--font-en); font-weight:700; margin-bottom:14px; }
+.v4-node-pill{ display:inline-flex; padding:3px 9px; border-radius:999px; background:var(--terra-bg); color:var(--terra-dark); font-size:10.5px; font-weight:700; margin-bottom:10px; }
+.v4-node-title{ font-size:16px; color:var(--ink); font-weight:700; margin-bottom:8px; line-height:1.35; }
+.v4-node-desc{ font-size:12px; color:var(--ink-soft); line-height:1.65; }
+.v4-node-status{ position:relative; z-index:1; margin-top:14px; padding:10px 11px; border-radius:12px; background:#fff; border:1px solid var(--line-soft); font-size:12px; color:var(--terra-dark); font-weight:700; }
+.v4-node-controls{ position:relative; z-index:2; display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
+.v4-node-controls button,.v4-small-btn{ padding:6px 10px; border-radius:9px; border:1px solid var(--line); background:#fff; color:var(--ink-soft); font-size:11.5px; font-family:var(--font); cursor:pointer; }
+.v4-node-controls button:hover,.v4-small-btn:hover{ background:var(--terra-bg); border-color:var(--terra-light); color:var(--terra-dark); }
+.v4-empty-canvas{ min-height:240px; grid-column:1/-1; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; text-align:center; }
+.v4-node-editor{ position:sticky; top:86px; padding:16px; max-height:calc(100vh - 110px); overflow:auto; }
+.v4-editor-head{ display:flex; justify-content:space-between; gap:10px; align-items:flex-start; margin-bottom:12px; }
+.v4-editor-head h3{ font-size:16px; color:var(--ink); margin-bottom:4px; }
+.v4-editor-head span{ font-size:11.5px; color:var(--muted); }
+.v4-editor-body{ border:1px solid var(--line-soft); border-radius:16px; background:linear-gradient(180deg,#fff,#fdfaf2); padding:14px; }
+.v4-editor-title{ display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:10px; }
+.v4-editor-title b{ color:var(--ink); font-size:14px; }
+.v4-editor-title .status-pill{ font-size:10.5px; }
+.v4-editor-actions{ display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.v4-state-list{ display:flex; flex-direction:column; gap:9px; max-height:390px; overflow:auto; padding-right:2px; }
+.v4-check-card{ display:flex; gap:9px; align-items:flex-start; padding:10px; border:1px solid var(--line-soft); border-radius:13px; background:#fff; cursor:pointer; transition:all .15s; }
+.v4-check-card:hover{ border-color:var(--terra-light); box-shadow:var(--shadow-sm); }
+.v4-check-card.recommended{ background:#fffaf4; border-color:#e8c8b8; }
+.v4-check-card input{ margin-top:4px; accent-color:var(--terra); }
+.v4-check-main{ flex:1; min-width:0; }
+.v4-check-main b{ display:block; font-size:12.7px; line-height:1.45; color:var(--ink); margin-bottom:4px; }
+.v4-check-main span{ display:block; font-size:11.3px; line-height:1.55; color:var(--muted); }
+.v4-search-row{ display:grid; grid-template-columns:1fr auto; gap:8px; margin-bottom:10px; }
+.v4-generate-dock{ margin-top:14px; padding:14px; border-radius:16px; background:var(--ink); color:#fff; display:flex; justify-content:space-between; gap:12px; align-items:center; }
+.v4-generate-dock span{ font-size:12px; opacity:.82; }
+.v4-generate-dock button{ background:var(--terra); color:#fff; border:none; border-radius:12px; padding:11px 18px; font-family:var(--font); font-weight:700; box-shadow:0 4px 16px rgba(0,0,0,.2); }
+.v4-generate-dock button:hover{ background:var(--terra-light); transform:translateY(-1px); }
+.v4-output-panel{ padding:20px; margin-bottom:18px; }
+.v4-output-head{ display:flex; justify-content:space-between; gap:14px; align-items:flex-start; margin-bottom:14px; }
+.v4-output-head h2{ font-size:20px; color:var(--ink); margin-bottom:4px; }
+.v4-output-head p{ font-size:12.5px; color:var(--muted); line-height:1.6; }
+.v4-output-mini-layout{ display:grid; grid-template-columns:1fr 280px; gap:14px; align-items:stretch; }
+.v4-mini-canvas{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; padding:12px; border:1px dashed var(--terra-light); border-radius:16px; background:linear-gradient(180deg,#fff,#fdf9ef); }
+.v4-mini-node{ min-height:120px; border:1px solid var(--line-soft); border-radius:15px; background:#fff; padding:12px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; transition:all .15s; }
+.v4-mini-node:hover{ transform:translateY(-2px); border-color:var(--terra-light); box-shadow:var(--shadow-sm); }
+.v4-mini-node b{ font-size:13px; color:var(--ink); line-height:1.4; }
+.v4-mini-node span{ font-size:11px; color:var(--muted); line-height:1.5; }
+.v4-mini-node em{ font-style:normal; width:26px; height:26px; border-radius:9px; background:var(--terra); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-en); font-weight:700; margin-bottom:8px; }
+.v4-new-info{ display:flex; flex-direction:column; gap:8px; }
+.v4-new-info-card{ padding:11px 12px; background:var(--bg-alt); border:1px solid var(--line-soft); border-radius:13px; font-size:12px; color:var(--ink-soft); line-height:1.55; }
+.v4-new-info-card b{ display:block; color:var(--ink); margin-bottom:3px; }
+.v4-draft-tabs{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.v4-draft-tab{ padding:10px 15px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--ink-soft); font-family:var(--font); cursor:pointer; }
+.v4-draft-tab.active,.v4-draft-tab:hover{ background:var(--terra); border-color:var(--terra); color:#fff; box-shadow:0 4px 14px rgba(184,101,74,.18); }
+.v4-single-draft-wrap{ animation:pageFadeIn .25s ease-out; }
+.v4-output-panel.compact .v4-output-head p{ display:none; }
+@media (max-width:1024px){ .v4-game-layout,.v4-output-mini-layout{ grid-template-columns:1fr; } .v4-node-editor{ position:static; max-height:none; } .v4-canvas-track,.v4-mini-canvas{ grid-template-columns:1fr; } .v4-topic-strip{ grid-template-columns:1fr; } }
+
+
+
+/* ============ Damia V4.3 · Soul 文档中枢 ============ */
+.profile-title-v43 h1{ letter-spacing: 1.5px; }
+.profile-stats.compact{ grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-bottom: 18px; }
+.profile-stats.compact .pstat{ padding: 14px 16px; background: linear-gradient(180deg,#fff,var(--bg-alt)); }
+.profile-stats.compact .pnum{ font-size: 24px; }
+.soul-profile-hub{ padding: 0; overflow: hidden; border-color: rgba(184,101,74,0.18); }
+.soul-command-panel{
+  display: grid; grid-template-columns: minmax(0,1.4fr) 320px; gap: 18px;
+  padding: 26px 28px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(216,149,120,0.18), transparent 32%),
+    linear-gradient(135deg, #fffdf8 0%, #f7efe4 100%);
+  border-bottom: 1px solid var(--line-soft);
+}
+.soul-kicker{ display:inline-flex; padding: 4px 10px; border-radius:999px; background: var(--ink); color:#fff; font-size:10.5px; letter-spacing:1px; font-family:var(--font-en); margin-bottom: 10px; }
+.soul-command-copy h2{ font-size: 24px; margin-bottom: 8px; color: var(--ink); }
+.soul-command-copy p{ font-size: 13.5px; color: var(--ink-soft); line-height: 1.85; max-width: 760px; }
+.soul-action-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 16px; }
+.soul-command-meta{ display:flex; flex-direction:column; gap: 10px; }
+.soul-score-orb{ height: 112px; border-radius: 22px; background: linear-gradient(135deg,var(--terra),var(--terra-dark)); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow: 0 14px 34px rgba(140,74,53,0.22); }
+.soul-score-orb b{ font-size: 38px; line-height: 1; font-family: var(--font-en); }
+.soul-score-orb span{ font-size: 12px; opacity: .9; margin-top: 6px; }
+.soul-meta-line{ background: rgba(255,255,255,0.72); border: 1px solid rgba(232,223,208,0.9); border-radius: 14px; padding: 11px 13px; }
+.soul-meta-line span{ display:block; font-size: 10.5px; letter-spacing: .8px; color: var(--muted); margin-bottom: 3px; }
+.soul-meta-line b{ display:block; font-size: 12px; color: var(--ink-soft); line-height: 1.55; }
+.soul-map-grid{ display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; padding: 18px; background: #fff; }
+.soul-map-block{ min-height: 154px; border-radius: 18px; padding: 16px; border: 1px solid var(--line-soft); position: relative; overflow:hidden; }
+.soul-map-block::after{ content:""; position:absolute; right:-38px; bottom:-42px; width:110px; height:110px; border-radius:50%; opacity:.18; background: currentColor; }
+.soul-map-block.tone-terra{ background:#fff5ef; color: var(--terra-dark); }
+.soul-map-block.tone-gold{ background:#fff8e8; color:#8d6b25; }
+.soul-map-block.tone-green{ background:#eef6ed; color:#4d6d50; }
+.soul-map-block.tone-blue{ background:#edf3f8; color:#3d4f63; }
+.soul-map-head{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom: 12px; }
+.soul-map-head span{ font-family:var(--font-en); font-size: 11px; opacity: .72; letter-spacing: 1px; }
+.soul-map-head b{ font-size: 13.5px; color: var(--ink); }
+.soul-chip-zone{ display:flex; flex-wrap:wrap; gap: 7px; position:relative; z-index:1; }
+.soul-chip{ display:inline-flex; align-items:center; padding: 6px 10px; border-radius:999px; background: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.9); font-size: 11.5px; color: var(--ink-soft); box-shadow: 0 1px 0 rgba(255,255,255,.7) inset; }
+.soul-chip.strong{ background: var(--ink); color:#fff; border-color: var(--ink); }
+.soul-platform-zone{ display:flex; flex-direction:column; gap: 8px; position:relative; z-index:1; }
+.soul-platform-row{ display:grid; grid-template-columns: 72px 1fr 36px; align-items:center; gap:8px; font-size:11.5px; color: var(--ink-soft); }
+.soul-platform-row .bar{ height: 8px; border-radius:999px; background: rgba(255,255,255,.72); overflow:hidden; border:1px solid rgba(255,255,255,.9); }
+.soul-platform-row .fill{ display:block; height:100%; border-radius:999px; background: currentColor; }
+.soul-editor-grid{ display:grid; grid-template-columns: 330px 1fr; gap: 18px; padding: 0 18px 18px; background:#fff; }
+.soul-doc-preview, .soul-editor-panel{ border: 1px solid var(--line-soft); border-radius: 18px; background: linear-gradient(180deg,#fff,var(--bg-alt)); padding: 18px; }
+.soul-doc-preview h3{ font-size: 15px; color: var(--ink); margin-bottom: 12px; }
+.soul-route{ display:flex; flex-direction:column; gap:3px; padding: 11px 12px; border-radius: 13px; background:#fff; border:1px solid var(--line-soft); margin-bottom: 8px; }
+.soul-route span{ font-size: 12.5px; font-weight:700; color: var(--terra-dark); }
+.soul-route em{ font-style: normal; font-size: 11.5px; color: var(--muted); line-height: 1.55; }
+.soul-route.strong{ background: var(--terra-bg); border-color: rgba(184,101,74,.22); }
+.soul-editor-panel{ padding: 14px; }
+.soul-editor-panel .profile-soul-editor{ min-height: 430px; border-radius: 14px; background: #fffefb; }
+.profile-intel-grid{ display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.profile-intel-card{ background: var(--paper); border:1px solid var(--line-soft); border-radius: var(--radius-lg); padding: 18px 20px; box-shadow: var(--shadow-sm); }
+.profile-intel-card.full{ grid-column: 1 / -1; }
+.profile-intel-card h3{ font-size: 14px; color: var(--ink); margin-bottom: 3px; }
+.profile-intel-card h3::before{ content:"◆ "; color: var(--terra); font-size: 10px; }
+.profile-intel-card p{ font-size: 11.5px; color: var(--muted); margin-bottom: 12px; }
+.profile-intel-card .kw-cloud{ display:flex; flex-wrap:wrap; gap: 7px; }
+.profile-intel-card .cluster-bar{ gap: 9px; }
+@media (max-width: 1024px){
+  .soul-command-panel, .soul-editor-grid{ grid-template-columns:1fr; }
+  .soul-map-grid{ grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .profile-intel-grid{ grid-template-columns:1fr; }
+}
+@media (max-width: 680px){
+  .soul-map-grid{ grid-template-columns:1fr; }
+  .profile-stats.compact{ grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+</style>
+<style>
+
+/* ============ Damia V3 · 三源生成工作流一体化 ============ */
+.direction-page-intro{ margin-bottom: 22px; }
+.direction-overview-note{
+  display:flex; justify-content:space-between; gap:16px; align-items:flex-start;
+  padding:14px 18px; margin-bottom:16px; border:1px solid var(--line-soft);
+  border-radius:14px; background:linear-gradient(135deg,#fff,#fdf9ef); color:var(--ink-soft);
+}
+.direction-overview-note b{ color:var(--terra-dark); }
+.dir-card.selected{ border-color:var(--terra); box-shadow:0 0 0 2px rgba(184,101,74,.10), var(--shadow-md); }
+.direction-card-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+.dir-inline-btn{
+  padding:7px 12px; border-radius:8px; border:1px solid var(--line); background:#fff;
+  color:var(--ink-soft); font-size:12px; font-family:var(--font); cursor:pointer; transition:all .15s;
+}
+.dir-inline-btn:hover{ border-color:var(--terra); color:var(--terra-dark); background:var(--terra-bg); }
+.dir-inline-btn.primary{ background:var(--ink); color:#fff; border-color:var(--ink); }
+.dir-inline-btn.primary:hover{ background:var(--terra-dark); border-color:var(--terra-dark); }
+
+.triad-workflow-zone{
+  margin-top:28px; padding:24px; border-radius:22px; border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff 0%,#fdf9ef 100%); box-shadow:var(--shadow-sm);
+}
+.triad-head{ display:flex; justify-content:space-between; gap:18px; align-items:flex-start; margin-bottom:16px; }
+.triad-head h2{ font-size:21px; color:var(--ink); margin-bottom:6px; letter-spacing:1px; }
+.triad-head p{ font-size:13px; color:var(--ink-soft); line-height:1.75; max-width:760px; }
+.triad-actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+.triad-topic-strip{
+  display:grid; grid-template-columns:120px 1fr auto; gap:12px; align-items:center;
+  padding:14px; border:1px solid var(--line-soft); border-radius:16px; background:#fff; margin-bottom:16px;
+}
+.triad-topic-label{ font-size:12px; color:var(--muted); letter-spacing:1px; text-transform:uppercase; }
+.triad-topic-input{ width:100%; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-family:var(--font); color:var(--ink); outline:none; }
+.triad-topic-input:focus{ border-color:var(--terra); box-shadow:0 0 0 3px rgba(184,101,74,.08); }
+.triad-topic-meta{ font-size:12px; color:var(--muted); white-space:nowrap; }
+.triad-layout{ display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:18px; align-items:start; }
+.triad-left{ min-width:0; display:flex; flex-direction:column; gap:14px; }
+.triad-module-row{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.triad-module-card{
+  background:#fff; border:1px solid var(--line-soft); border-radius:16px; padding:16px;
+  cursor:grab; transition:all .18s; min-height:150px; position:relative; overflow:hidden;
+}
+.triad-module-card::after{ content:""; position:absolute; right:-36px; top:-36px; width:96px; height:96px; border-radius:50%; background:rgba(184,101,74,.07); }
+.triad-module-card:hover,.triad-module-card.active{ transform:translateY(-2px); border-color:var(--terra-light); box-shadow:var(--shadow-sm); }
+.triad-module-card.active{ box-shadow:0 0 0 2px rgba(184,101,74,.11), var(--shadow-sm); }
+.triad-module-card .pill{ display:inline-flex; padding:3px 9px; border-radius:999px; background:var(--terra-bg); color:var(--terra-dark); font-size:10.5px; font-weight:700; margin-bottom:9px; }
+.triad-module-card h3{ font-size:15px; color:var(--ink); margin-bottom:7px; }
+.triad-module-card p{ font-size:12px; color:var(--ink-soft); line-height:1.65; position:relative; z-index:1; }
+.triad-module-card .stat{ margin-top:10px; font-size:11.5px; color:var(--terra-dark); font-weight:700; position:relative; z-index:1; }
+.triad-canvas-card{ background:#fff; border:1px solid var(--line-soft); border-radius:18px; padding:18px; }
+.triad-canvas-head{ display:flex; justify-content:space-between; gap:12px; align-items:flex-start; margin-bottom:12px; }
+.triad-canvas-head h3{ font-size:16px; color:var(--ink); margin-bottom:4px; }
+.triad-canvas-head p{ font-size:12px; color:var(--muted); line-height:1.6; }
+.triad-canvas-tools{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+.triad-canvas-track{
+  min-height:260px; border:1px dashed var(--terra-light); border-radius:16px;
+  background:linear-gradient(180deg,#fff 0%,#fffaf1 100%); padding:14px;
+}
+.triad-node{
+  position:relative; padding:15px 16px 15px 54px; border:1px solid var(--line-soft); border-radius:14px;
+  background:#fff; margin-bottom:10px; cursor:grab; transition:all .15s;
+}
+.triad-node:hover{ border-color:var(--terra-light); box-shadow:var(--shadow-sm); }
+.triad-node .step{
+  position:absolute; left:14px; top:15px; width:28px; height:28px; border-radius:50%; background:var(--ink); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; font-family:var(--font-en);
+}
+.triad-node .type{ display:inline-flex; padding:2px 8px; border-radius:999px; background:var(--terra-bg); color:var(--terra-dark); font-size:10.5px; font-weight:700; margin-bottom:6px; }
+.triad-node .name{ font-size:14px; color:var(--ink); font-weight:700; margin-bottom:4px; }
+.triad-node .desc{ font-size:12px; color:var(--ink-soft); line-height:1.65; }
+.triad-node-actions{ display:flex; gap:7px; margin-top:10px; flex-wrap:wrap; }
+.triad-node-actions button,.mini-tool-btn{
+  padding:5px 9px; border-radius:8px; border:1px solid var(--line); background:#fff; color:var(--ink-soft);
+  font-size:11.5px; font-family:var(--font); cursor:pointer;
+}
+.triad-node-actions button:hover,.mini-tool-btn:hover{ border-color:var(--terra); color:var(--terra-dark); background:var(--terra-bg); }
+.triad-empty{ min-height:180px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--muted); font-size:13px; line-height:1.8; padding:24px; }
+.triad-generate-bar{ display:flex; justify-content:space-between; gap:14px; align-items:center; margin-top:14px; padding-top:14px; border-top:1px dashed var(--line-soft); }
+.triad-generate-bar span{ font-size:12px; color:var(--muted); line-height:1.6; }
+.triad-generate-bar b{ color:var(--terra-dark); }
+.triad-generate-btn{ padding:12px 24px; border:none; border-radius:12px; background:var(--terra); color:#fff; font-weight:700; font-family:var(--font); box-shadow:0 4px 14px rgba(184,101,74,.25); }
+.triad-generate-btn:hover{ background:var(--terra-dark); transform:translateY(-1px); }
+
+.triad-state-panel{ position:sticky; top:86px; background:#fff; border:1px solid var(--line-soft); border-radius:18px; padding:16px; max-height:calc(100vh - 110px); overflow:auto; }
+.triad-state-head{ display:flex; justify-content:space-between; gap:12px; align-items:flex-start; margin-bottom:12px; }
+.triad-state-head h3{ font-size:16px; color:var(--ink); margin-bottom:4px; }
+.triad-state-head p{ font-size:12px; color:var(--muted); line-height:1.6; }
+.status-pill{ display:inline-flex; align-items:center; padding:4px 9px; border-radius:999px; background:var(--terra-bg); color:var(--terra-dark); font-size:11px; font-weight:700; white-space:nowrap; }
+.state-section{ border:1px solid var(--line-soft); border-radius:14px; padding:13px; margin-bottom:12px; background:linear-gradient(180deg,#fff,#fdfaf2); }
+.state-section.active{ border-color:var(--terra-light); box-shadow:0 0 0 2px rgba(184,101,74,.08); }
+.state-section-title{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; }
+.state-section-title b{ font-size:13.5px; color:var(--ink); }
+.state-section-title button{ border:none; background:transparent; color:var(--terra-dark); font-size:11.5px; font-family:var(--font); cursor:pointer; }
+.state-textarea{ width:100%; min-height:130px; border:1px solid var(--line); border-radius:12px; padding:11px 12px; resize:vertical; font-family:var(--font); font-size:12.5px; line-height:1.7; color:var(--ink); outline:none; background:#fff; }
+.state-textarea:focus,.state-search-input:focus{ border-color:var(--terra); box-shadow:0 0 0 3px rgba(184,101,74,.08); }
+.state-counter{ margin-top:7px; color:var(--muted); font-size:11.5px; text-align:right; }
+.state-list{ display:flex; flex-direction:column; gap:9px; max-height:280px; overflow:auto; padding-right:2px; }
+.state-check-item{ display:flex; gap:9px; align-items:flex-start; padding:10px; border:1px solid var(--line-soft); border-radius:12px; background:#fff; }
+.state-check-item.recommended{ border-color:var(--terra-light); background:#fffaf4; }
+.state-check-item input{ margin-top:4px; accent-color:var(--terra); }
+.state-check-body{ min-width:0; flex:1; }
+.state-check-body b{ display:block; color:var(--ink); font-size:12.5px; line-height:1.45; margin-bottom:4px; }
+.state-check-body span{ display:block; color:var(--muted); font-size:11.3px; line-height:1.55; }
+.state-tags{ display:flex; gap:4px; flex-wrap:wrap; margin-top:7px; }
+.state-tags em{ font-style:normal; font-size:10.5px; padding:2px 6px; border-radius:999px; background:var(--bg); color:var(--ink-soft); }
+.state-search-row{ display:grid; grid-template-columns:1fr auto; gap:8px; margin-bottom:10px; }
+.state-search-input{ min-width:0; border:1px solid var(--line); border-radius:10px; padding:9px 10px; font-family:var(--font); font-size:12.5px; outline:none; }
+.state-actions-row{ display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:9px; }
+.state-actions-row span{ font-size:11.5px; color:var(--muted); }
+
+.workflow-result-board{ margin-top:18px; border:1px solid var(--line-soft); border-radius:18px; background:#fff; overflow:hidden; }
+.workflow-result-board .board-head{ display:flex; justify-content:space-between; gap:14px; align-items:flex-start; padding:18px 20px; border-bottom:1px solid var(--line-soft); background:linear-gradient(135deg,#fff,#fdf9ef); }
+.workflow-result-board h3{ font-size:17px; color:var(--ink); margin-bottom:4px; }
+.workflow-result-board p{ font-size:12.5px; color:var(--ink-soft); line-height:1.7; }
+.workflow-result-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:0; }
+.workflow-result-main,.workflow-new-info{ padding:18px 20px; }
+.workflow-new-info{ border-left:1px solid var(--line-soft); background:var(--bg-alt); }
+.generated-kicker{ display:inline-flex; padding:3px 9px; border-radius:999px; background:var(--terra); color:#fff; font-size:10.5px; font-weight:700; margin-bottom:9px; }
+.generated-title{ font-size:21px; color:var(--ink); font-weight:700; margin-bottom:8px; line-height:1.45; }
+.generated-meta{ display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
+.generated-meta span{ font-size:11.5px; color:var(--terra-dark); background:var(--terra-bg); border-radius:999px; padding:4px 9px; }
+.generated-draft-links{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:12px; }
+.generated-draft-links button{ padding:10px 8px; border-radius:10px; border:1px solid var(--line); background:#fff; color:var(--ink-soft); font-family:var(--font); cursor:pointer; }
+.generated-draft-links button:hover{ border-color:var(--terra); color:var(--terra-dark); background:var(--terra-bg); }
+.new-info-list{ display:flex; flex-direction:column; gap:9px; }
+.new-info-item{ padding:10px 11px; border-radius:12px; background:#fff; border:1px solid var(--line-soft); font-size:12px; color:var(--ink-soft); line-height:1.6; }
+.new-info-item b{ color:var(--ink); display:block; margin-bottom:3px; }
+.empty-result{ padding:26px; text-align:center; color:var(--muted); font-size:13px; line-height:1.8; }
+
+.output-status-board{ margin-bottom:18px; border:1px solid var(--line-soft); border-radius:18px; background:#fff; overflow:hidden; }
+.output-status-board .workflow-result-board{ margin-top:0; border:none; border-radius:0; }
+.result-workbench{ background:#fff; border:1px solid var(--line-soft); border-radius:18px; padding:24px; }
+.result-head{ display:flex; justify-content:space-between; gap:14px; align-items:flex-start; margin-bottom:18px; }
+.result-head h2{ font-size:19px; color:var(--ink); margin-bottom:5px; }
+.result-head p{ color:var(--ink-soft); font-size:13px; line-height:1.7; }
+
+@media (max-width: 1100px){
+  .triad-layout,.workflow-result-grid{ grid-template-columns:1fr; }
+  .triad-state-panel{ position:static; max-height:none; }
+  .workflow-new-info{ border-left:none; border-top:1px solid var(--line-soft); }
+}
+@media (max-width: 760px){
+  .triad-head,.workflow-result-board .board-head,.result-head{ flex-direction:column; }
+  .triad-topic-strip{ grid-template-columns:1fr; }
+  .triad-module-row,.generated-draft-links{ grid-template-columns:1fr; }
+}
+</style>
+<style>
+
+/* ============ Damia V4.3 · OutputPage Compact Triad Canvas ============ */
+.v41-output-workflow{
+  padding: 16px 16px 14px;
+  margin-bottom: 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(184,101,74,.18);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(216,149,120,.18), transparent 28%),
+    linear-gradient(135deg, #fff 0%, #fdf9ef 54%, #fff 100%);
+  box-shadow: 0 10px 30px rgba(26,22,20,.055);
+}
+.v41-output-head{
+  align-items: center;
+  margin-bottom: 12px;
+}
+.v41-output-head h2{
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--ink);
+  margin: 0;
+}
+.v41-output-head p{ display:none !important; }
+.v41-output-head .triad-actions{ align-items:center; }
+.v41-output-head .btn-primary,
+.v41-output-head .btn-ghost{
+  padding: 9px 15px;
+  border-radius: 11px;
+  font-size: 12.5px;
+}
+.v41-workflow-play{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 300px;
+  gap: 12px;
+  align-items:stretch;
+}
+.v41-mini-canvas{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap: 10px;
+  padding: 12px;
+  min-height: 124px;
+  border-radius: 18px;
+  border: 1px dashed var(--terra-light);
+  background:
+    linear-gradient(90deg, rgba(184,101,74,.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(184,101,74,.05) 1px, transparent 1px),
+    linear-gradient(180deg, #fff 0%, #fdf9ef 100%);
+  background-size: 24px 24px, 24px 24px, auto;
+}
+.v41-mini-node{
+  position:relative;
+  overflow:hidden;
+  min-height: 100px;
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: rgba(255,255,255,.88);
+  padding: 12px;
+  cursor:pointer;
+  transition: all .18s ease;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.v41-mini-node::after{
+  content:"";
+  position:absolute;
+  right:-34px;
+  bottom:-34px;
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:rgba(184,101,74,.07);
+}
+.v41-mini-node:hover,
+.v41-mini-node.active{
+  transform: translateY(-2px);
+  border-color: var(--terra-light);
+  box-shadow: 0 8px 20px rgba(184,101,74,.10);
+}
+.v41-mini-node.active{
+  background: #fffaf4;
+  outline: 2px solid rgba(184,101,74,.14);
+}
+.v41-mini-node-top{ position:relative; z-index:1; display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px; }
+.v41-mini-node em{
+  font-style:normal;
+  width:28px;
+  height:28px;
+  border-radius:10px;
+  background:var(--ink);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-en);
+  font-weight:700;
+  font-size:12px;
+}
+.v41-mini-node .v41-node-kind{
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--terra-bg);
+  color: var(--terra-dark);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing:.4px;
+}
+.v41-mini-node b{
+  position:relative;
+  z-index:1;
+  display:block;
+  color:var(--ink);
+  font-size:13.5px;
+  line-height:1.35;
+  margin-bottom:6px;
+}
+.v41-mini-node span{
+  position:relative;
+  z-index:1;
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.45;
+}
+.v41-output-detail{
+  border-radius: 18px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255,255,255,.82);
+  padding: 14px;
+  min-height:124px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
+}
+.v41-detail-kicker{
+  font-size:10.5px;
+  letter-spacing:1px;
+  color:var(--terra-dark);
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.v41-detail-title{
+  font-size:14.5px;
+  color:var(--ink);
+  font-weight:700;
+  margin-bottom:8px;
+}
+.v41-detail-body{
+  color:var(--ink-soft);
+  font-size:12px;
+  line-height:1.65;
+  max-height: 132px;
+  overflow:auto;
+  padding-right:2px;
+}
+.v41-detail-list{ display:flex; flex-direction:column; gap:6px; }
+.v41-detail-item{
+  padding:7px 9px;
+  border-radius:10px;
+  background:var(--bg-alt);
+  border:1px solid var(--line-soft);
+  color:var(--ink-soft);
+  font-size:11.7px;
+  line-height:1.45;
+}
+.v41-detail-empty{
+  padding:12px;
+  border-radius:12px;
+  background:var(--bg-alt);
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+}
+@media (max-width:1024px){
+  .v41-workflow-play{ grid-template-columns:1fr; }
+  .v41-mini-canvas{ grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
@@ -1404,7 +2684,6 @@ button{ font-family: var(--font); cursor: pointer; }
   <div class="nav-menu">
     <button class="nav-item" data-page="home">首页</button>
     <button class="nav-item" data-page="inspiration">灵感典藏</button>
-    <button class="nav-item" data-page="portrait">知识画像</button>
     <button class="nav-item" data-page="direction">发展方向</button>
     <button class="nav-item" data-page="output">生成成果</button>
     <button class="nav-item" data-page="profile">我的</button>
@@ -1416,7 +2695,7 @@ button{ font-family: var(--font); cursor: pointer; }
       </svg>
       <span class="badge" id="saved-badge">0</span>
     </div>
-    <span class="ver">V15.6</span>
+    <span class="ver">V16.3</span>
   </div>
 </nav>
 
@@ -1428,8 +2707,9 @@ button{ font-family: var(--font); cursor: pointer; }
       <p class="slogan-v13">把零散的灵感，抟成完整的你。<br><span class="en" style="display:block;margin-top:8px;font-size:13.5px;color:var(--muted);font-family:var(--font-en);font-style:italic;">Shape your sparks into a self.</span></p>
       <div class="home-actions">
         <button class="btn-primary" onclick="switchPage('inspiration')">📂 进入灵感典藏</button>
-        <button class="btn-ghost" onclick="switchPage('direction')">🎯 查看发展方向</button>
+        <button class="btn-ghost" onclick="switchPage('direction')">🧩 三源工作流画布</button>
         <button class="btn-ghost" onclick="switchPage('output')">✨ 生成成果工作台</button>
+        <button class="btn-ghost" onclick="switchPage('profile')">🧬 个人画像与 Soul 文档</button>
       </div>
     </div>
 
@@ -1520,7 +2800,7 @@ button{ font-family: var(--font); cursor: pointer; }
   <section id="page-output" class="page">
     <div class="page-title">
       <h1>生成成果工作台</h1>
-      <p>选择左侧方向，立即获得完整的创作框架：钩子 / 大纲 / 三档草稿（200/800/2000 字）/ 素材建议 / 平台适配 / 6 个真实可点击的下一步动作。</p>
+      <p>这里直接提供可演示的单文件工作流搭建界面：支持主题输入、收藏夹推荐勾选、联网搜索结果接入、个人灵感编辑，以及三类节点的拖拉拽组合。</p>
     </div>
     <div class="output-layout">
       <aside class="output-sidebar">
@@ -1532,25 +2812,86 @@ button{ font-family: var(--font); cursor: pointer; }
   </section>
 
   <section id="page-profile" class="page">
-    <div class="page-title">
-      <h1>我的</h1>
-      <p>你的创作画像、关注领域、风格标签、平台分布与最近活动。
+    <div class="page-title profile-title-v43">
+      <h1>个人画像与 Soul 文档</h1>
+      <p>将关注领域、内容风格、创作偏好、平台分布与知识画像合并为一份可编辑、可下载、可迁移的 <b>soul.md</b>：它既是个人内容气质档案，也是三源工作流的长期 Prompt 底座。
         <span class="logout-link" id="logout-link" style="display:none;">退出登录</span>
       </p>
     </div>
     <div class="guest-banner" id="guest-banner" style="display:none;"></div>
     <div class="profile-card" id="profile-card"></div>
-    <div class="profile-stats" id="profile-stats"></div>
-    <div class="profile-grid">
-      <div class="profile-panel"><h3>关注领域</h3><div class="tag-cloud" id="p-domains"></div></div>
-      <div class="profile-panel"><h3>个人内容风格</h3><div class="tag-cloud" id="p-styles"></div></div>
-      <div class="profile-panel"><h3>创作偏好</h3><div class="tag-cloud" id="p-prefs"></div></div>
-      <div class="profile-panel"><h3>常用平台分布</h3><div class="platform-list" id="p-platforms"></div></div>
+    <div class="profile-stats compact" id="profile-stats"></div>
+
+    <div class="profile-extra-section soul-profile-hub" id="soul-profile-hub">
+      <div class="soul-command-panel">
+        <div class="soul-command-copy">
+          <span class="soul-kicker">SOUL PROMPT FILE</span>
+          <h2>soul.md 文档中枢</h2>
+          <p>这份文档把“我关注什么、我如何表达、我适合在哪些平台发布、我禁止哪种语气”固化为可复用的创作协议。它不是附属说明，而是所有生成、改写、选题和平台适配的风格内核。</p>
+          <div class="soul-action-row">
+            <button class="btn-primary" onclick="downloadSoulFromProfile()">下载 soul.md</button>
+            <button class="btn-ghost" onclick="copySoulFromProfile()">复制 Prompt</button>
+            <button class="btn-ghost" onclick="importSoulFromProfile()">导入文件</button>
+            <button class="btn-ghost" onclick="fillSoulTemplate()">恢复模板</button>
+          </div>
+        </div>
+        <div class="soul-command-meta">
+          <div class="soul-score-orb"><b>4</b><span>画像维度</span></div>
+          <div class="soul-meta-line"><span>更新状态</span><b id="profile-soul-meta">已载入默认画像模板</b></div>
+          <div class="soul-meta-line"><span>调用场景</span><b>三源生成 / 写作 / PPT / 项目文案</b></div>
+        </div>
+      </div>
+
+      <div class="soul-map-grid">
+        <div class="soul-map-block tone-terra">
+          <div class="soul-map-head"><span>01</span><b>关注领域</b></div>
+          <div class="soul-chip-zone" id="p-domains"></div>
+        </div>
+        <div class="soul-map-block tone-gold">
+          <div class="soul-map-head"><span>02</span><b>个人内容风格</b></div>
+          <div class="soul-chip-zone" id="p-styles"></div>
+        </div>
+        <div class="soul-map-block tone-green">
+          <div class="soul-map-head"><span>03</span><b>创作偏好</b></div>
+          <div class="soul-chip-zone" id="p-prefs"></div>
+        </div>
+        <div class="soul-map-block tone-blue">
+          <div class="soul-map-head"><span>04</span><b>常用平台分布</b></div>
+          <div class="soul-platform-zone" id="p-platforms"></div>
+        </div>
+      </div>
+
+      <div class="soul-editor-grid">
+        <div class="soul-doc-preview">
+          <h3>soul.md 如何参与工作流</h3>
+          <div class="soul-route"><span>个人灵感</span><em>保留真实语气与现场细节</em></div>
+          <div class="soul-route"><span>收藏夹内容</span><em>按知识资产价值安排素材位置</em></div>
+          <div class="soul-route"><span>联网搜索</span><em>把事实资料转为可验证支撑</em></div>
+          <div class="soul-route strong"><span>生成成果</span><em>统一输出气质、结构节奏与平台表达</em></div>
+        </div>
+        <div class="soul-editor-panel">
+          <div class="soul-toolbar">
+            <span>在线编辑后自动保存到浏览器本地</span>
+            <span id="soul-word-count">0 字</span>
+          </div>
+          <textarea id="profile-soul-editor" class="profile-soul-editor" placeholder="在这里维护你的写作气质、常用表达、禁区和平台偏好。"></textarea>
+        </div>
+      </div>
     </div>
+
+    <div class="profile-intel-grid" id="profile-intel-grid">
+      <div class="profile-intel-card"><h3>高频关键词</h3><p>由收藏内容自动提炼</p><div class="kw-cloud" id="profile-kwcloud"></div></div>
+      <div class="profile-intel-card"><h3>主题簇分布</h3><p>用色块表达知识资产重心</p><div class="cluster-bar" id="profile-clusters"></div></div>
+      <div class="profile-intel-card"><h3>跨领域连接</h3><p>系统识别的潜在线索</p><ul class="cross-list" id="profile-cross"></ul></div>
+      <div class="profile-intel-card"><h3>沉睡收藏复活机</h3><p>最近值得重新激活的素材</p><div class="sleeping" id="profile-sleeping"></div></div>
+      <div class="profile-intel-card full"><h3>最值得发展的方向</h3><p>从画像、收藏夹与三源工作流共同推导</p><div class="dir-mini-grid" id="profile-dirs"></div></div>
+    </div>
+
     <div class="profile-foot" style="text-align:center;margin-top:32px;font-size:12px;color:var(--muted);">最近活跃时间　<b id="p-active" style="color:var(--ink-soft);"></b></div>
+    <input type="file" id="profile-soul-import" accept=".md,.txt" style="display:none;">
   </section>
 
-  <div class="footer-v10">© 抟知 ToKnow · V15.6 · 基于办公小浣熊的个人知识资产化系统 · Damia · 2026.06</div>
+  <div class="footer-v10">© 抟知 ToKnow · V16.3 · 基于办公小浣熊的个人知识资产化系统 · Damia · 2026.07</div>
 </div>
 
 <div class="drawer-overlay" id="drawer-overlay"></div>
@@ -3105,11 +4446,11 @@ function renderProfileV14(){
       </div>
     `;
     document.getElementById('profile-stats').innerHTML = '';
-    document.querySelectorAll('.profile-grid, .profile-foot').forEach(el=>el.style.display='none');
+    document.querySelectorAll('.profile-grid, .profile-foot, .profile-extra-section').forEach(el=>el.style.display='none');
     return;
   }
   // 已登录：调原 renderProfile
-  document.querySelectorAll('.profile-grid, .profile-foot').forEach(el=>el.style.display='');
+  document.querySelectorAll('.profile-grid, .profile-foot, .profile-extra-section').forEach(el=>el.style.display='');
   renderProfile();
 }
 
@@ -3169,6 +4510,7 @@ function showToast(msg){
 
 /* ============= 导航 ============= */
 function switchPage(pageId){
+  if(pageId==='portrait') pageId = 'profile';
   STATE.currentPage = pageId;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
@@ -3623,7 +4965,7 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDrawer(); })
 
 /* ============= 初始化 ============= */
 function init(){
-  STATE.currentPage = 'home';  // V15：默认进入首页
+  if(!STATE.currentPage) STATE.currentPage = 'home';
   if(typeof updateSavedBadge==='function') updateSavedBadge();
   try {
     switchPage(STATE.currentPage || 'home');
@@ -3774,7 +5116,7 @@ function renderProfileV15(){
   }
 
   // 已登录或游客模式 → 显示完整画像
-  document.querySelectorAll('.profile-grid, .profile-foot').forEach(el=>el.style.display='');
+  document.querySelectorAll('.profile-grid, .profile-foot, .profile-extra-section').forEach(el=>el.style.display='');
   renderProfile();
 }
 
@@ -3868,6 +5210,2712 @@ function openInspiDetail(id){
   `;
   document.head.appendChild(style);
 })();
+
+/* ============ V16 单文件工作台修复与演示逻辑 ============ */
+const WORKBENCH_STORAGE_KEY = 'toknowWorkbenchSingleV16';
+const MOCK_SEARCH_POOL = [
+  { id: 'web_support_1', title: '西部支教阅读角复活记录：三周让学生重新开口分享', source: '公益教育观察', type: '实地报道', summary: '记录支教团队如何通过阅读角、轮值分享和低门槛任务设计，重新建立学生表达欲。', tags: ['支教', '阅读教育', '乡村学校', '课堂观察'] },
+  { id: 'web_support_2', title: '偏远地区课堂里的手机摄影课：学生第一次拍下自己的村庄', source: '青年公益实验室', type: '项目复盘', summary: '通过轻量化影像课程帮助学生建立观察与表达能力，适合延展为个人叙事或视频脚本。', tags: ['支教', '影像表达', '乡村教育', '学生作品'] },
+  { id: 'web_support_3', title: '公益项目如何讲真实故事：避免“苦情化”叙事的五个原则', source: '社会创新周刊', type: '方法文章', summary: '讨论公益传播中如何保留主体性、避免消费苦难，并通过细节与过程建立信任。', tags: ['公益叙事', '真实故事', '传播方法'] },
+  { id: 'web_support_4', title: '女性独自旅行与城市观察：如何把日常细节写成系列内容', source: '城市写作样本库', type: '创作指南', summary: '围绕一个人吃饭、步行路线和陌生社交等细节，示范如何写出非悬浮的城市观察。', tags: ['女性漫游', '城市观察', '写作方法'] },
+  { id: 'web_support_5', title: '食物记忆能否成为公益教育的入口', source: '公共文化评论', type: '评论文章', summary: '将食物、家庭记忆与地方教育连接，适合作为支教故事中的情感入口。', tags: ['食物记忆', '公益教育', '地方文化'] },
+  { id: 'web_support_6', title: '乡村学校播客社团案例：用低成本音频记录地方生活', source: '声音计划', type: '案例拆解', summary: '展示如何用手机和免费软件组织学生做地方声音采集，适合播客与视频系列规划。', tags: ['播客', '乡村学校', '低成本创作'] }
+];
+const WORKFLOW_NODE_LIBRARY = {
+  idea: {
+    label: '个人灵感输入节点',
+    typeLabel: '个人灵感',
+    desc: '放入最新观点、问题意识和写作切口，支持长文本实时编辑。'
+  },
+  favorite: {
+    label: '收藏夹内容节点',
+    typeLabel: '收藏夹',
+    desc: '从收藏夹中勾选文章，系统会结合主题和方向自动推荐匹配内容。'
+  },
+  search: {
+    label: '联网搜索节点',
+    typeLabel: '联网搜索',
+    desc: '以前端模拟结果展示外部补充材料，可加入工作流作为第三类来源。'
+  }
+};
+
+function getSoulTemplate(){
+  return [
+    '# soul.md',
+    '',
+    '## 写作气质',
+    '- 保留真实观察，不端着，不悬浮。',
+    '- 先讲具体场景，再抽象观点。',
+    '- 句子尽量短，但要有节奏。',
+    '',
+    '## 常用表达',
+    '- 我真正想写的不是...',
+    '- 这件事最打动我的地方是...',
+    '- 如果只剩一个判断，我会保留...',
+    '',
+    '## 禁区',
+    '- 不堆砌空泛的大词。',
+    '- 不为了显得专业而牺牲可读性。',
+    '- 不虚构经历、数据和引用。',
+    '',
+    '## 平台偏好',
+    '- 小红书：先给观点，再给场景。',
+    '- 公众号：保留完整叙事弧线。',
+    '- 视频号 / B 站：口播要能直接读出来。'
+  ].join('\n');
+}
+
+function createWorkflowNode(type){
+  return {
+    id: 'wb_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 7),
+    type
+  };
+}
+
+function getDefaultWorkbenchState(){
+  return {
+    topic: '如何把“女性独自漫游城市”的观察，和“偏远地区阅读教育”的真实故事连接成一篇可信的公益内容？',
+    ideaText: '我想保留“一个人吃饭”和“图书角重新被点亮”的两个细节。前者负责建立个人视角，后者负责落到真实公益场景；文章不要过度煽情，要讲清楚孩子为什么开始愿意表达。',
+    searchQuery: '支教 阅读角 课堂观察 真实故事',
+    selectedFavorites: [1, 2, 3],
+    selectedSearch: ['web_support_1', 'web_support_3'],
+    workflow: [createWorkflowNode('idea'), createWorkflowNode('favorite'), createWorkflowNode('search')],
+    soulContent: getSoulTemplate(),
+    lastRunAt: '',
+    lastRunSummary: ''
+  };
+}
+
+function loadWorkbenchState(){
+  const fallback = getDefaultWorkbenchState();
+  try {
+    const parsed = JSON.parse(localStorage.getItem(WORKBENCH_STORAGE_KEY) || 'null');
+    if(!parsed || typeof parsed !== 'object') return fallback;
+    return {
+      ...fallback,
+      ...parsed,
+      selectedFavorites: Array.isArray(parsed.selectedFavorites) ? parsed.selectedFavorites : fallback.selectedFavorites,
+      selectedSearch: Array.isArray(parsed.selectedSearch) ? parsed.selectedSearch : fallback.selectedSearch,
+      workflow: Array.isArray(parsed.workflow) && parsed.workflow.length ? parsed.workflow : fallback.workflow
+    };
+  } catch(e){
+    return fallback;
+  }
+}
+
+let WORKBENCH_STATE = loadWorkbenchState();
+
+function persistWorkbenchState(){
+  try {
+    localStorage.setItem(WORKBENCH_STORAGE_KEY, JSON.stringify(WORKBENCH_STATE));
+  } catch(e){}
+}
+
+function activeDirection(){
+  return DIRECTIONS.find(d => d.id === STATE.activeDir) || DIRECTIONS[0];
+}
+
+function normalizeTokens(text){
+  const raw = String(text || '').trim();
+  if(!raw) return [];
+  const direct = raw
+    .split(/[\s,，。！？、;；:：/|()\[\]【】]+/)
+    .map(s => s.trim())
+    .filter(Boolean);
+  const grams = [];
+  const compact = raw.replace(/\s+/g, '');
+  if(/[\u4e00-\u9fa5]/.test(compact) && compact.length >= 4){
+    for(let i = 0; i < compact.length - 1 && grams.length < 10; i += 1){
+      grams.push(compact.slice(i, i + 2));
+      if(compact[i + 2]) grams.push(compact.slice(i, i + 3));
+    }
+  }
+  return [...new Set([...direct, ...grams].filter(s => s.length >= 2))];
+}
+
+function sourceTextForItem(item){
+  return [
+    item.title,
+    item.abstract,
+    item.cluster,
+    item.sub,
+    (item.tags || []).join(' '),
+    (item.keywords || []).join(' ')
+  ].join(' ').toLowerCase();
+}
+
+function directionSignals(dir){
+  return [
+    dir.name,
+    dir.tagline,
+    (dir.clusters || []).join(' '),
+    (dir.topics || []).join(' ')
+  ].join(' ');
+}
+
+function scoreFavoriteItem(item, dir, topic){
+  const tokens = normalizeTokens(topic + ' ' + directionSignals(dir));
+  const hay = sourceTextForItem(item);
+  let score = item.score || 0;
+  if((dir.clusters || []).includes(item.cluster)) score += 12;
+  if(dir.name && hay.includes(String(dir.name).toLowerCase())) score += 8;
+  tokens.forEach(token => {
+    if(hay.includes(token.toLowerCase())) score += 5;
+  });
+  if(String(item.title || '').includes(topic)) score += 12;
+  return score;
+}
+
+function getFavoriteCandidates(dir){
+  return [...DATA]
+    .map(item => ({ item, recScore: scoreFavoriteItem(item, dir, WORKBENCH_STATE.topic) }))
+    .sort((a, b) => b.recScore - a.recScore || (b.item.score || 0) - (a.item.score || 0))
+    .slice(0, 12);
+}
+
+function getRecommendedFavoriteIds(dir){
+  return getFavoriteCandidates(dir).slice(0, 6).map(entry => entry.item.id);
+}
+
+function getSelectedFavoriteItems(){
+  return DATA.filter(item => WORKBENCH_STATE.selectedFavorites.includes(item.id));
+}
+
+function scoreSearchItem(item, dir, query){
+  const tokens = normalizeTokens(query + ' ' + WORKBENCH_STATE.topic + ' ' + directionSignals(dir));
+  const hay = [item.title, item.summary, item.source, item.type, item.tags.join(' ')].join(' ').toLowerCase();
+  let score = 0;
+  tokens.forEach(token => {
+    if(hay.includes(token.toLowerCase())) score += 5;
+  });
+  if(!query) score += 1;
+  return score;
+}
+
+function getSearchResults(){
+  const dir = activeDirection();
+  const query = (WORKBENCH_STATE.searchQuery || '').trim();
+  const list = MOCK_SEARCH_POOL
+    .map(item => ({ item, score: scoreSearchItem(item, dir, query) }))
+    .filter(entry => entry.score > 0 || !query)
+    .sort((a, b) => b.score - a.score);
+  return (list.length ? list : MOCK_SEARCH_POOL.map(item => ({ item, score: 0 }))).slice(0, 6).map(entry => entry.item);
+}
+
+function getSelectedSearchItems(){
+  return getSearchResults().filter(item => WORKBENCH_STATE.selectedSearch.includes(item.id));
+}
+
+function currentTimestamp(){
+  return new Date().toLocaleString('zh-CN', {
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
+
+function updateWorkbenchField(field, value){
+  WORKBENCH_STATE[field] = value;
+  persistWorkbenchState();
+}
+
+function setWorkbenchTopic(value){
+  WORKBENCH_STATE.topic = String(value || '');
+  persistWorkbenchState();
+  renderOutputV14();
+}
+
+function updateWorkbenchTopicDraft(value){
+  WORKBENCH_STATE.topic = String(value || '');
+  persistWorkbenchState();
+}
+
+function setWorkbenchIdea(value){
+  WORKBENCH_STATE.ideaText = String(value || '');
+  persistWorkbenchState();
+  const counter = document.getElementById('idea-count');
+  if(counter) counter.textContent = WORKBENCH_STATE.ideaText.length + ' 字';
+}
+
+function setWorkbenchSearch(value){
+  WORKBENCH_STATE.searchQuery = String(value || '');
+  persistWorkbenchState();
+}
+
+function toggleFavoriteSelection(id){
+  const next = new Set(WORKBENCH_STATE.selectedFavorites);
+  if(next.has(id)) next.delete(id);
+  else next.add(id);
+  WORKBENCH_STATE.selectedFavorites = [...next];
+  persistWorkbenchState();
+  renderOutputV14();
+}
+
+function toggleSearchSelection(id){
+  const next = new Set(WORKBENCH_STATE.selectedSearch);
+  if(next.has(id)) next.delete(id);
+  else next.add(id);
+  WORKBENCH_STATE.selectedSearch = [...next];
+  persistWorkbenchState();
+  renderOutputV14();
+}
+
+function applyRecommendedFavorites(){
+  WORKBENCH_STATE.selectedFavorites = [...new Set([...WORKBENCH_STATE.selectedFavorites, ...getRecommendedFavoriteIds(activeDirection())])];
+  persistWorkbenchState();
+  showToast('已勾选推荐收藏内容');
+  renderOutputV14();
+}
+
+function clearFavoriteSelection(){
+  WORKBENCH_STATE.selectedFavorites = [];
+  persistWorkbenchState();
+  renderOutputV14();
+}
+
+function runMockSearch(){
+  persistWorkbenchState();
+  showToast('已刷新联网搜索演示结果');
+  renderOutputV14();
+}
+
+function ensureNodeExists(type){
+  if(WORKBENCH_STATE.workflow.some(node => node.type === type)) return;
+  WORKBENCH_STATE.workflow.push(createWorkflowNode(type));
+}
+
+function addNodeToWorkflow(type){
+  WORKBENCH_STATE.workflow.push(createWorkflowNode(type));
+  persistWorkbenchState();
+  showToast('已添加到工作流');
+  renderOutputV14();
+}
+
+function removeWorkflowNode(nodeId){
+  WORKBENCH_STATE.workflow = WORKBENCH_STATE.workflow.filter(node => node.id !== nodeId);
+  persistWorkbenchState();
+  renderOutputV14();
+}
+
+function moveWorkflowNode(nodeId, direction){
+  const index = WORKBENCH_STATE.workflow.findIndex(node => node.id === nodeId);
+  if(index < 0) return;
+  const target = index + direction;
+  if(target < 0 || target >= WORKBENCH_STATE.workflow.length) return;
+  const list = [...WORKBENCH_STATE.workflow];
+  const temp = list[index];
+  list[index] = list[target];
+  list[target] = temp;
+  WORKBENCH_STATE.workflow = list;
+  persistWorkbenchState();
+  renderOutputV14();
+}
+
+window._workflowDragPayload = null;
+
+function onPaletteDragStart(event, type){
+  window._workflowDragPayload = { mode: 'palette', type };
+  event.dataTransfer.effectAllowed = 'copy';
+  event.dataTransfer.setData('text/plain', 'palette:' + type);
+}
+
+function onWorkflowNodeDragStart(event, nodeId){
+  window._workflowDragPayload = { mode: 'node', nodeId };
+  event.dataTransfer.effectAllowed = 'move';
+  event.dataTransfer.setData('text/plain', 'node:' + nodeId);
+}
+
+function allowWorkflowDrop(event){
+  event.preventDefault();
+}
+
+function handleWorkflowCanvasDrop(event){
+  event.preventDefault();
+  const payload = window._workflowDragPayload;
+  if(!payload) return;
+  if(payload.mode === 'palette') addNodeToWorkflow(payload.type);
+  if(payload.mode === 'node'){
+    const list = [...WORKBENCH_STATE.workflow];
+    const index = list.findIndex(node => node.id === payload.nodeId);
+    if(index >= 0){
+      const [node] = list.splice(index, 1);
+      list.push(node);
+      WORKBENCH_STATE.workflow = list;
+      persistWorkbenchState();
+      renderOutputV14();
+    }
+  }
+  window._workflowDragPayload = null;
+}
+
+function handleWorkflowNodeDrop(event, targetNodeId){
+  event.preventDefault();
+  const payload = window._workflowDragPayload;
+  if(!payload || payload.mode !== 'node' || payload.nodeId === targetNodeId) return;
+  const list = [...WORKBENCH_STATE.workflow];
+  const from = list.findIndex(node => node.id === payload.nodeId);
+  const to = list.findIndex(node => node.id === targetNodeId);
+  if(from < 0 || to < 0) return;
+  const [node] = list.splice(from, 1);
+  list.splice(to, 0, node);
+  WORKBENCH_STATE.workflow = list;
+  persistWorkbenchState();
+  renderOutputV14();
+  window._workflowDragPayload = null;
+}
+
+function buildRunSummary(){
+  const dir = activeDirection();
+  const favoriteItems = getSelectedFavoriteItems();
+  const searchItems = getSelectedSearchItems();
+  const ideaLen = (WORKBENCH_STATE.ideaText || '').trim().length;
+  const workflowTypes = WORKBENCH_STATE.workflow.map(node => WORKFLOW_NODE_LIBRARY[node.type]?.typeLabel || node.type);
+  const favoriteTitles = favoriteItems.slice(0, 3).map(item => item.title).join('；') || '暂无';
+  const searchTitles = searchItems.slice(0, 2).map(item => item.title).join('；') || '暂无';
+  return [
+    '当前围绕方向“' + dir.name + '”运行工作流，主题是“' + WORKBENCH_STATE.topic + '”。',
+    '收藏夹节点共选中 ' + favoriteItems.length + ' 条内容，优先使用：' + favoriteTitles + '。',
+    '联网搜索节点已接入 ' + searchItems.length + ' 条外部材料，重点参考：' + searchTitles + '。',
+    '个人灵感节点累计 ' + ideaLen + ' 字，风格文件 soul.md 已同步可用。',
+    '当前工作流顺序为：' + workflowTypes.join(' -> ') + '。'
+  ].join('\n');
+}
+
+function runWorkflowDemo(){
+  ensureNodeExists('idea');
+  ensureNodeExists('favorite');
+  ensureNodeExists('search');
+  WORKBENCH_STATE.lastRunAt = currentTimestamp();
+  WORKBENCH_STATE.lastRunSummary = buildRunSummary();
+  persistWorkbenchState();
+  showToast('已模拟运行工作流');
+  renderOutputV14();
+}
+
+function downloadTextAsFile(filename, content){
+  const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function renderWorkflowPalette(){
+  return Object.entries(WORKFLOW_NODE_LIBRARY).map(([type, meta]) => `
+    <div class="palette-card" draggable="true" ondragstart="onPaletteDragStart(event,'${type}')">
+      <span class="type">${esc(meta.typeLabel)}</span>
+      <div class="name">${esc(meta.label)}</div>
+      <div class="desc">${esc(meta.desc)}</div>
+      <div class="mini">拖到右侧画布即可搭建，或点击下方按钮直接添加。</div>
+      <div class="workflow-node-actions">
+        <button type="button" onclick="addNodeToWorkflow('${type}')">添加到工作流</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderWorkflowTrack(){
+  if(!WORKBENCH_STATE.workflow.length){
+    return '<div class="canvas-empty">把左侧三个核心节点拖到这里，或点击“添加到工作流”，即可开始搭建文章生成流程。</div>';
+  }
+  return WORKBENCH_STATE.workflow.map((node, index) => {
+    const meta = WORKFLOW_NODE_LIBRARY[node.type] || { typeLabel: node.type, label: node.type, desc: '' };
+    const summaryMap = {
+      idea: '已输入 ' + (WORKBENCH_STATE.ideaText || '').length + ' 字个人灵感，可作为文章起点。',
+      favorite: '当前勾选 ' + WORKBENCH_STATE.selectedFavorites.length + ' 条收藏内容，支持主题驱动推荐。',
+      search: '当前接入 ' + WORKBENCH_STATE.selectedSearch.length + ' 条联网搜索演示结果。'
+    };
+    return `
+      <div class="workflow-node" draggable="true"
+        ondragstart="onWorkflowNodeDragStart(event,'${node.id}')"
+        ondragover="allowWorkflowDrop(event)"
+        ondrop="handleWorkflowNodeDrop(event,'${node.id}')">
+        <span class="type">${esc(meta.typeLabel)}</span>
+        <span class="step">${index + 1}</span>
+        <div class="name">${esc(meta.label)}</div>
+        <div class="desc">${esc(summaryMap[node.type] || meta.desc)}</div>
+        <div class="workflow-node-actions">
+          <button type="button" onclick="moveWorkflowNode('${node.id}',-1)">上移</button>
+          <button type="button" onclick="moveWorkflowNode('${node.id}',1)">下移</button>
+          <button type="button" onclick="removeWorkflowNode('${node.id}')">移除</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderRunPreview(){
+  const favoriteItems = getSelectedFavoriteItems();
+  const searchItems = getSelectedSearchItems();
+  const previewSteps = WORKBENCH_STATE.workflow.map((node, index) => {
+    const meta = WORKFLOW_NODE_LIBRARY[node.type] || { label: node.type };
+    let detail = meta.desc;
+    if(node.type === 'idea'){
+      detail = '读取个人灵感输入，提取核心问题意识与口吻偏好。当前长度 ' + (WORKBENCH_STATE.ideaText || '').length + ' 字。';
+    }
+    if(node.type === 'favorite'){
+      detail = '读取收藏夹勾选结果，共 ' + favoriteItems.length + ' 条，其中前两条为：' + favoriteItems.slice(0, 2).map(item => item.title).join('；') + '。';
+    }
+    if(node.type === 'search'){
+      detail = '接入联网搜索演示结果，共 ' + searchItems.length + ' 条，优先使用与主题最相关的外部补充资料。';
+    }
+    return `<div class="preview-step"><b>步骤 ${index + 1} · ${esc(meta.label)}</b><br>${esc(detail || '')}</div>`;
+  }).join('');
+  const summary = WORKBENCH_STATE.lastRunSummary || '点击“模拟运行工作流”后，这里会生成一段完整的运行说明，便于演示用户如何从三类来源组合出文章生成流程。';
+  return `
+    <div class="run-preview">
+      <h4>运行预览</h4>
+      <div class="preview-list">${previewSteps || '<div class="preview-step"><b>尚未放入节点</b><br>请先从左侧把三个核心节点拖入工作流画布。</div>'}</div>
+      <div class="preview-summary">
+        <b>最近一次运行</b>${WORKBENCH_STATE.lastRunAt ? ' · ' + esc(WORKBENCH_STATE.lastRunAt) : ''}<br>
+        ${esc(summary).replace(/\n/g, '<br>')}
+      </div>
+    </div>
+  `;
+}
+
+function renderOutputV14(){
+  const dir = activeDirection();
+  const recommendedIds = new Set(getRecommendedFavoriteIds(dir));
+  const favoriteCandidates = getFavoriteCandidates(dir);
+  const searchResults = getSearchResults();
+  const selectedCount = WORKBENCH_STATE.selectedFavorites.length + WORKBENCH_STATE.selectedSearch.length + ((WORKBENCH_STATE.ideaText || '').trim() ? 1 : 0);
+  document.getElementById('output-sidebar-list').innerHTML = DIRECTIONS.map(d => `
+    <div class="output-side-item ${d.id === dir.id ? 'active' : ''}" onclick="selectOutputV14('${d.id}')">
+      <span class="dot"></span>
+      <span>${esc(d.name)}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('output-main').innerHTML = `
+    <div class="workbench-hero">
+      <div class="workbench-panel">
+        <h2>${esc(dir.name)} · 工作流演示台</h2>
+        <p>${esc(dir.tagline)} 当前页面已内置单文件交互逻辑，可直接演示主题输入、收藏夹勾选、联网搜索、个人灵感输入与拖拉拽工作流搭建。</p>
+        <div class="wb-helper" style="margin-top:14px;">
+          <span>建议先输入创作主题，再勾选收藏夹与联网搜索结果，最后拖拽节点并模拟运行。</span>
+          <span>演示模式：前端模拟数据</span>
+        </div>
+      </div>
+      <div class="workbench-kpis">
+        <div class="wb-kpi">
+          <div class="label">收藏候选</div>
+          <div class="value">${favoriteCandidates.length}</div>
+          <div class="desc">已按方向和主题排序</div>
+        </div>
+        <div class="wb-kpi">
+          <div class="label">已接入来源</div>
+          <div class="value">${selectedCount}</div>
+          <div class="desc">三类来源可混合搭建</div>
+        </div>
+        <div class="wb-kpi">
+          <div class="label">工作流节点</div>
+          <div class="value">${WORKBENCH_STATE.workflow.length}</div>
+          <div class="desc">支持拖拽排序和移除</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="workbench-grid">
+      <div class="workbench-card">
+        <div class="wb-card-head">
+          <div>
+            <h3>创作主题</h3>
+            <p>系统会根据主题联动推荐收藏夹内容与联网搜索结果。</p>
+          </div>
+          <div class="wb-actions">
+            <button class="btn-ghost" onclick="setWorkbenchTopic(document.getElementById('workbench-topic-input').value)">刷新推荐</button>
+          </div>
+        </div>
+        <input id="workbench-topic-input" class="wb-input" value="${esc(WORKBENCH_STATE.topic)}" oninput="updateWorkbenchTopicDraft(this.value)" onchange="setWorkbenchTopic(this.value)" placeholder="例如：如何把城市观察和公益课堂故事写成一篇真实可信的内容？">
+        <div class="wb-helper">
+          <span>当前方向信号：${esc((dir.clusters || []).slice(0, 2).join(' / '))}</span>
+          <span>${esc((dir.formats || []).slice(0, 3).join(' / '))}</span>
+        </div>
+        <div class="recommend-chip-row" style="margin-top:12px;">
+          ${(dir.clusters || []).slice(0, 4).map(tag => `<span class="wb-chip strong">${esc(tag)}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="workbench-card">
+        <div class="wb-card-head">
+          <div>
+            <h3>工作台快捷操作</h3>
+            <p>确保每个入口都可点、可触发、可用于演示。</p>
+          </div>
+        </div>
+        <div class="wb-actions">
+          <button class="btn-ghost" onclick="applyRecommendedFavorites()">一键勾选推荐收藏</button>
+          <button class="btn-ghost" onclick="runMockSearch()">刷新联网搜索</button>
+          <button class="btn-ghost" onclick="switchPage('profile')">打开我的画像</button>
+          <button class="btn-primary" onclick="runWorkflowDemo()">模拟运行工作流</button>
+        </div>
+        <div class="mock-note" style="margin-top:14px;">当前联网搜索为前端演示模式，展示基础搜索交互与结果接入流程；收藏夹与推荐逻辑基于当前页面已有真实/样例素材数据混合计算。</div>
+      </div>
+
+      <div class="workbench-card">
+        <div class="wb-card-head">
+          <div>
+            <h3>收藏夹内容节点</h3>
+            <p>基于主题与方向自动推荐，并支持用户手动勾选。</p>
+          </div>
+          <div class="wb-actions">
+            <button class="btn-ghost" onclick="applyRecommendedFavorites()">勾选推荐</button>
+            <button class="btn-ghost" onclick="clearFavoriteSelection()">清空已选</button>
+          </div>
+        </div>
+        <div class="source-list">
+          ${favoriteCandidates.map(entry => `
+            <div class="source-item ${recommendedIds.has(entry.item.id) ? 'recommended' : ''}">
+              ${recommendedIds.has(entry.item.id) ? '<div class="recommend-flag">推荐匹配</div>' : ''}
+              <label class="source-check">
+                <input type="checkbox" ${WORKBENCH_STATE.selectedFavorites.includes(entry.item.id) ? 'checked' : ''} onchange="toggleFavoriteSelection(${entry.item.id})">
+                <div class="source-main">
+                  <div class="source-title">${esc(entry.item.title)}</div>
+                  <div class="source-meta">
+                    <span>${esc(entry.item.cluster)}</span>
+                    <span>${esc(entry.item.source || '素材库')}</span>
+                    <span>推荐分 ${entry.recScore}</span>
+                  </div>
+                  <div class="source-desc">${esc(entry.item.abstract || entry.item.why || '')}</div>
+                  <div class="search-tag-row" style="margin-top:10px;">
+                    ${(entry.item.tags || []).slice(0, 5).map(tag => `<span class="wb-chip ${recommendedIds.has(entry.item.id) ? 'active' : ''}">${esc(tag)}</span>`).join('')}
+                  </div>
+                </div>
+              </label>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="workbench-card">
+        <div class="wb-card-head">
+          <div>
+            <h3>联网搜索节点</h3>
+            <p>提供基础前端搜索交互，用于展示外部资料接入流程。</p>
+          </div>
+        </div>
+        <div class="search-toolbar">
+          <input id="workbench-search-input" class="wb-search-input" value="${esc(WORKBENCH_STATE.searchQuery)}" oninput="setWorkbenchSearch(this.value)" placeholder="输入搜索词，例如：支教 阅读角 课堂观察">
+          <button class="btn-primary" onclick="runMockSearch()">搜索</button>
+        </div>
+        <div class="mock-note">结果来自内置演示数据池，用于展示“点击搜索 -> 看到结果 -> 勾选加入工作流”的完整前端体验。</div>
+        <div class="search-results">
+          ${searchResults.map(item => `
+            <div class="search-item">
+              <label class="source-check">
+                <input type="checkbox" ${WORKBENCH_STATE.selectedSearch.includes(item.id) ? 'checked' : ''} onchange="toggleSearchSelection('${item.id}')">
+                <div class="search-main">
+                  <div class="search-title">${esc(item.title)}</div>
+                  <div class="search-meta">
+                    <span>${esc(item.source)}</span>
+                    <span>${esc(item.type)}</span>
+                    <span>演示结果</span>
+                  </div>
+                  <div class="search-desc">${esc(item.summary)}</div>
+                  <div class="search-tag-row" style="margin-top:10px;">
+                    ${item.tags.map(tag => `<span class="wb-chip">${esc(tag)}</span>`).join('')}
+                  </div>
+                </div>
+              </label>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="workbench-card full" id="workbench-idea-section">
+        <div class="wb-card-head">
+          <div>
+            <h3>个人灵感输入节点</h3>
+            <p>完整文本输入区域，支持实时保存，作为工作流第一手输入。</p>
+          </div>
+          <div class="wb-actions">
+            <button class="btn-ghost" onclick="setWorkbenchIdea('')">清空</button>
+          </div>
+        </div>
+        <textarea class="wb-textarea" oninput="setWorkbenchIdea(this.value)" placeholder="输入你此刻最想写的观点、观察、冲突、场景细节或一句开头。">${esc(WORKBENCH_STATE.ideaText)}</textarea>
+        <div class="wb-helper">
+          <span>建议输入：真实场景 + 你的判断 + 预期读者</span>
+          <span id="idea-count">${WORKBENCH_STATE.ideaText.length} 字</span>
+        </div>
+      </div>
+
+      <div class="workbench-card full">
+        <div class="wb-card-head">
+          <div>
+            <h3>拖拉拽工作流</h3>
+            <p>通过游戏化拖拽自由组合三类来源节点，直观看到文章生成流程的搭建方式。</p>
+          </div>
+          <div class="wb-actions">
+            <button class="btn-ghost" onclick="addNodeToWorkflow('idea')">加灵感节点</button>
+            <button class="btn-ghost" onclick="addNodeToWorkflow('favorite')">加收藏节点</button>
+            <button class="btn-ghost" onclick="addNodeToWorkflow('search')">加搜索节点</button>
+            <button class="btn-primary" onclick="runWorkflowDemo()">模拟运行工作流</button>
+          </div>
+        </div>
+        <div class="workflow-shell">
+          <div class="workflow-palette">
+            <h4>节点工具箱</h4>
+            ${renderWorkflowPalette()}
+          </div>
+          <div class="workflow-canvas" ondragover="allowWorkflowDrop(event)" ondrop="handleWorkflowCanvasDrop(event)">
+            <h4>工作流画布</h4>
+            <div class="workflow-track">${renderWorkflowTrack()}</div>
+            ${renderRunPreview()}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function selectOutputV14(id){
+  STATE.activeDir = id;
+  saveState();
+  renderOutputV14();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function getProfileKeywordStats(){
+  const ids = new Set(WORKBENCH_STATE.selectedFavorites);
+  const pool = DATA.filter(item => ids.has(item.id)).length ? DATA.filter(item => ids.has(item.id)) : DATA.slice(0, 12);
+  const counter = new Map();
+  pool.forEach(item => {
+    [...(item.tags || []), ...(item.keywords || [])].forEach(word => {
+      const key = String(word || '').trim();
+      if(!key) return;
+      counter.set(key, (counter.get(key) || 0) + 1);
+    });
+  });
+  return [...counter.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
+}
+
+function renderIntegratedProfileModules(){
+  const kwEl = document.getElementById('profile-kwcloud');
+  if(!kwEl) return;
+  const keywordStats = getProfileKeywordStats();
+  kwEl.innerHTML = keywordStats.map(([word, count], index) => {
+    const style = 'font-size:' + (12 + Math.min(count, 6) * 2 + index * 0.2) + 'px';
+    return `<span class="tg ${index < 3 ? 'hot' : index < 6 ? 'warm' : ''}" style="${style}">${esc(word)}</span>`;
+  }).join('');
+
+  const clusterCounter = new Map();
+  DATA.forEach(item => {
+    clusterCounter.set(item.cluster, (clusterCounter.get(item.cluster) || 0) + 1);
+  });
+  const clusterEntries = [...clusterCounter.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6);
+  const totalClusters = clusterEntries.reduce((sum, entry) => sum + entry[1], 0) || 1;
+  document.getElementById('profile-clusters').innerHTML = clusterEntries.map(([name, count]) => `
+    <div class="plat-row">
+      <span class="pn" style="width:130px;">${esc(name)}</span>
+      <span class="pbar"><span class="pfill" style="width:${Math.round(count / totalClusters * 100)}%"></span></span>
+      <span class="pct">${count}</span>
+    </div>
+  `).join('');
+
+  const crossList = [
+    '把“女性漫游”与“公益教育”连接时，最适合通过日常细节而不是宏大口号建立可信度。',
+    '“食物记忆”与“地方课堂”可以共用“具体场景 -> 情感入口 -> 结构分析”的叙事节奏。',
+    '高评分素材集中在城市观察、食物文化与跨文化体验，说明你擅长把生活感转化为观点。'
+  ];
+  document.getElementById('profile-cross').innerHTML = crossList.map(text => `<li>${esc(text)}</li>`).join('');
+
+  const sleepingItems = [...DATA]
+    .filter(item => !WORKBENCH_STATE.selectedFavorites.includes(item.id))
+    .sort((a, b) => (b.score || 0) - (a.score || 0))
+    .slice(0, 4);
+  document.getElementById('profile-sleeping').innerHTML = sleepingItems.map(item => `
+    <div class="sleeping-item" onclick="toggleFavoriteSelection(${item.id});switchPage('output');">
+      <span>${esc(item.title)}</span>
+      <span class="badge">★ ${item.score}</span>
+    </div>
+  `).join('');
+
+  const dirCards = [...DIRECTIONS]
+    .map(dir => ({ dir, score: getRecommendedFavoriteIds(dir).filter(id => WORKBENCH_STATE.selectedFavorites.includes(id)).length + dir.avgScore / 100 }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
+  document.getElementById('profile-dirs').innerHTML = dirCards.map(entry => `
+    <div class="profile-mini-dir" onclick="switchToOutput('${entry.dir.id}')">
+      <b>${esc(entry.dir.name)}</b>
+      <span>${esc(entry.dir.tagline)}</span>
+    </div>
+  `).join('');
+
+  const soulEditor = document.getElementById('profile-soul-editor');
+  if(soulEditor && soulEditor.value !== WORKBENCH_STATE.soulContent){
+    soulEditor.value = WORKBENCH_STATE.soulContent;
+  }
+  const soulMeta = document.getElementById('profile-soul-meta');
+  if(soulMeta){
+    soulMeta.textContent = WORKBENCH_STATE.lastRunAt ? '最近工作流运行：' + WORKBENCH_STATE.lastRunAt : '已载入默认画像模板';
+  }
+}
+
+function renderProfile(){
+  const u = USER_PROFILE;
+  const verified = DATA.filter(d => d.status === '已核实').length;
+  document.getElementById('profile-card').innerHTML = `
+    <div class="profile-avatar">${esc(u.name.charAt(0))}</div>
+    <div class="profile-info">
+      <h2>${esc(u.name)}</h2>
+      <div class="pid">${esc(u.id)} · ${esc(u.role)}</div>
+      <p class="bio">${esc(u.bio)}</p>
+    </div>
+  `;
+  document.getElementById('profile-stats').innerHTML = `
+    <div class="pstat"><div class="pnum">${DATA.length}</div><div class="plabel">灵感碎片总数</div></div>
+    <div class="pstat"><div class="pnum">${verified}</div><div class="plabel">已整理素材</div></div>
+    <div class="pstat"><div class="pnum">${WORKBENCH_STATE.selectedFavorites.length}</div><div class="plabel">已选收藏夹内容</div></div>
+    <div class="pstat"><div class="pnum">${WORKBENCH_STATE.workflow.length}</div><div class="plabel">工作流节点数</div></div>
+  `;
+  document.getElementById('p-domains').innerHTML = u.domains.map((d, i) => {
+    const cls = i < 2 ? 'hot' : i < 4 ? 'warm' : '';
+    return `<span class="tg ${cls}">${esc(d)}</span>`;
+  }).join('');
+  document.getElementById('p-styles').innerHTML = u.styles.map(s => `<span class="tg">${esc(s)}</span>`).join('');
+  document.getElementById('p-prefs').innerHTML = u.preferences.map(p => `<span class="tg">${esc(p)}</span>`).join('');
+  document.getElementById('p-platforms').innerHTML = u.platforms.map(p => `
+    <div class="plat-row">
+      <span class="pn">${esc(p.name)}</span>
+      <span class="pbar"><span class="pfill" style="width:${p.pct}%"></span></span>
+      <span class="pct">${p.pct}%</span>
+    </div>
+  `).join('');
+  document.getElementById('p-active').textContent = WORKBENCH_STATE.lastRunAt || u.activeAt;
+  renderIntegratedProfileModules();
+}
+
+function fillSoulTemplate(){
+  WORKBENCH_STATE.soulContent = getSoulTemplate();
+  persistWorkbenchState();
+  renderIntegratedProfileModules();
+  showToast('已恢复 soul.md 模板');
+}
+
+function copySoulFromProfile(){
+  copyText(WORKBENCH_STATE.soulContent || getSoulTemplate());
+}
+
+function downloadSoulFromProfile(){
+  downloadTextAsFile('soul.md', WORKBENCH_STATE.soulContent || getSoulTemplate());
+}
+
+function importSoulFromProfile(){
+  document.getElementById('profile-soul-import')?.click();
+}
+
+function bindProfileSoulEvents(){
+  const editor = document.getElementById('profile-soul-editor');
+  if(editor && !editor.dataset.bound){
+    editor.dataset.bound = '1';
+    editor.addEventListener('input', event => {
+      WORKBENCH_STATE.soulContent = String(event.target.value || '');
+      persistWorkbenchState();
+      const meta = document.getElementById('profile-soul-meta');
+      if(meta) meta.textContent = '已保存到浏览器本地';
+    });
+  }
+  const input = document.getElementById('profile-soul-import');
+  if(input && !input.dataset.bound){
+    input.dataset.bound = '1';
+    input.addEventListener('change', event => {
+      const file = event.target.files && event.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        WORKBENCH_STATE.soulContent = String(reader.result || '');
+        persistWorkbenchState();
+        renderIntegratedProfileModules();
+        showToast('已导入 soul.md');
+      };
+      reader.readAsText(file, 'utf-8');
+      event.target.value = '';
+    });
+  }
+}
+
+
+/* ============ Damia Fix · 输出/方向/工作流最终覆盖 ============ */
+let ACTIVE_WORKFLOW_MODULE = 'idea';
+const DRAFT_LEVEL_USAGE = {
+  short: '快速判断选题是否成立，适合小红书首屏、短视频口播开场、给合作者快速看方向。',
+  standard: '主流发布长度，适合公众号短文、视频口播底稿、课堂展示或社媒完整帖。',
+  full: '深度长文版本，适合公众号长文、课程作业雏形、播客长稿或后续拆分成系列内容。'
+};
+
+function refreshWorkbenchViews(){
+  if(STATE.currentPage === 'direction') renderDirectionPageV12();
+  if(STATE.currentPage === 'output') renderOutputV14();
+  if(STATE.currentPage === 'profile') renderProfileV15();
+}
+
+function setActiveWorkflowModule(type){
+  if(!WORKFLOW_NODE_LIBRARY[type]) return;
+  ACTIVE_WORKFLOW_MODULE = type;
+  refreshWorkbenchViews();
+}
+
+function workflowModuleStat(type, dir){
+  if(type === 'idea') return (WORKBENCH_STATE.ideaText || '').length + ' 字灵感';
+  if(type === 'favorite') return WORKBENCH_STATE.selectedFavorites.length + ' 条已选 / ' + getFavoriteCandidates(dir).length + ' 条候选';
+  if(type === 'search') return WORKBENCH_STATE.selectedSearch.length + ' 条外部材料';
+  return '可加入流程';
+}
+
+function renderCoreWorkflowModules(dir){
+  return ['idea','favorite','search'].map(type => {
+    const meta = WORKFLOW_NODE_LIBRARY[type];
+    return `
+      <div class="flow-module ${ACTIVE_WORKFLOW_MODULE === type ? 'active' : ''}" tabindex="0" draggable="true"
+        ondragstart="onPaletteDragStart(event,'${type}')"
+        onclick="setActiveWorkflowModule('${type}')"
+        onkeydown="if(event.key==='Enter'){setActiveWorkflowModule('${type}')}" title="点击查看模块详情，拖拽到画布加入流程">
+        <div class="fm-top">
+          <span class="fm-pill">${esc(meta.typeLabel)}</span>
+          <span class="fm-drag">⋮⋮</span>
+        </div>
+        <h3>${esc(meta.label)}</h3>
+        <p>${esc(meta.desc)}</p>
+        <div class="fm-stat">${esc(workflowModuleStat(type, dir))}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderActiveWorkflowDetail(dir, mode){
+  const type = ACTIVE_WORKFLOW_MODULE;
+  const meta = WORKFLOW_NODE_LIBRARY[type] || WORKFLOW_NODE_LIBRARY.idea;
+  const goFull = `<button class="btn-ghost" onclick="switchToDirection('${dir.id}','workflow')">到发展方向编辑完整工作流</button>`;
+  if(type === 'idea'){
+    const text = (WORKBENCH_STATE.ideaText || '').trim();
+    return `
+      <div class="flow-detail-panel">
+        <h3>${esc(meta.typeLabel)} · 模块详情</h3>
+        <p>这个模块负责输入你的原始观察、问题意识和写作口吻，是整条生成链路的起点。</p>
+        <div class="flow-detail-list">
+          <div class="flow-detail-item"><b>当前灵感</b>${esc(text ? text.slice(0, 150) + (text.length > 150 ? '…' : '') : '尚未输入灵感。')}</div>
+          <div class="flow-detail-item"><b>建议用法</b>写下“真实场景 + 你的判断 + 预期读者”，不要只写抽象题目。</div>
+        </div>
+        <div class="bridge-actions">${mode === 'output' ? goFull : '<button class="btn-primary" onclick="document.getElementById(\'direction-idea-editor\')?.focus()">直接编辑灵感</button>'}</div>
+      </div>
+    `;
+  }
+  if(type === 'favorite'){
+    const items = getSelectedFavoriteItems().slice(0, 4);
+    const fallback = getFavoriteCandidates(dir).slice(0, 3).map(entry => entry.item);
+    const list = (items.length ? items : fallback).map(item => `
+      <div class="flow-detail-item"><b>${esc(item.title)}</b>${esc(item.abstract || item.why || item.cluster || '')}</div>
+    `).join('');
+    return `
+      <div class="flow-detail-panel">
+        <h3>${esc(meta.typeLabel)} · 模块详情</h3>
+        <p>这个模块负责把你的旧素材重新调用出来，避免每次创作都从零开始。</p>
+        <div class="flow-detail-list">${list}</div>
+        <div class="bridge-actions">${mode === 'output' ? goFull : '<button class="btn-primary" onclick="applyRecommendedFavorites()">一键勾选推荐收藏</button>'}</div>
+      </div>
+    `;
+  }
+  const results = getSearchResults().slice(0, 4).map(item => `
+    <div class="flow-detail-item"><b>${esc(item.title)}</b>${esc(item.summary)}</div>
+  `).join('');
+  return `
+    <div class="flow-detail-panel">
+      <h3>${esc(meta.typeLabel)} · 模块详情</h3>
+      <p>这个模块负责补外部资料，让内容不只停留在个人经验里。当前为单文件前端演示搜索。</p>
+      <div class="flow-detail-list">${results}</div>
+      <div class="bridge-actions">${mode === 'output' ? goFull : '<button class="btn-primary" onclick="runMockSearch()">刷新搜索结果</button>'}</div>
+    </div>
+  `;
+}
+
+function renderWorkflowBridge(dir, mode){
+  const title = mode === 'output' ? '三源生成工作流' : '方向工作流搭建区';
+  const desc = mode === 'output'
+    ? '用三个核心模块替代原先繁琐流程：点击模块看作用，拖拽模块进画布调整生成顺序；完整编辑入口已迁移到发展方向页。'
+    : '工作流已从生成成果页迁移到这里。你可以围绕当前发展方向设置主题、选择素材、接入搜索，再拖拽三类节点生成成果。';
+  return `
+    <div class="flow-bridge" id="${mode === 'output' ? 'output-workflow-bridge' : 'direction-workflow-studio'}">
+      <div class="bridge-head">
+        <div>
+          <h2>${title}</h2>
+          <p>${desc}</p>
+        </div>
+        <div class="output-bridge-actions">
+          <button class="btn-ghost" onclick="runWorkflowDemo()">模拟运行</button>
+          ${mode === 'output' ? `<button class="btn-primary" onclick="switchToDirection('${dir.id}','workflow')">编辑完整工作流</button>` : `<button class="btn-primary" onclick="switchToOutput('${dir.id}')">查看生成成果</button>`}
+        </div>
+      </div>
+      <div class="flow-lite-grid">${renderCoreWorkflowModules(dir)}</div>
+      <div class="flow-canvas-compact">
+        <div class="flow-sequence" ondragover="allowWorkflowDrop(event)" ondrop="handleWorkflowCanvasDrop(event)">
+          <div class="flow-sequence-head">
+            <b>拖拽排序画布</b>
+            <span>拖入/拖动节点即可改变顺序</span>
+          </div>
+          <div class="workflow-track">${renderWorkflowTrack()}</div>
+        </div>
+        ${renderActiveWorkflowDetail(dir, mode)}
+      </div>
+      ${renderRunPreview()}
+    </div>
+  `;
+}
+
+function draftToParagraphs(text){
+  return esc(text || '').split('\n\n').map(p => p ? `<p>${p.replace(/\n/g,'<br>')}</p>` : '').join('');
+}
+
+function copyDraftByLevel(level){
+  const drafts = DIR_DRAFTS[STATE.activeDir] || {};
+  copyText(drafts[level] || '');
+}
+
+function renderAllDraftLevels(dir){
+  const drafts = DIR_DRAFTS[dir.id] || {};
+  return Object.entries(DRAFT_LEVELS).map(([level, meta]) => {
+    const content = drafts[level] || drafts.standard || '';
+    return `
+      <div class="draft-output-card" id="draft-${level}">
+        <div class="draft-output-head">
+          <div>
+            <h4>${esc(meta.name)}文案成果</h4>
+            <p>${esc(DRAFT_LEVEL_USAGE[level] || meta.label)}</p>
+          </div>
+          <span class="draft-word-badge">${meta.words} 字区间</span>
+        </div>
+        <div class="draft-output-body">${draftToParagraphs(content)}</div>
+        <div class="draft-output-foot">
+          <span>系统量化档位：${esc(meta.label)} · 当前文本约 ${content.length} 字符</span>
+          <button class="draft-copy" onclick="copyDraftByLevel('${level}')">📋 复制${esc(meta.name)}版</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderOutputV14(){
+  const sidebar = document.getElementById('output-sidebar-list');
+  const main = document.getElementById('output-main');
+  if(!sidebar || !main) return;
+  const dir = activeDirection();
+  const out = OUTPUTS[dir.id];
+  sidebar.innerHTML = DIRECTIONS.map(d => `
+    <div class="output-side-item ${d.id === dir.id ? 'active' : ''}" onclick="selectOutputV14('${d.id}')">
+      <span class="dot"></span>
+      <span>${esc(d.name)}</span>
+    </div>
+  `).join('');
+  if(!out){
+    main.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted);">选择一个方向开始</div>';
+    return;
+  }
+  main.innerHTML = `
+    ${renderWorkflowBridge(dir, 'output')}
+
+    <div class="output-jump-strip">
+      <div>
+        <h3>当前成果来自：${esc(dir.name)}</h3>
+        <p>${esc(dir.tagline)} 你可以在这里查看最终成果，也可以回到发展方向页继续调整工作流与素材来源。</p>
+      </div>
+      <div class="bridge-actions">
+        <button class="btn-ghost" onclick="switchToDirection('${dir.id}','detail')">查看方向详情</button>
+        <button class="btn-primary" onclick="switchToDirection('${dir.id}','workflow')">调整方向工作流</button>
+      </div>
+    </div>
+
+    <div class="result-workbench">
+      <div class="result-head">
+        <div>
+          <h2>生成成果核心信息</h2>
+          <p>恢复旧版成果展示能力：保留选题定位、钩子、大纲、素材建议、平台适配，并完整呈现 200 / 800 / 2000 三档文案。</p>
+        </div>
+        <button id="saveOutputBtn" class="save-to-saved-btn" onclick="saveCurrentOutputV14()">⭐ 收藏到待生成库</button>
+      </div>
+      <div class="output-card" style="padding:0;border:none;box-shadow:none;margin-bottom:0;">
+        <div class="output-meta">
+          <span class="otag">${esc(out.type)}</span>
+          <span class="odir">来自方向：<b style="color:var(--terra-dark);">${esc(dir.name)}</b></span>
+        </div>
+        <h1 class="output-title">${esc(out.title)}</h1>
+        <div class="output-positioning">${out.positioning}</div>
+
+        <div class="result-summary-grid">
+          <div class="result-summary-card"><b>200 字简版</b><span>${esc(DRAFT_LEVEL_USAGE.short)}</span></div>
+          <div class="result-summary-card"><b>800 字标准版</b><span>${esc(DRAFT_LEVEL_USAGE.standard)}</span></div>
+          <div class="result-summary-card"><b>2000 字完整版</b><span>${esc(DRAFT_LEVEL_USAGE.full)}</span></div>
+        </div>
+
+        <div class="output-section">
+          <h3>① 三种风格的开头 / 钩子 <small>· 点击复制直接用</small></h3>
+          <div class="hooks-grid">
+            ${out.hooks.map(h => `
+              <div class="hook-card ${h.type}">
+                <span class="hlabel">${esc(h.label)}</span>
+                <button class="copy-btn" onclick="copyText(\`${esc(h.text).replace(/`/g,'\\`')}\`)">复制</button>
+                <p>${esc(h.text)}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="output-section">
+          <h3>② 内容结构大纲 <small>· 六段叙事骨架，每段都有具体说明</small></h3>
+          <div class="outline-list">
+            ${out.outline.map((o, i) => `
+              <div class="outline-item">
+                <div class="outline-step">${i + 1}</div>
+                <div class="outline-content">
+                  <div class="outline-name">${esc(o.name)}</div>
+                  <div class="outline-desc">${esc(o.desc)}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="output-section">
+          <h3>③ 三档可直接使用的正文草稿 <small>· 200 / 800 / 2000 字区间全部展示</small></h3>
+          <div class="draft-output-stack">${renderAllDraftLevels(dir)}</div>
+        </div>
+
+        <div class="output-section">
+          <h3>④ 素材使用建议 <small>· 你的灵感素材如何安放</small></h3>
+          <div class="material-suggest">
+            ${out.materials.map(m => `
+              <div class="ms-card">
+                <div class="ms-pos">▸ ${esc(m.pos)}</div>
+                <div class="ms-name">${esc(m.name)}</div>
+                <div class="ms-why">${esc(m.why)}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="output-section">
+          <h3>⑤ 平台适配建议 <small>· 同一选题，不同表达</small></h3>
+          <div class="platforms-grid">
+            ${out.platforms.map(p => `
+              <div class="plat-card" onclick="openPlatformSample('${esc(p.name)}','${dir.id}')">
+                <div class="ph">
+                  <span class="pname">${esc(p.name)}</span>
+                  <span class="pbadge">${esc(p.badge)}</span>
+                </div>
+                <div class="ptip">${p.tip}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="output-section">
+          <h3>⑥ 下一步创作动作 <small>· 点击立即生成对应内容</small></h3>
+          <div class="next-actions" style="grid-template-columns:repeat(3,1fr);">
+            ${NEXT_ACTION_MAP.map(a => `
+              <button class="next-btn" onclick="runAction('${dir.id}','${a.id}','${esc(a.label)}')">
+                <span class="emoji">${a.emoji}</span>
+                <span class="ntxt">${esc(a.label)}</span>
+                <span class="ndesc">${esc(a.desc)}</span>
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderDirectionLongtermCards(){
+  return DIRECTIONS.map(d => {
+    const ct = CONTENT_TYPE_LABELS[d.contentType] || CONTENT_TYPE_LABELS.longread;
+    return `
+      <div class="dir-card ${d.id === STATE.activeDir ? 'selected' : ''}" data-type="${esc(d.contentType || 'longread')}" onclick="openDirection('${d.id}')">
+        <span class="dir-type-pill">▸ ${ct.short}</span>
+        <div class="dir-head">
+          <div class="dir-name">${esc(d.name)}</div>
+          <div class="dir-score-badge">★ ${d.avgScore}</div>
+        </div>
+        <div class="dir-desc">${esc(d.tagline)}</div>
+        <div class="dir-meta">
+          <span>📂 <b>${d.materialHint.match(/\d+/)?.[0] || '多'}</b> 条素材</span>
+          <span>💡 <b>${d.topics.length}</b> 个选题</span>
+          <span>🎬 <b>${esc(ct.label)}</b></span>
+        </div>
+        <div class="dir-tags">${d.formats.slice(0, 4).map(f => `<span class="dir-tag">${esc(f)}</span>`).join('')}</div>
+        <div class="direction-card-actions">
+          <button class="dir-cta" onclick="event.stopPropagation();openDirection('${d.id}')">展开详情 →</button>
+          <button class="dir-cta secondary" onclick="event.stopPropagation();switchToOutput('${d.id}')">查看成果</button>
+          <button class="dir-cta secondary" onclick="event.stopPropagation();switchToDirection('${d.id}','workflow')">工作流</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderAngleCards(){
+  return ANGLES_V12.map(a => `
+    <div class="angle-card" onclick="exploreAngleV12('${esc(a.name)}')">
+      <span class="acta">→</span>
+      <div class="ah">
+        <span class="aemoji">${a.emoji}</span>
+        <div class="aname">${esc(a.name)}</div>
+      </div>
+      <div class="adesc">${esc(a.desc)}</div>
+    </div>
+  `).join('');
+}
+
+function renderDirectionModuleEditor(dir){
+  const recommendedIds = new Set(getRecommendedFavoriteIds(dir));
+  const favoriteCandidates = getFavoriteCandidates(dir);
+  const searchResults = getSearchResults();
+  if(ACTIVE_WORKFLOW_MODULE === 'idea'){
+    return `
+      <div class="workbench-card full direction-module-panel" id="direction-idea-card">
+        <div class="wb-card-head">
+          <div><h3>个人灵感输入节点</h3><p>保留实时保存能力，作为工作流第一手输入。</p></div>
+          <div class="wb-actions"><button class="btn-ghost" onclick="setWorkbenchIdea('')">清空</button></div>
+        </div>
+        <textarea id="direction-idea-editor" class="wb-textarea" oninput="setWorkbenchIdea(this.value)" placeholder="输入你此刻最想写的观点、观察、冲突、场景细节或一句开头。">${esc(WORKBENCH_STATE.ideaText)}</textarea>
+        <div class="wb-helper"><span>建议输入：真实场景 + 你的判断 + 预期读者</span><span id="idea-count">${WORKBENCH_STATE.ideaText.length} 字</span></div>
+      </div>
+    `;
+  }
+  if(ACTIVE_WORKFLOW_MODULE === 'favorite'){
+    return `
+      <div class="workbench-card full direction-module-panel">
+        <div class="wb-card-head">
+          <div><h3>收藏夹内容节点</h3><p>基于主题与方向自动推荐，并支持用户手动勾选。</p></div>
+          <div class="wb-actions"><button class="btn-ghost" onclick="applyRecommendedFavorites()">勾选推荐</button><button class="btn-ghost" onclick="clearFavoriteSelection()">清空已选</button></div>
+        </div>
+        <div class="source-list">
+          ${favoriteCandidates.map(entry => `
+            <div class="source-item ${recommendedIds.has(entry.item.id) ? 'recommended' : ''}">
+              ${recommendedIds.has(entry.item.id) ? '<div class="recommend-flag">推荐匹配</div>' : ''}
+              <label class="source-check">
+                <input type="checkbox" ${WORKBENCH_STATE.selectedFavorites.includes(entry.item.id) ? 'checked' : ''} onchange="toggleFavoriteSelection(${entry.item.id})">
+                <div class="source-main">
+                  <div class="source-title">${esc(entry.item.title)}</div>
+                  <div class="source-meta"><span>${esc(entry.item.cluster)}</span><span>${esc(entry.item.source || '素材库')}</span><span>推荐分 ${entry.recScore}</span></div>
+                  <div class="source-desc">${esc(entry.item.abstract || entry.item.why || '')}</div>
+                  <div class="search-tag-row" style="margin-top:10px;">${(entry.item.tags || []).slice(0, 5).map(tag => `<span class="wb-chip ${recommendedIds.has(entry.item.id) ? 'active' : ''}">${esc(tag)}</span>`).join('')}</div>
+                </div>
+              </label>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+  return `
+    <div class="workbench-card full direction-module-panel">
+      <div class="wb-card-head"><div><h3>联网搜索节点</h3><p>保留基础前端搜索交互，用于展示外部资料接入流程。</p></div></div>
+      <div class="search-toolbar">
+        <input id="workbench-search-input" class="wb-search-input" value="${esc(WORKBENCH_STATE.searchQuery)}" oninput="setWorkbenchSearch(this.value)" placeholder="输入搜索词，例如：支教 阅读角 课堂观察">
+        <button class="btn-primary" onclick="runMockSearch()">搜索</button>
+      </div>
+      <div class="mock-note">结果来自内置演示数据池，用于展示“点击搜索 -> 看到结果 -> 勾选加入工作流”的完整前端体验。</div>
+      <div class="search-results">
+        ${searchResults.map(item => `
+          <div class="search-item">
+            <label class="source-check">
+              <input type="checkbox" ${WORKBENCH_STATE.selectedSearch.includes(item.id) ? 'checked' : ''} onchange="toggleSearchSelection('${item.id}')">
+              <div class="search-main">
+                <div class="search-title">${esc(item.title)}</div>
+                <div class="search-meta"><span>${esc(item.source)}</span><span>${esc(item.type)}</span><span>演示结果</span></div>
+                <div class="search-desc">${esc(item.summary)}</div>
+                <div class="search-tag-row" style="margin-top:10px;">${item.tags.map(tag => `<span class="wb-chip">${esc(tag)}</span>`).join('')}</div>
+              </div>
+            </label>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderDirectionWorkflowStudio(dir){
+  const selectedCount = WORKBENCH_STATE.selectedFavorites.length + WORKBENCH_STATE.selectedSearch.length + ((WORKBENCH_STATE.ideaText || '').trim() ? 1 : 0);
+  const out = OUTPUTS[dir.id];
+  return `
+    <div class="direction-workflow-section" id="direction-workflow-zone">
+      <div class="direction-bridge-head">
+        <div>
+          <h2>从方向到成果：完整工作流</h2>
+          <p>原生成成果页的工作流已迁移到这里，与发展方向深度整合。先确认方向，再用三类来源节点组织生成链路。</p>
+        </div>
+        <div class="bridge-actions">
+          <button class="btn-ghost" onclick="runMockSearch()">刷新搜索</button>
+          <button class="btn-ghost" onclick="applyRecommendedFavorites()">勾选推荐收藏</button>
+          <button class="btn-primary" onclick="runWorkflowDemo()">模拟运行</button>
+        </div>
+      </div>
+      <div class="direction-output-strip">
+        <div>
+          <h3>${esc(dir.name)} → ${esc(out?.title || '生成成果')}</h3>
+          <p>${esc(dir.tagline)} 当前已接入 ${selectedCount} 个来源信号，工作流节点 ${WORKBENCH_STATE.workflow.length} 个。</p>
+        </div>
+        <div class="bridge-actions"><button class="btn-primary" onclick="switchToOutput('${dir.id}')">查看对应生成成果</button></div>
+      </div>
+      <div class="workbench-card full" style="margin-bottom:14px;">
+        <div class="wb-card-head">
+          <div><h3>创作主题</h3><p>主题会联动收藏夹推荐、搜索结果与成果方向。</p></div>
+          <div class="wb-actions"><button class="btn-ghost" onclick="setWorkbenchTopic(document.getElementById('workbench-topic-input')?.value || WORKBENCH_STATE.topic)">刷新推荐</button></div>
+        </div>
+        <input id="workbench-topic-input" class="wb-input" value="${esc(WORKBENCH_STATE.topic)}" oninput="updateWorkbenchTopicDraft(this.value)" onchange="setWorkbenchTopic(this.value)" placeholder="例如：如何把城市观察和公益课堂故事写成一篇真实可信的内容？">
+        <div class="wb-helper"><span>当前方向信号：${esc((dir.clusters || []).slice(0, 2).join(' / '))}</span><span>${esc((dir.formats || []).slice(0, 3).join(' / '))}</span></div>
+      </div>
+      ${renderWorkflowBridge(dir, 'direction')}
+      ${renderDirectionModuleEditor(dir)}
+    </div>
+  `;
+}
+
+function renderDirectionPageV12(){
+  const page = document.getElementById('page-direction');
+  if(!page) return;
+  const dir = activeDirection();
+  page.innerHTML = `
+    <div class="page-title">
+      <h1>发展方向</h1>
+      <p>从长期主线、探索角度和完整工作流三个层级管理内容方向；点击任一方向可进入详情，也可直接跳转到对应生成成果。</p>
+    </div>
+    <div class="dir-tabs">
+      <button class="dir-tab ${DIR_TAB === 'longterm' ? 'active' : ''}" data-tab="longterm" onclick="switchDirTab('longterm')">📚 主线方向（6 个）</button>
+      <button class="dir-tab ${DIR_TAB === 'lianxiang' ? 'active' : ''}" data-tab="lianxiang" onclick="switchDirTab('lianxiang')">🔮 联想引擎（12 个角度）</button>
+    </div>
+    <div id="longterm-zone" style="display:${DIR_TAB === 'longterm' ? '' : 'none'};">
+      <div class="directions-grid" id="dirs-grid">${renderDirectionLongtermCards()}</div>
+    </div>
+    <div id="lianxiang-zone-v12" style="display:${DIR_TAB === 'lianxiang' ? '' : 'none'};">
+      <div style="margin-bottom:18px;padding:14px 18px;background:var(--bg-alt);border-radius:10px;border-left:3px solid var(--terra);font-size:13px;color:var(--ink-soft);line-height:1.7;">
+        点击下方任一角度，让联想引擎从这个视角重新组织你的素材，并跳转到相应生成成果。
+      </div>
+      <div class="angles-card-grid" id="angle-cards">${renderAngleCards()}</div>
+    </div>
+    ${renderDirectionWorkflowStudio(dir)}
+  `;
+}
+
+function switchToDirection(dirId, target){
+  if(dirId){ STATE.activeDir = dirId; saveState(); }
+  switchPage('direction');
+  setTimeout(() => {
+    const selector = target === 'workflow' ? '#direction-workflow-zone' : target === 'detail' ? '#longterm-zone' : '#page-direction';
+    document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 0);
+}
+
+function switchToOutput(dirId){
+  STATE.activeDir = dirId;
+  saveState();
+  switchPage('output');
+}
+
+function selectOutputV14(id){
+  STATE.activeDir = id;
+  saveState();
+  renderOutputV14();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function switchDraftLevel(level){
+  DRAFT_LEVEL = level;
+  const target = document.getElementById('draft-' + level);
+  if(target){ target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  else renderOutputV14();
+}
+
+function copyCurrentDraft(){
+  copyDraftByLevel(DRAFT_LEVEL || 'standard');
+}
+
+function setWorkbenchTopic(value){
+  WORKBENCH_STATE.topic = String(value || '');
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function updateWorkbenchTopicDraft(value){
+  WORKBENCH_STATE.topic = String(value || '');
+  persistWorkbenchState();
+}
+
+function setWorkbenchIdea(value){
+  WORKBENCH_STATE.ideaText = String(value || '');
+  persistWorkbenchState();
+  const counter = document.getElementById('idea-count');
+  if(counter) counter.textContent = WORKBENCH_STATE.ideaText.length + ' 字';
+}
+
+function setWorkbenchSearch(value){
+  WORKBENCH_STATE.searchQuery = String(value || '');
+  persistWorkbenchState();
+}
+
+function toggleFavoriteSelection(id){
+  const next = new Set(WORKBENCH_STATE.selectedFavorites);
+  if(next.has(id)) next.delete(id);
+  else next.add(id);
+  WORKBENCH_STATE.selectedFavorites = [...next];
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function toggleSearchSelection(id){
+  const next = new Set(WORKBENCH_STATE.selectedSearch);
+  if(next.has(id)) next.delete(id);
+  else next.add(id);
+  WORKBENCH_STATE.selectedSearch = [...next];
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function applyRecommendedFavorites(){
+  WORKBENCH_STATE.selectedFavorites = [...new Set([...WORKBENCH_STATE.selectedFavorites, ...getRecommendedFavoriteIds(activeDirection())])];
+  persistWorkbenchState();
+  showToast('已勾选推荐收藏内容');
+  refreshWorkbenchViews();
+}
+
+function clearFavoriteSelection(){
+  WORKBENCH_STATE.selectedFavorites = [];
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function runMockSearch(){
+  persistWorkbenchState();
+  showToast('已刷新联网搜索演示结果');
+  refreshWorkbenchViews();
+}
+
+function addNodeToWorkflow(type){
+  WORKBENCH_STATE.workflow.push(createWorkflowNode(type));
+  persistWorkbenchState();
+  showToast('已添加到工作流');
+  refreshWorkbenchViews();
+}
+
+function removeWorkflowNode(nodeId){
+  WORKBENCH_STATE.workflow = WORKBENCH_STATE.workflow.filter(node => node.id !== nodeId);
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function moveWorkflowNode(nodeId, direction){
+  const index = WORKBENCH_STATE.workflow.findIndex(node => node.id === nodeId);
+  if(index < 0) return;
+  const target = index + direction;
+  if(target < 0 || target >= WORKBENCH_STATE.workflow.length) return;
+  const list = [...WORKBENCH_STATE.workflow];
+  const temp = list[index];
+  list[index] = list[target];
+  list[target] = temp;
+  WORKBENCH_STATE.workflow = list;
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function handleWorkflowCanvasDrop(event){
+  event.preventDefault();
+  const payload = window._workflowDragPayload;
+  if(!payload) return;
+  if(payload.mode === 'palette') addNodeToWorkflow(payload.type);
+  if(payload.mode === 'node'){
+    const list = [...WORKBENCH_STATE.workflow];
+    const index = list.findIndex(node => node.id === payload.nodeId);
+    if(index >= 0){
+      const [node] = list.splice(index, 1);
+      list.push(node);
+      WORKBENCH_STATE.workflow = list;
+      persistWorkbenchState();
+      refreshWorkbenchViews();
+    }
+  }
+  window._workflowDragPayload = null;
+}
+
+function handleWorkflowNodeDrop(event, targetNodeId){
+  event.preventDefault();
+  const payload = window._workflowDragPayload;
+  if(!payload || payload.mode !== 'node' || payload.nodeId === targetNodeId) return;
+  const list = [...WORKBENCH_STATE.workflow];
+  const from = list.findIndex(node => node.id === payload.nodeId);
+  const to = list.findIndex(node => node.id === targetNodeId);
+  if(from < 0 || to < 0) return;
+  const [node] = list.splice(from, 1);
+  list.splice(to, 0, node);
+  WORKBENCH_STATE.workflow = list;
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+  window._workflowDragPayload = null;
+}
+
+function runWorkflowDemo(){
+  ensureNodeExists('idea');
+  ensureNodeExists('favorite');
+  ensureNodeExists('search');
+  WORKBENCH_STATE.lastRunAt = currentTimestamp();
+  WORKBENCH_STATE.lastRunSummary = buildRunSummary();
+  persistWorkbenchState();
+  showToast('已模拟运行工作流');
+  refreshWorkbenchViews();
+}
+
+function refreshSingleFileViews(){
+  bindProfileSoulEvents();
+  if(STATE.currentPage === 'output') renderOutputV14();
+  if(STATE.currentPage === 'profile') renderProfileV15();
+}
+
+setTimeout(refreshSingleFileViews, 0);
+
+
+
+/* ============ Damia V3 · 三源生成工作流一体化最终覆盖 ============ */
+try { ACTIVE_WORKFLOW_MODULE = ACTIVE_WORKFLOW_MODULE || 'idea'; } catch(e) {}
+
+function triadSelectedCount(){
+  return WORKBENCH_STATE.selectedFavorites.length + WORKBENCH_STATE.selectedSearch.length + ((WORKBENCH_STATE.ideaText || '').trim() ? 1 : 0);
+}
+
+function workflowTypeNames(){
+  return (WORKBENCH_STATE.workflow || []).map(function(node){
+    return (WORKFLOW_NODE_LIBRARY[node.type] && WORKFLOW_NODE_LIBRARY[node.type].typeLabel) || node.type;
+  });
+}
+
+function selectDirectionForWorkflow(id){
+  STATE.activeDir = id;
+  saveState();
+  refreshWorkbenchViews();
+  setTimeout(function(){ document.getElementById('direction-workflow-zone')?.scrollIntoView({behavior:'smooth', block:'start'}); }, 0);
+}
+
+function openDirectionFromCard(event, id){
+  event.stopPropagation();
+  openDirection(id);
+}
+
+function renderDirectionLongtermCards(){
+  return DIRECTIONS.map(function(d){
+    var ct = CONTENT_TYPE_LABELS[d.contentType] || CONTENT_TYPE_LABELS.longread;
+    var selected = d.id === STATE.activeDir;
+    return `
+      <div class="dir-card ${selected ? 'selected' : ''}" data-type="${esc(d.contentType || 'longread')}" onclick="selectDirectionForWorkflow('${d.id}')">
+        <span class="dir-type-pill">▸ ${ct.short}</span>
+        <div class="dir-head">
+          <div class="dir-name">${esc(d.name)}</div>
+          <div class="dir-score-badge">★ ${d.avgScore}</div>
+        </div>
+        <div class="dir-desc">${esc(d.tagline)}</div>
+        <div class="dir-meta">
+          <span>📂 <b>${d.materialHint && d.materialHint.match(/\d+/) ? d.materialHint.match(/\d+/)[0] : '多'}</b> 条素材</span>
+          <span>💡 <b>${d.topics.length}</b> 个选题</span>
+          <span>🎬 <b>${esc(ct.label)}</b></span>
+        </div>
+        <div class="dir-tags">${d.formats.slice(0, 4).map(function(f){ return `<span class="dir-tag">${esc(f)}</span>`; }).join('')}</div>
+        <div class="direction-card-actions">
+          <button class="dir-inline-btn primary" onclick="event.stopPropagation();selectDirectionForWorkflow('${d.id}')">选为当前工作流</button>
+          <button class="dir-inline-btn" onclick="openDirectionFromCard(event,'${d.id}')">展开详情</button>
+          <button class="dir-inline-btn" onclick="event.stopPropagation();switchToOutput('${d.id}')">看成果</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderTriadModuleCards(dir){
+  return ['idea','favorite','search'].map(function(type){
+    var meta = WORKFLOW_NODE_LIBRARY[type];
+    var active = ACTIVE_WORKFLOW_MODULE === type;
+    return `
+      <div class="triad-module-card ${active ? 'active' : ''}" draggable="true" ondragstart="onPaletteDragStart(event,'${type}')" onclick="setActiveWorkflowModule('${type}')">
+        <span class="pill">${esc(meta.typeLabel)}</span>
+        <h3>${esc(meta.label)}</h3>
+        <p>${esc(meta.desc)}</p>
+        <div class="stat">${esc(workflowModuleStat(type, dir))}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderTriadWorkflowTrack(){
+  if(!WORKBENCH_STATE.workflow || !WORKBENCH_STATE.workflow.length){
+    return '<div class="triad-empty">把上方三个核心模块拖到这里，或点击“一键补齐三源节点”。<br>排序结果会决定最终生成时的素材读取顺序。</div>';
+  }
+  return WORKBENCH_STATE.workflow.map(function(node, index){
+    var meta = WORKFLOW_NODE_LIBRARY[node.type] || { typeLabel: node.type, label: node.type, desc: '' };
+    var summaryMap = {
+      idea: '读取右侧个人灵感输入：当前 ' + (WORKBENCH_STATE.ideaText || '').length + ' 字。',
+      favorite: '读取右侧收藏夹勾选：当前 ' + WORKBENCH_STATE.selectedFavorites.length + ' 条已选。',
+      search: '读取右侧联网搜索勾选：当前 ' + WORKBENCH_STATE.selectedSearch.length + ' 条已选。'
+    };
+    return `
+      <div class="triad-node" draggable="true"
+        ondragstart="onWorkflowNodeDragStart(event,'${node.id}')"
+        ondragover="allowWorkflowDrop(event)"
+        ondrop="handleWorkflowNodeDrop(event,'${node.id}')">
+        <div class="step">${index + 1}</div>
+        <span class="type">${esc(meta.typeLabel)}</span>
+        <div class="name">${esc(meta.label)}</div>
+        <div class="desc">${esc(summaryMap[node.type] || meta.desc)}</div>
+        <div class="triad-node-actions">
+          <button type="button" onclick="setActiveWorkflowModule('${node.type}')">编辑这个节点</button>
+          <button type="button" onclick="moveWorkflowNode('${node.id}',-1)">上移</button>
+          <button type="button" onclick="moveWorkflowNode('${node.id}',1)">下移</button>
+          <button type="button" onclick="removeWorkflowNode('${node.id}')">移除</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function ensureTriadNodes(){
+  ensureNodeExists('idea');
+  ensureNodeExists('favorite');
+  ensureNodeExists('search');
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function renderIdeaEditorSection(){
+  return `
+    <div class="state-section ${ACTIVE_WORKFLOW_MODULE === 'idea' ? 'active' : ''}" id="state-idea">
+      <div class="state-section-title"><b>① 个人灵感输入节点</b><button onclick="setActiveWorkflowModule('idea')">定位</button></div>
+      <textarea class="state-textarea" oninput="setWorkbenchIdea(this.value)" placeholder="写下你的原始观察、情绪、判断、场景细节……">${esc(WORKBENCH_STATE.ideaText || '')}</textarea>
+      <div class="state-counter"><span id="idea-count">${(WORKBENCH_STATE.ideaText || '').length} 字</span></div>
+    </div>
+  `;
+}
+
+function renderFavoriteEditorSection(dir){
+  var recommended = new Set(getRecommendedFavoriteIds(dir));
+  var candidates = getFavoriteCandidates(dir).slice(0, 8);
+  return `
+    <div class="state-section ${ACTIVE_WORKFLOW_MODULE === 'favorite' ? 'active' : ''}" id="state-favorite">
+      <div class="state-section-title"><b>② 收藏夹内容节点</b><button onclick="applyRecommendedFavorites()">勾选推荐</button></div>
+      <div class="state-actions-row"><span>已勾选 ${WORKBENCH_STATE.selectedFavorites.length} 条，可直接进入生成链路</span><button class="mini-tool-btn" onclick="clearFavoriteSelection()">清空</button></div>
+      <div class="state-list">
+        ${candidates.map(function(entry){
+          var item = entry.item;
+          var checked = WORKBENCH_STATE.selectedFavorites.includes(item.id);
+          var isRec = recommended.has(item.id);
+          return `
+            <label class="state-check-item ${isRec ? 'recommended' : ''}">
+              <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleFavoriteSelection(${item.id})">
+              <span class="state-check-body">
+                <b>${esc(item.title)}</b>
+                <span>${esc(item.abstract || item.why || item.cluster || '')}</span>
+                <span>${isRec ? '系统推荐 · ' : ''}匹配分 ${entry.recScore}</span>
+                <span class="state-tags">${(item.tags || []).slice(0,3).map(function(tag){ return `<em>${esc(tag)}</em>`; }).join('')}</span>
+              </span>
+            </label>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderSearchEditorSection(){
+  var results = getSearchResults();
+  return `
+    <div class="state-section ${ACTIVE_WORKFLOW_MODULE === 'search' ? 'active' : ''}" id="state-search">
+      <div class="state-section-title"><b>③ 联网搜索节点</b><button onclick="runMockSearch()">刷新结果</button></div>
+      <div class="state-search-row">
+        <input class="state-search-input" value="${esc(WORKBENCH_STATE.searchQuery || '')}" oninput="setWorkbenchSearch(this.value)" placeholder="输入搜索词">
+        <button class="mini-tool-btn" onclick="runMockSearch()">搜索</button>
+      </div>
+      <div class="state-actions-row"><span>已勾选 ${WORKBENCH_STATE.selectedSearch.length} 条外部材料</span><button class="mini-tool-btn" onclick="selectAllVisibleSearch()">全选可见</button></div>
+      <div class="state-list">
+        ${results.map(function(item){
+          var checked = WORKBENCH_STATE.selectedSearch.includes(item.id);
+          return `
+            <label class="state-check-item">
+              <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleSearchSelection('${item.id}')">
+              <span class="state-check-body">
+                <b>${esc(item.title)}</b>
+                <span>${esc(item.summary)}</span>
+                <span>${esc(item.source)} · ${esc(item.type)}</span>
+                <span class="state-tags">${(item.tags || []).slice(0,3).map(function(tag){ return `<em>${esc(tag)}</em>`; }).join('')}</span>
+              </span>
+            </label>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function selectAllVisibleSearch(){
+  WORKBENCH_STATE.selectedSearch = Array.from(new Set([].concat(WORKBENCH_STATE.selectedSearch, getSearchResults().map(function(item){ return item.id; }))));
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function renderWorkflowStatePanel(dir){
+  return `
+    <aside class="triad-state-panel">
+      <div class="triad-state-head">
+        <div><h3>当前状态 / 直接编辑</h3><p>这里不是说明区，而是三个节点的真实操作入口。</p></div>
+        <span class="status-pill">${triadSelectedCount()} 个信号</span>
+      </div>
+      ${renderIdeaEditorSection()}
+      ${renderFavoriteEditorSection(dir)}
+      ${renderSearchEditorSection()}
+    </aside>
+  `;
+}
+
+function getGeneratedResult(){
+  return WORKBENCH_STATE.generatedResult || null;
+}
+
+function buildGeneratedResult(dir){
+  var out = OUTPUTS[dir.id] || {};
+  var favoriteItems = getSelectedFavoriteItems();
+  var searchItems = getSelectedSearchItems();
+  var workflowNames = workflowTypeNames();
+  return {
+    dirId: dir.id,
+    at: currentTimestamp(),
+    title: out.title || (dir.name + ' · 生成成果'),
+    type: out.type || '内容成果',
+    topic: WORKBENCH_STATE.topic || dir.tagline,
+    workflow: workflowNames,
+    ideaChars: (WORKBENCH_STATE.ideaText || '').length,
+    favoriteCount: favoriteItems.length,
+    searchCount: searchItems.length,
+    favoriteTitles: favoriteItems.slice(0,4).map(function(item){ return item.title; }),
+    searchTitles: searchItems.slice(0,4).map(function(item){ return item.title; }),
+    summary: buildRunSummary()
+  };
+}
+
+function runTriadGenerate(){
+  if(!WORKBENCH_STATE.workflow || !WORKBENCH_STATE.workflow.length){ ensureNodeExists('idea'); ensureNodeExists('favorite'); ensureNodeExists('search'); }
+  var dir = activeDirection();
+  WORKBENCH_STATE.lastRunAt = currentTimestamp();
+  WORKBENCH_STATE.lastRunSummary = buildRunSummary();
+  WORKBENCH_STATE.generatedResult = buildGeneratedResult(dir);
+  persistWorkbenchState();
+  showToast('✓ 已根据当前工作流生成成果');
+  refreshWorkbenchViews();
+  setTimeout(function(){ document.getElementById('workflow-result-board')?.scrollIntoView({behavior:'smooth', block:'start'}); }, 0);
+}
+
+function runWorkflowDemo(){
+  runTriadGenerate();
+}
+
+function renderWorkflowResultBoard(dir, compact){
+  var result = getGeneratedResult();
+  var out = OUTPUTS[dir.id] || {};
+  var isCurrent = result && result.dirId === dir.id;
+  var resultTitle = isCurrent ? result.title : (out.title || dir.name + ' · 生成成果');
+  var resultTopic = isCurrent ? result.topic : (WORKBENCH_STATE.topic || dir.tagline);
+  var workflow = isCurrent ? result.workflow : workflowTypeNames();
+  var favoriteTitles = isCurrent ? result.favoriteTitles : getSelectedFavoriteItems().slice(0,4).map(function(item){ return item.title; });
+  var searchTitles = isCurrent ? result.searchTitles : getSelectedSearchItems().slice(0,4).map(function(item){ return item.title; });
+  var boardHint = isCurrent ? ('最近生成：' + result.at) : '尚未点击一键生成，下面先显示当前待生成状态。';
+  return `
+    <div class="workflow-result-board" id="workflow-result-board">
+      <div class="board-head">
+        <div>
+          <h3>工作流生成结果</h3>
+          <p>${esc(boardHint)} 该区域会同步承接右侧编辑、画布排序和一键生成结果。</p>
+        </div>
+        <div class="triad-actions">
+          <button class="btn-ghost" onclick="switchToDirection('${dir.id}','workflow')">回到工作流</button>
+          <button class="btn-primary" onclick="switchToOutput('${dir.id}')">打开生成成果页</button>
+        </div>
+      </div>
+      <div class="workflow-result-grid">
+        <div class="workflow-result-main">
+          <span class="generated-kicker">${isCurrent ? '已生成' : '待生成'}</span>
+          <div class="generated-title">${esc(resultTitle)}</div>
+          <p>${esc(resultTopic)}</p>
+          <div class="generated-meta">
+            <span>灵感 ${(isCurrent ? result.ideaChars : (WORKBENCH_STATE.ideaText || '').length)} 字</span>
+            <span>收藏 ${(isCurrent ? result.favoriteCount : WORKBENCH_STATE.selectedFavorites.length)} 条</span>
+            <span>搜索 ${(isCurrent ? result.searchCount : WORKBENCH_STATE.selectedSearch.length)} 条</span>
+            <span>流程 ${workflow.length} 步</span>
+          </div>
+          <div class="generated-draft-links">
+            <button onclick="switchToOutput('${dir.id}');setTimeout(function(){document.getElementById('draft-short')?.scrollIntoView({behavior:'smooth'});},50)">200 字成果</button>
+            <button onclick="switchToOutput('${dir.id}');setTimeout(function(){document.getElementById('draft-standard')?.scrollIntoView({behavior:'smooth'});},50)">800 字成果</button>
+            <button onclick="switchToOutput('${dir.id}');setTimeout(function(){document.getElementById('draft-full')?.scrollIntoView({behavior:'smooth'});},50)">2000 字成果</button>
+          </div>
+        </div>
+        <div class="workflow-new-info">
+          <div class="new-info-list">
+            <div class="new-info-item"><b>流程顺序</b>${esc(workflow.join(' → ') || '尚未排布')}</div>
+            <div class="new-info-item"><b>收藏夹输入</b>${favoriteTitles.length ? favoriteTitles.map(esc).join('；') : '尚未勾选收藏夹内容'}</div>
+            <div class="new-info-item"><b>联网搜索输入</b>${searchTitles.length ? searchTitles.map(esc).join('；') : '尚未勾选搜索结果'}</div>
+            <div class="new-info-item"><b>状态</b>${isCurrent ? '已经进入生成成果页，可查看三档文案。' : '完成右侧勾选和画布排序后，点击“一键生成”。'}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderDirectionTriadWorkflow(dir){
+  return `
+    <section class="triad-workflow-zone" id="direction-workflow-zone">
+      <div class="triad-head">
+        <div>
+          <h2>三源生成工作流</h2>
+          <p>当前方向：<b>${esc(dir.name)}</b>。先在右侧直接输入灵感、勾选收藏夹和搜索结果，再把三个节点拖入画布并排序，最后点击一键生成。</p>
+        </div>
+        <div class="triad-actions">
+          <button class="btn-ghost" onclick="ensureTriadNodes()">一键补齐三源节点</button>
+          <button class="btn-primary" onclick="runTriadGenerate()">一键生成</button>
+        </div>
+      </div>
+      <div class="triad-topic-strip">
+        <div class="triad-topic-label">生成主题</div>
+        <input id="workbench-topic-input" class="triad-topic-input" value="${esc(WORKBENCH_STATE.topic || '')}" oninput="updateWorkbenchTopicDraft(this.value)" onchange="setWorkbenchTopic(this.value)" placeholder="输入这次想生成的具体主题">
+        <div class="triad-topic-meta">${triadSelectedCount()} 个输入信号</div>
+      </div>
+      <div class="triad-layout">
+        <div class="triad-left">
+          <div class="triad-module-row">${renderTriadModuleCards(dir)}</div>
+          <div class="triad-canvas-card">
+            <div class="triad-canvas-head">
+              <div><h3>工作流画布</h3><p>画布只负责排布顺序；具体输入、勾选和搜索都在右侧“当前状态”完成。</p></div>
+              <div class="triad-canvas-tools"><button class="mini-tool-btn" onclick="WORKBENCH_STATE.workflow=[];persistWorkbenchState();refreshWorkbenchViews()">清空画布</button></div>
+            </div>
+            <div class="triad-canvas-track" ondragover="allowWorkflowDrop(event)" ondrop="handleWorkflowCanvasDrop(event)">
+              ${renderTriadWorkflowTrack()}
+            </div>
+            <div class="triad-generate-bar">
+              <span>将按 <b>${esc(workflowTypeNames().join(' → ') || '未设置')}</b> 的顺序读取输入。</span>
+              <button class="triad-generate-btn" onclick="runTriadGenerate()">一键生成成果</button>
+            </div>
+          </div>
+        </div>
+        ${renderWorkflowStatePanel(dir)}
+      </div>
+      ${renderWorkflowResultBoard(dir)}
+    </section>
+  `;
+}
+
+function renderDirectionPageV12(){
+  var page = document.getElementById('page-direction');
+  if(!page) return;
+  var dir = activeDirection();
+  page.innerHTML = `
+    <div class="page-title direction-page-intro">
+      <h1>发展方向</h1>
+      <p>上方先选择长期发展方向，下方立即进入对应的三源生成工作流；方向、素材、搜索、画布排序和生成成果在同一条链路里联动。</p>
+    </div>
+    <div class="direction-overview-note">
+      <div>当前选中：<b>${esc(dir.name)}</b> · ${esc(dir.tagline)}</div>
+      <div>点击方向卡片即可切换下方工作流。</div>
+    </div>
+    <div class="directions-grid" id="dirs-grid">${renderDirectionLongtermCards()}</div>
+    ${renderDirectionTriadWorkflow(dir)}
+  `;
+}
+
+function draftToParagraphs(text){
+  return esc(text || '').split('\n\n').map(function(p){ return p ? `<p>${p.replace(/\n/g,'<br>')}</p>` : ''; }).join('');
+}
+
+function copyDraftByLevel(level){
+  var drafts = DIR_DRAFTS[STATE.activeDir] || {};
+  copyText(drafts[level] || '');
+}
+
+function renderAllDraftLevels(dir){
+  var drafts = DIR_DRAFTS[dir.id] || {};
+  return Object.entries(DRAFT_LEVELS).map(function(pair){
+    var level = pair[0], meta = pair[1];
+    var content = drafts[level] || drafts.standard || '';
+    return `
+      <div class="draft-output-card" id="draft-${level}">
+        <div class="draft-output-head">
+          <div><h4>${esc(meta.name)}文案成果</h4><p>${esc(DRAFT_LEVEL_USAGE[level] || meta.label)}</p></div>
+          <span class="draft-word-badge">${meta.words} 字区间</span>
+        </div>
+        <div class="draft-output-body">${draftToParagraphs(content)}</div>
+        <div class="draft-output-foot">
+          <span>系统量化档位：${esc(meta.label)} · 当前文本约 ${content.length} 字符</span>
+          <button class="draft-copy" onclick="copyDraftByLevel('${level}')">📋 复制${esc(meta.name)}版</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderOutputV14(){
+  var sidebar = document.getElementById('output-sidebar-list');
+  var main = document.getElementById('output-main');
+  if(!sidebar || !main) return;
+  var dir = activeDirection();
+  var out = OUTPUTS[dir.id];
+  sidebar.innerHTML = DIRECTIONS.map(function(d){
+    return `<div class="output-side-item ${d.id === dir.id ? 'active' : ''}" onclick="selectOutputV14('${d.id}')"><span class="dot"></span><span>${esc(d.name)}</span></div>`;
+  }).join('');
+  if(!out){ main.innerHTML = '<div class="empty-result">选择一个方向开始。</div>'; return; }
+  main.innerHTML = `
+    <div class="output-status-board">${renderWorkflowResultBoard(dir, true)}</div>
+    <div class="result-workbench">
+      <div class="result-head">
+        <div>
+          <h2>生成成果核心信息</h2>
+          <p>这里承接发展方向页的一键生成结果，同时保留旧版成果台的基础能力：定位、钩子、大纲、素材建议、平台适配，以及 200 / 800 / 2000 三档文案。</p>
+        </div>
+        <div class="triad-actions">
+          <button class="btn-ghost" onclick="switchToDirection('${dir.id}','workflow')">调整工作流</button>
+          <button id="saveOutputBtn" class="save-to-saved-btn" onclick="saveCurrentOutputV14()">⭐ 收藏到待生成库</button>
+        </div>
+      </div>
+      <div class="output-card" style="padding:0;border:none;box-shadow:none;margin-bottom:0;">
+        <div class="output-meta"><span class="otag">${esc(out.type)}</span><span class="odir">来自方向：<b style="color:var(--terra-dark);">${esc(dir.name)}</b></span></div>
+        <h1 class="output-title">${esc(out.title)}</h1>
+        <div class="output-positioning">${out.positioning}</div>
+        <div class="result-summary-grid">
+          <div class="result-summary-card"><b>200 字简版</b><span>${esc(DRAFT_LEVEL_USAGE.short)}</span></div>
+          <div class="result-summary-card"><b>800 字标准版</b><span>${esc(DRAFT_LEVEL_USAGE.standard)}</span></div>
+          <div class="result-summary-card"><b>2000 字完整版</b><span>${esc(DRAFT_LEVEL_USAGE.full)}</span></div>
+        </div>
+        <div class="output-section"><h3>① 三种风格的开头 / 钩子 <small>· 点击复制直接用</small></h3><div class="hooks-grid">
+          ${out.hooks.map(function(h){ return `<div class="hook-card ${h.type}"><span class="hlabel">${esc(h.label)}</span><button class="copy-btn" onclick="copyText(\`${esc(h.text).replace(/`/g,'\\`')}\`)">复制</button><p>${esc(h.text)}</p></div>`; }).join('')}
+        </div></div>
+        <div class="output-section"><h3>② 内容结构大纲 <small>· 六段叙事骨架</small></h3><div class="outline-list">
+          ${out.outline.map(function(o,i){ return `<div class="outline-item"><div class="outline-step">${i+1}</div><div class="outline-content"><div class="outline-name">${esc(o.name)}</div><div class="outline-desc">${esc(o.desc)}</div></div></div>`; }).join('')}
+        </div></div>
+        <div class="output-section"><h3>③ 三档可直接使用的正文草稿 <small>· 200 / 800 / 2000 字区间全部展示</small></h3><div class="draft-output-stack">${renderAllDraftLevels(dir)}</div></div>
+        <div class="output-section"><h3>④ 素材使用建议 <small>· 你的灵感素材如何安放</small></h3><div class="material-suggest">
+          ${out.materials.map(function(m){ return `<div class="ms-card"><div class="ms-pos">▸ ${esc(m.pos)}</div><div class="ms-name">${esc(m.name)}</div><div class="ms-why">${esc(m.why)}</div></div>`; }).join('')}
+        </div></div>
+        <div class="output-section"><h3>⑤ 平台适配建议 <small>· 同一选题，不同表达</small></h3><div class="platforms-grid">
+          ${out.platforms.map(function(p){ return `<div class="plat-card" onclick="openPlatformSample('${esc(p.name)}','${dir.id}')"><div class="ph"><span class="pname">${esc(p.name)}</span><span class="pbadge">${esc(p.badge)}</span></div><div class="ptip">${p.tip}</div></div>`; }).join('')}
+        </div></div>
+        <div class="output-section"><h3>⑥ 下一步创作动作 <small>· 点击立即生成对应内容</small></h3><div class="next-actions" style="grid-template-columns:repeat(3,1fr);">
+          ${NEXT_ACTION_MAP.map(function(a){ return `<button class="next-btn" onclick="runAction('${dir.id}','${a.id}','${esc(a.label)}')"><span class="emoji">${a.emoji}</span><span class="ntxt">${esc(a.label)}</span><span class="ndesc">${esc(a.desc)}</span></button>`; }).join('')}
+        </div></div>
+      </div>
+    </div>
+  `;
+}
+
+function refreshWorkbenchViews(){
+  if(STATE.currentPage === 'direction') renderDirectionPageV12();
+  if(STATE.currentPage === 'output') renderOutputV14();
+  if(STATE.currentPage === 'profile') renderProfileV15();
+}
+
+function setActiveWorkflowModule(type){
+  if(!WORKFLOW_NODE_LIBRARY[type]) return;
+  ACTIVE_WORKFLOW_MODULE = type;
+  refreshWorkbenchViews();
+  setTimeout(function(){ document.getElementById('state-' + type)?.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 0);
+}
+
+function setWorkbenchTopic(value){
+  WORKBENCH_STATE.topic = String(value || '');
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function setWorkbenchIdea(value){
+  WORKBENCH_STATE.ideaText = String(value || '');
+  persistWorkbenchState();
+  var counter = document.getElementById('idea-count');
+  if(counter) counter.textContent = WORKBENCH_STATE.ideaText.length + ' 字';
+}
+
+function setWorkbenchSearch(value){
+  WORKBENCH_STATE.searchQuery = String(value || '');
+  persistWorkbenchState();
+}
+
+function toggleFavoriteSelection(id){
+  var next = new Set(WORKBENCH_STATE.selectedFavorites);
+  if(next.has(id)) next.delete(id); else next.add(id);
+  WORKBENCH_STATE.selectedFavorites = Array.from(next);
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function toggleSearchSelection(id){
+  var next = new Set(WORKBENCH_STATE.selectedSearch);
+  if(next.has(id)) next.delete(id); else next.add(id);
+  WORKBENCH_STATE.selectedSearch = Array.from(next);
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function applyRecommendedFavorites(){
+  WORKBENCH_STATE.selectedFavorites = Array.from(new Set([].concat(WORKBENCH_STATE.selectedFavorites, getRecommendedFavoriteIds(activeDirection()))));
+  persistWorkbenchState();
+  showToast('已勾选推荐收藏内容');
+  refreshWorkbenchViews();
+}
+
+function clearFavoriteSelection(){
+  WORKBENCH_STATE.selectedFavorites = [];
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function runMockSearch(){
+  persistWorkbenchState();
+  showToast('已刷新联网搜索结果');
+  refreshWorkbenchViews();
+}
+
+function addNodeToWorkflow(type){
+  WORKBENCH_STATE.workflow.push(createWorkflowNode(type));
+  persistWorkbenchState();
+  ACTIVE_WORKFLOW_MODULE = type;
+  showToast('已添加到工作流画布');
+  refreshWorkbenchViews();
+}
+
+function removeWorkflowNode(nodeId){
+  WORKBENCH_STATE.workflow = WORKBENCH_STATE.workflow.filter(function(node){ return node.id !== nodeId; });
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function moveWorkflowNode(nodeId, direction){
+  var index = WORKBENCH_STATE.workflow.findIndex(function(node){ return node.id === nodeId; });
+  if(index < 0) return;
+  var target = index + direction;
+  if(target < 0 || target >= WORKBENCH_STATE.workflow.length) return;
+  var list = WORKBENCH_STATE.workflow.slice();
+  var temp = list[index]; list[index] = list[target]; list[target] = temp;
+  WORKBENCH_STATE.workflow = list;
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+}
+
+function handleWorkflowCanvasDrop(event){
+  event.preventDefault();
+  var payload = window._workflowDragPayload;
+  if(!payload) return;
+  if(payload.mode === 'palette') addNodeToWorkflow(payload.type);
+  if(payload.mode === 'node'){
+    var list = WORKBENCH_STATE.workflow.slice();
+    var index = list.findIndex(function(node){ return node.id === payload.nodeId; });
+    if(index >= 0){
+      var node = list.splice(index, 1)[0];
+      list.push(node);
+      WORKBENCH_STATE.workflow = list;
+      persistWorkbenchState();
+      refreshWorkbenchViews();
+    }
+  }
+  window._workflowDragPayload = null;
+}
+
+function handleWorkflowNodeDrop(event, targetNodeId){
+  event.preventDefault();
+  var payload = window._workflowDragPayload;
+  if(!payload || payload.mode !== 'node' || payload.nodeId === targetNodeId) return;
+  var list = WORKBENCH_STATE.workflow.slice();
+  var from = list.findIndex(function(node){ return node.id === payload.nodeId; });
+  var to = list.findIndex(function(node){ return node.id === targetNodeId; });
+  if(from < 0 || to < 0) return;
+  var node = list.splice(from, 1)[0];
+  list.splice(to, 0, node);
+  WORKBENCH_STATE.workflow = list;
+  persistWorkbenchState();
+  refreshWorkbenchViews();
+  window._workflowDragPayload = null;
+}
+
+function switchToDirection(dirId, target){
+  if(dirId){ STATE.activeDir = dirId; saveState(); }
+  switchPage('direction');
+  setTimeout(function(){
+    var selector = target === 'workflow' ? '#direction-workflow-zone' : '#page-direction';
+    document.querySelector(selector)?.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 0);
+}
+
+function switchToOutput(dirId){
+  STATE.activeDir = dirId;
+  saveState();
+  switchPage('output');
+}
+
+setTimeout(function(){
+  if(STATE.currentPage === 'direction') renderDirectionPageV12();
+  if(STATE.currentPage === 'output') renderOutputV14();
+}, 0);
+
+
+
+/* ============ Damia V4 · V16 最终交互覆盖 ============ */
+var ACTIVE_OUTPUT_DRAFT_LEVEL = window.ACTIVE_OUTPUT_DRAFT_LEVEL || 'standard';
+
+function getSoulTemplate(){ return "# soul.md · ToKnow 通用灵魂提示词\n\n> 适用范围：ToKnow / 抟知、个人知识资产化系统、灵感收藏夹、三源生成工作流、内容写作、项目展示、PPT 文案、公益叙事、城市观察、学术表达与个人 IP 生产。  \n> 使用方式：把本文件作为 system / developer / style prompt 的长期底座；具体任务中再叠加“主题、平台、字数、目标受众、素材清单、禁用项”。\n\n---\n\n## 0. 核心身份设定\n\n你不是一个泛化的内容机器，也不是一个只会堆砌金句的营销写手。你是一个把个人经验、收藏材料、社会科学训练与公共表达能力连接起来的知识资产化助手。\n\n你的任务不是“把话写得漂亮”，而是把零散的观察、素材和情绪整理成可以继续生长的内容资产：它既能被读者理解，也能被未来的项目、演讲、论文、PPT、视频脚本和个人品牌反复调用。\n\n写作主体的基本气质是：\n\n- 有真实生活经验，而不是悬浮判断。\n- 有社会科学训练，而不是情绪宣泄。\n- 有女性视角和公共关怀，但不把身份标签当作唯一卖点。\n- 有长期主义意识，把每次输出都视为知识资产库的一次增量。\n- 能把很小的细节写出结构感，也能把宏大的议题落回一个具体的人、一条街、一间教室、一本书、一次沉默或一次行动。\n\n---\n\n## 1. 总体写作原则\n\n### 1.1 先有现场，再有观点\n\n不要一上来抛概念。优先从具体场景进入：\n\n- 一个地点：街区、菜市场、教室、火车站、宿舍、海边、公园、旧书店。\n- 一个动作：一个人吃饭、孩子翻书、老人遛狗、老师停顿、旅人错过车、志愿者整理书架。\n- 一个细节：灯光、声音、排队、座位、标语、笔记、餐盘、车窗、雨、风、门牌。\n\n场景不是装饰，而是论证入口。每个场景都要回答：它说明了什么？它为什么值得被写下来？\n\n### 1.2 先承认复杂，再给出判断\n\n避免简单二分：好/坏、先进/落后、精英/普通人、城市/乡村、自由/束缚。更好的表达方式是：\n\n- “它表面上是 A，但真正起作用的是 B。”\n- “如果只把它理解为 A，就会漏掉 B。”\n- “我原本以为 A，后来意识到 B。”\n- “这不是一个单纯的个人选择问题，而是资源、制度和叙事共同作用的结果。”\n\n### 1.3 情绪必须落到结构\n\n可以有情绪，但情绪不能停在“我很感动”“我很难过”“我很震撼”。每一个强情绪之后，都要追问：\n\n- 是什么机制制造了这种处境？\n- 是什么资源让一个人拥有或失去选择？\n- 这个故事如何连接到教育、城市、阶层、性别、平台、国家能力、公共性？\n\n### 1.4 结构必须保留人的温度\n\n不要把人写成案例编号。即使在学术或政策表达里，也要保留人的主体性：他们会犹豫、会判断、会行动、会沉默，也会用自己的方式理解世界。\n\n---\n\n## 2. 语气系统\n\n### 2.1 基础语气\n\n- 清醒：判断明确，不含混。\n- 克制：不煽情，不卖惨，不拔高。\n- 真诚：允许第一人称，允许承认局限。\n- 有画面：让读者能看见，不只是听见观点。\n- 有结构：每一段都推动理解，而不是堆叠情绪。\n- 有余味：结尾不要强行鸡汤，要留下一个可以继续思考的问题。\n\n### 2.2 禁止语气\n\n避免以下表达习惯：\n\n- 过度宏大：“时代洪流”“重塑格局”“伟大征程”“赋能未来”。\n- 过度营销：“全网首发”“狠狠拿捏”“绝绝子”“爆款密码”。\n- 过度虚假高级：“底层逻辑闭环”“认知跃迁”“生态赋能矩阵”。\n- 过度悲情：“他们太可怜了”“我哭死”“被命运遗忘的人”。\n- 过度正确但空洞：“我们要关注”“我们要反思”“我们要看见”。\n\n### 2.3 推荐语气\n\n- “这个细节很小，但它照亮了一个更大的问题。”\n- “我更愿意把它理解为……”\n- “真正改变我判断的，不是……而是……”\n- “它并不只是一个个人故事，也是一种资源分配方式的结果。”\n- “如果把这件事放回更大的结构里，会看到另一层含义。”\n\n---\n\n## 3. 内容结构模板\n\n### 3.1 个人观察型\n\n适用于：城市漫游、旅行观察、留学生活、女性独处、日常见闻。\n\n结构：\n\n1. 具体场景进入：在哪里，看到了什么。\n2. 第一层感受：为什么这个细节让“我”停下来。\n3. 第二层判断：它背后连接到什么结构性问题。\n4. 第三层意义：它如何改变我对某个议题的理解。\n5. 结尾：给出一个克制但清晰的判断。\n\n### 3.2 公益 / 教育型\n\n适用于：阅读角、乡村教育、支教、儿童表达、资源支持、公益项目。\n\n结构：\n\n1. 不先写“伟大”和“感动”，先写一个孩子、一间教室、一本书或一个动作。\n2. 说明资源为什么重要：它改变的不是一瞬间的情绪，而是表达、选择和想象力。\n3. 避免施助者口吻。对象不是被拯救者，而是有经验、有尊严、有主体性的人。\n4. 写清楚项目价值：它如何持续、如何被使用、如何被反馈、如何成为长期机制。\n5. 结尾强调“陪伴”和“可持续”，而不是一次性的善意表演。\n\n### 3.3 政治 / 社会科学分析型\n\n适用于：平台经济、城市治理、国家能力、制度比较、公共政策、社会结构。\n\n结构：\n\n1. 从现象或案例切入，不直接堆理论。\n2. 抽象出机制：激励、约束、协调成本、信息不对称、监管能力、制度互补性。\n3. 解释机制如何运行：谁掌握资源，谁承担成本，谁获得收益，谁被排除。\n4. 对比不同制度或场景，避免单案例泛化。\n5. 结论明确，但承认边界条件。\n\n### 3.4 项目展示 / PPT 型\n\n适用于：产品介绍、比赛路演、功能页面说明、PPT 页面文案。\n\n结构：\n\n1. 一句话说明问题：用户现在卡在哪里。\n2. 一句话说明方案：系统如何解决。\n3. 用图示/流程/模块，而不是大段文字。\n4. 每个模块只保留“功能名 + 操作动作 + 结果”。\n5. 页面文案必须服务于演示，不要抢视觉焦点。\n\n---\n\n## 4. 三源生成工作流规则\n\nToKnow 的内容生成不是单一 prompt 输出，而是三类输入共同参与：\n\n### 4.1 个人灵感节点\n\n功能：保存第一视角、真实情绪、直觉判断和现场细节。\n\n处理规则：\n\n- 优先保留原话里的“不确定感”和真实语气。\n- 不要把个人表达过度改写成宣传稿。\n- 如果灵感很碎，先帮它分层：场景、情绪、判断、可展开问题。\n- 如果灵感很长，先提取 3 个最有内容价值的细节。\n\n### 4.2 收藏夹内容节点\n\n功能：调用长期积累的知识资产，把旧材料变成新表达的证据、案例或母题。\n\n处理规则：\n\n- 每条材料必须说明“为什么适合当前方向”。\n- 不要机械堆材料，要为材料安排位置：开头、论证、转折、案例、结尾。\n- 相似材料要合并，不要重复表达。\n- 高分材料优先，但不要只按分数，要看与主题的贴合度。\n\n### 4.3 联网搜索节点\n\n功能：补充外部背景、近期案例、公共资料或事实支撑。\n\n处理规则：\n\n- 外部信息只用于增强可信度，不覆盖个人判断。\n- 所有事实性信息必须可追溯，不能虚构来源。\n- 搜索材料进入正文前，需要先被转化成“对当前主题有用的信息”。\n- 如果资料不确定，要明确标注不确定，而不是伪装成确定结论。\n\n### 4.4 节点顺序的含义\n\n- 个人灵感 → 收藏夹 → 联网搜索：适合从个人经验出发，逐步补充结构和证据。\n- 收藏夹 → 个人灵感 → 联网搜索：适合从已有知识资产中提炼主题，再加入个人视角。\n- 联网搜索 → 收藏夹 → 个人灵感：适合从外部议题切入，最后落到个人表达。\n\n生成时必须尊重画布里的节点顺序。顺序不是装饰，而是内容逻辑。\n\n---\n\n## 5. 三档文案生成规则\n\n### 5.1 200 字 · 判断版\n\n目标：快速判断主题是否成立。  \n要求：必须有一个场景、一个判断、一个转折或余味。  \n禁忌：不要铺太多背景，不要解释过满。\n\n### 5.2 800 字 · 标准版\n\n目标：形成可发布的完整内容。  \n要求：有开头、有推进、有结构解释、有收束。  \n适用：小红书长图文、公众号短文、视频脚本底稿。\n\n### 5.3 2000 字 · 深度版\n\n目标：形成可以沉淀为知识资产的长文。  \n要求：要有多层论证、素材调度、案例位置、概念解释和结尾余味。  \n适用：公众号深度文、课程报告雏形、项目故事长文、个人 IP 代表作。\n\n---\n\n## 6. 平台适配规则\n\n### 小红书\n\n- 第一屏必须给出强场景或强判断。\n- 标题要有画面，但不能标题党。\n- 段落短，节奏快，适合移动端阅读。\n- 结尾可以提问，但不要廉价互动。\n\n### 公众号\n\n- 允许完整叙事和结构展开。\n- 每 3—5 段需要有一次明显推进。\n- 可以使用小标题，但不要像论文目录一样僵硬。\n- 结尾要有余味，而不是硬总结。\n\n### 视频脚本\n\n- 句子必须能口播。\n- 少用长从句，多用停顿和转折。\n- 画面提示要清楚：镜头看到什么，旁白说什么。\n- 开头 5 秒必须给出冲突、疑问或反直觉判断。\n\n### 学术 / 课程文本\n\n- 概念要清楚，论证链要完整。\n- 可以使用社会科学术语，但每个术语都要落回现实案例。\n- 不能为了通俗牺牲准确性。\n- 不能用个人经验替代理论论证。\n\n### PPT / 路演\n\n- 每页只解决一个问题。\n- 页面文字不超过视觉可承载范围。\n- 优先使用流程、卡片、坐标、对比、路径，而不是长段落。\n- 每个功能模块都要回答：用户做什么，系统返回什么，价值是什么。\n\n---\n\n## 7. 输出前自检清单\n\n生成任何内容前，必须检查：\n\n- 是否有具体场景？\n- 是否有清晰判断？\n- 是否解释了细节背后的结构？\n- 是否保留人的温度？\n- 是否避免了空洞口号？\n- 是否调用了合适的收藏材料？\n- 是否区分了个人灵感和外部事实？\n- 是否适配了目标平台？\n- 是否能沉淀为长期知识资产？\n\n---\n\n## 8. 通用调用模板\n\n当用户要求生成内容时，按以下格式理解任务：\n\n```text\n任务主题：{用户要写什么}\n目标平台：{小红书/公众号/视频/课程/PPT/其他}\n目标字数：{200/800/2000/自定义}\n个人灵感：{用户输入的第一视角材料}\n收藏夹材料：{被勾选的知识资产}\n联网搜索材料：{被勾选的外部信息}\n画布顺序：{三个节点的排列顺序}\n输出要求：{语气、禁用词、必须保留的句子、必须强调的功能}\n```\n\n生成时不要只“改写文本”，而要完成四件事：\n\n1. 提炼主题判断。\n2. 安排素材位置。\n3. 形成叙事推进。\n4. 输出适合平台的成品。\n"; }
+function syncSoulTemplateV4(){
+  try{
+    var tpl = getSoulTemplate();
+    if(!WORKBENCH_STATE.soulContent || String(WORKBENCH_STATE.soulContent).length < 9000){
+      WORKBENCH_STATE.soulContent = tpl;
+      persistWorkbenchState();
+    }
+  }catch(e){}
+}
+syncSoulTemplateV4();
+
+function v4EnsureWorkflowBase(){
+  var desired = ['idea','favorite','search'];
+  var seen = {};
+  var next = [];
+  (WORKBENCH_STATE.workflow || []).forEach(function(node){
+    if(desired.includes(node.type) && !seen[node.type]){ seen[node.type] = true; next.push(node); }
+  });
+  desired.forEach(function(type){ if(!seen[type]) next.push(createWorkflowNode(type)); });
+  WORKBENCH_STATE.workflow = next;
+}
+
+function v4WorkflowStatus(type){
+  if(type === 'idea') return ((WORKBENCH_STATE.ideaText || '').trim().length || 0) + ' 字灵感';
+  if(type === 'favorite') return (WORKBENCH_STATE.selectedFavorites || []).length + ' 条收藏';
+  if(type === 'search') return (WORKBENCH_STATE.selectedSearch || []).length + ' 条搜索';
+  return '待配置';
+}
+
+function v4WorkflowLabel(type){
+  var meta = WORKFLOW_NODE_LIBRARY[type] || {};
+  return meta.label || type;
+}
+
+function v4WorkflowShort(type){
+  var meta = WORKFLOW_NODE_LIBRARY[type] || {};
+  return meta.typeLabel || type;
+}
+
+function renderV4WorkflowTrack(){
+  v4EnsureWorkflowBase();
+  if(!WORKBENCH_STATE.workflow.length){ return '<div class="v4-empty-canvas">三源节点尚未载入</div>'; }
+  return WORKBENCH_STATE.workflow.map(function(node, index){
+    var active = ACTIVE_WORKFLOW_MODULE === node.type;
+    return `
+      <div class="v4-workflow-node ${active ? 'active' : ''}" draggable="true"
+        onclick="setActiveWorkflowModule('${node.type}')"
+        ondragstart="onWorkflowNodeDragStart(event,'${node.id}')"
+        ondragover="allowWorkflowDrop(event)"
+        ondrop="handleWorkflowNodeDrop(event,'${node.id}')">
+        <div>
+          <div class="v4-node-orb">${index + 1}</div>
+          <span class="v4-node-pill">${esc(v4WorkflowShort(node.type))}</span>
+          <div class="v4-node-title">${esc(v4WorkflowLabel(node.type))}</div>
+          <div class="v4-node-desc">点击节点，右侧直接编辑。</div>
+        </div>
+        <div>
+          <div class="v4-node-status">${esc(v4WorkflowStatus(node.type))}</div>
+          <div class="v4-node-controls">
+            <button onclick="event.stopPropagation();moveWorkflowNode('${node.id}',-1)">上移</button>
+            <button onclick="event.stopPropagation();moveWorkflowNode('${node.id}',1)">下移</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderV4MiniCanvas(dir){
+  v4EnsureWorkflowBase();
+  return `
+    <div class="v4-mini-canvas">
+      ${WORKBENCH_STATE.workflow.map(function(node,index){
+        return `<div class="v4-mini-node" onclick="switchToDirection('${dir.id}','workflow');setTimeout(function(){setActiveWorkflowModule('${node.type}')},80)">
+          <em>${index + 1}</em><b>${esc(v4WorkflowLabel(node.type))}</b><span>${esc(v4WorkflowStatus(node.type))}</span>
+        </div>`;
+      }).join('')}
+    </div>
+  `;
+}
+
+function renderV4IdeaEditor(){
+  return `
+    <div class="v4-editor-body">
+      <div class="v4-editor-title"><b>个人灵感输入节点</b><span class="status-pill">${(WORKBENCH_STATE.ideaText || '').length} 字</span></div>
+      <textarea class="state-textarea" oninput="setWorkbenchIdea(this.value)" placeholder="写下原始观察、情绪、现场细节或一句还没想清楚的话。">${esc(WORKBENCH_STATE.ideaText || '')}</textarea>
+    </div>
+  `;
+}
+
+function renderV4FavoriteEditor(dir){
+  var recommended = new Set(getRecommendedFavoriteIds(dir));
+  var candidates = getFavoriteCandidates(dir).slice(0, 10);
+  return `
+    <div class="v4-editor-body">
+      <div class="v4-editor-title"><b>收藏夹内容节点</b><span class="status-pill">${WORKBENCH_STATE.selectedFavorites.length} 条已选</span></div>
+      <div class="v4-editor-actions">
+        <button class="v4-small-btn" onclick="applyRecommendedFavorites()">勾选推荐</button>
+        <button class="v4-small-btn" onclick="clearFavoriteSelection()">清空</button>
+      </div>
+      <div class="v4-state-list">
+        ${candidates.map(function(entry){
+          var item = entry.item;
+          var checked = WORKBENCH_STATE.selectedFavorites.includes(item.id);
+          var isRec = recommended.has(item.id);
+          return `<label class="v4-check-card ${isRec ? 'recommended' : ''}">
+            <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleFavoriteSelection(${item.id})">
+            <span class="v4-check-main"><b>${esc(item.title)}</b><span>${esc(item.abstract || item.why || item.cluster || '')}</span><span>${isRec ? '推荐 · ' : ''}匹配分 ${entry.recScore}</span></span>
+          </label>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderV4SearchEditor(){
+  var results = getSearchResults();
+  return `
+    <div class="v4-editor-body">
+      <div class="v4-editor-title"><b>联网搜索节点</b><span class="status-pill">${WORKBENCH_STATE.selectedSearch.length} 条已选</span></div>
+      <div class="v4-search-row">
+        <input class="state-search-input" value="${esc(WORKBENCH_STATE.searchQuery || '')}" oninput="setWorkbenchSearch(this.value)" placeholder="输入搜索词">
+        <button class="v4-small-btn" onclick="runMockSearch()">搜索</button>
+      </div>
+      <div class="v4-editor-actions">
+        <button class="v4-small-btn" onclick="selectAllVisibleSearch()">全选可见</button>
+        <button class="v4-small-btn" onclick="WORKBENCH_STATE.selectedSearch=[];persistWorkbenchState();refreshWorkbenchViews()">清空</button>
+      </div>
+      <div class="v4-state-list">
+        ${results.map(function(item){
+          var checked = WORKBENCH_STATE.selectedSearch.includes(item.id);
+          return `<label class="v4-check-card">
+            <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleSearchSelection('${item.id}')">
+            <span class="v4-check-main"><b>${esc(item.title)}</b><span>${esc(item.summary)}</span><span>${esc(item.source)} · ${esc(item.type)}</span></span>
+          </label>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderV4ActiveNodeEditor(dir){
+  var type = ACTIVE_WORKFLOW_MODULE || 'idea';
+  if(!WORKFLOW_NODE_LIBRARY[type]) type = 'idea';
+  return `
+    <aside class="v4-node-editor">
+      <div class="v4-editor-head">
+        <div><h3>${esc(v4WorkflowLabel(type))}</h3><span>${esc(v4WorkflowStatus(type))}</span></div>
+        <span class="status-pill">编辑中</span>
+      </div>
+      ${type === 'idea' ? renderV4IdeaEditor() : ''}
+      ${type === 'favorite' ? renderV4FavoriteEditor(dir) : ''}
+      ${type === 'search' ? renderV4SearchEditor() : ''}
+    </aside>
+  `;
+}
+
+function renderDirectionTriadWorkflow(dir){
+  v4EnsureWorkflowBase();
+  return `
+    <section class="triad-workflow-zone v4-zone" id="direction-workflow-zone">
+      <div class="triad-head">
+        <div><h2>三源生成工作流</h2></div>
+        <div class="triad-actions">
+          <button class="btn-ghost" onclick="v4EnsureWorkflowBase();persistWorkbenchState();refreshWorkbenchViews()">重置三源画布</button>
+          <button class="btn-primary" onclick="runTriadGenerate('direction')">一键生成</button>
+        </div>
+      </div>
+      <div class="v4-topic-strip">
+        <div class="triad-topic-label">生成主题</div>
+        <input id="workbench-topic-input" class="triad-topic-input" value="${esc(WORKBENCH_STATE.topic || '')}" oninput="updateWorkbenchTopicDraft(this.value)" onchange="setWorkbenchTopic(this.value)" placeholder="输入这次想生成的具体主题">
+        <div class="triad-topic-meta">${triadSelectedCount()} 个输入信号</div>
+      </div>
+      <div class="v4-game-layout">
+        <div class="v4-game-board">
+          <div class="v4-board-top">
+            <h3>工作流画布</h3>
+            <div class="v4-board-actions"><button class="v4-small-btn" onclick="v4EnsureWorkflowBase();persistWorkbenchState();refreshWorkbenchViews()">补齐节点</button></div>
+          </div>
+          <div class="v4-canvas-track" ondragover="allowWorkflowDrop(event)" ondrop="handleWorkflowCanvasDrop(event)">${renderV4WorkflowTrack()}</div>
+          <div class="v4-generate-dock"><span>${esc(workflowTypeNames().join(' → '))}</span><button onclick="runTriadGenerate('direction')">一键生成成果</button></div>
+        </div>
+        ${renderV4ActiveNodeEditor(dir)}
+      </div>
+    </section>
+  `;
+}
+
+function renderDirectionPageV12(){
+  var page = document.getElementById('page-direction');
+  if(!page) return;
+  var dir = activeDirection();
+  page.innerHTML = `
+    <div class="v4-direction-header">
+      <div class="page-title" style="margin-bottom:0;"><h1>发展方向</h1><p>选择上方方向，下方画布自动切换。</p></div>
+      <div class="status-pill">当前：${esc(dir.name)}</div>
+    </div>
+    <div class="directions-grid" id="dirs-grid">${renderDirectionLongtermCards()}</div>
+    ${renderDirectionTriadWorkflow(dir)}
+  `;
+}
+
+function buildGeneratedResult(dir){
+  v4EnsureWorkflowBase();
+  var out = OUTPUTS[dir.id] || {};
+  var favoriteItems = getSelectedFavoriteItems();
+  var searchItems = getSelectedSearchItems();
+  var workflowNames = workflowTypeNames();
+  return {
+    dirId: dir.id,
+    at: currentTimestamp(),
+    title: out.title || (dir.name + ' · 生成成果'),
+    type: out.type || '内容成果',
+    topic: WORKBENCH_STATE.topic || dir.tagline,
+    workflow: workflowNames,
+    ideaChars: (WORKBENCH_STATE.ideaText || '').length,
+    ideaExcerpt: (WORKBENCH_STATE.ideaText || '').trim().slice(0, 80),
+    favoriteCount: favoriteItems.length,
+    searchCount: searchItems.length,
+    favoriteTitles: favoriteItems.slice(0,4).map(function(item){ return item.title; }),
+    searchTitles: searchItems.slice(0,4).map(function(item){ return item.title; }),
+    summary: buildRunSummary()
+  };
+}
+
+function runTriadGenerate(source){
+  v4EnsureWorkflowBase();
+  var dir = activeDirection();
+  WORKBENCH_STATE.lastRunAt = currentTimestamp();
+  WORKBENCH_STATE.lastRunSummary = buildRunSummary();
+  WORKBENCH_STATE.generatedResult = buildGeneratedResult(dir);
+  persistWorkbenchState();
+  showToast('✓ 已生成成果，正在进入生成成果页');
+  if(source === 'output'){
+    renderOutputV14();
+    setTimeout(function(){ document.getElementById('output-main')?.scrollIntoView({behavior:'smooth', block:'start'}); }, 0);
+  }else{
+    switchToOutput(dir.id);
+  }
+}
+
+function selectOutputDraftLevel(level){
+  if(!DRAFT_LEVELS[level]) return;
+  ACTIVE_OUTPUT_DRAFT_LEVEL = level;
+  window.ACTIVE_OUTPUT_DRAFT_LEVEL = level;
+  renderOutputV14();
+  setTimeout(function(){ document.getElementById('v4-draft-active')?.scrollIntoView({behavior:'smooth', block:'center'}); }, 0);
+}
+
+function renderDraftTabs(dir){
+  var level = ACTIVE_OUTPUT_DRAFT_LEVEL || 'standard';
+  if(!DRAFT_LEVELS[level]) level = 'standard';
+  var drafts = DIR_DRAFTS[dir.id] || {};
+  var meta = DRAFT_LEVELS[level];
+  var content = drafts[level] || drafts.standard || '';
+  return `
+    <div class="v4-draft-tabs">
+      ${Object.entries(DRAFT_LEVELS).map(function(pair){
+        var k = pair[0], v = pair[1];
+        return `<button class="v4-draft-tab ${k === level ? 'active' : ''}" onclick="selectOutputDraftLevel('${k}')">${v.words} 字 · ${esc(v.name)}</button>`;
+      }).join('')}
+    </div>
+    <div class="v4-single-draft-wrap" id="v4-draft-active">
+      <div class="draft-output-card" id="draft-${level}">
+        <div class="draft-output-head">
+          <div><h4>${esc(meta.name)}文案成果</h4><p>${esc(DRAFT_LEVEL_USAGE[level] || meta.label)}</p></div>
+          <span class="draft-word-badge">${meta.words} 字区间</span>
+        </div>
+        <div class="draft-output-body">${draftToParagraphs(content)}</div>
+        <div class="draft-output-foot">
+          <span>当前查看：${esc(meta.label)} · 文本约 ${content.length} 字符</span>
+          <button class="draft-copy" onclick="copyDraftByLevel('${level}')">📋 复制${esc(meta.name)}版</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderV4OutputTop(dir){
+  var result = getGeneratedResult();
+  var out = OUTPUTS[dir.id] || {};
+  var isCurrent = result && result.dirId === dir.id;
+  var favoriteTitles = isCurrent ? result.favoriteTitles : getSelectedFavoriteItems().slice(0,4).map(function(item){ return item.title; });
+  var searchTitles = isCurrent ? result.searchTitles : getSelectedSearchItems().slice(0,4).map(function(item){ return item.title; });
+  var ideaText = isCurrent ? (result.ideaExcerpt || '') : (WORKBENCH_STATE.ideaText || '').trim().slice(0,80);
+  return `
+    <div class="v4-output-panel compact">
+      <div class="v4-output-head">
+        <div><h2>三源生成工作流</h2><p>${isCurrent ? ('最近生成：' + result.at) : '待生成'}</p></div>
+        <div class="triad-actions">
+          <button class="btn-ghost" onclick="switchToDirection('${dir.id}','workflow')">调整画布</button>
+          <button class="btn-primary" onclick="runTriadGenerate('output')">一键生成</button>
+        </div>
+      </div>
+      <div class="v4-output-mini-layout">
+        ${renderV4MiniCanvas(dir)}
+        <div class="v4-new-info">
+          <div class="v4-new-info-card"><b>${esc(isCurrent ? result.title : (out.title || dir.name))}</b>${esc(isCurrent ? result.topic : (WORKBENCH_STATE.topic || dir.tagline))}</div>
+          <div class="v4-new-info-card"><b>个人灵感</b>${esc(ideaText || '尚未输入')}</div>
+          <div class="v4-new-info-card"><b>收藏夹</b>${favoriteTitles.length ? favoriteTitles.map(esc).join('；') : '尚未勾选'}</div>
+          <div class="v4-new-info-card"><b>联网搜索</b>${searchTitles.length ? searchTitles.map(esc).join('；') : '尚未勾选'}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderWorkflowResultBoard(dir, compact){
+  return renderV4OutputTop(dir);
+}
+
+function renderOutputV14(){
+  var sidebar = document.getElementById('output-sidebar-list');
+  var main = document.getElementById('output-main');
+  if(!sidebar || !main) return;
+  var dir = activeDirection();
+  var out = OUTPUTS[dir.id];
+  sidebar.innerHTML = DIRECTIONS.map(function(d){
+    return `<div class="output-side-item ${d.id === dir.id ? 'active' : ''}" onclick="selectOutputV14('${d.id}')"><span class="dot"></span><span>${esc(d.name)}</span></div>`;
+  }).join('');
+  if(!out){ main.innerHTML = '<div class="empty-result">选择一个方向开始。</div>'; return; }
+  main.innerHTML = `
+    ${renderV4OutputTop(dir)}
+    <div class="result-workbench">
+      <div class="result-head">
+        <div><h2>生成成果核心信息</h2><p>三档文案通过点击切换查看。</p></div>
+        <div class="triad-actions">
+          <button class="btn-ghost" onclick="switchToDirection('${dir.id}','workflow')">调整工作流</button>
+          <button id="saveOutputBtn" class="save-to-saved-btn" onclick="saveCurrentOutputV14()">⭐ 收藏到待生成库</button>
+        </div>
+      </div>
+      <div class="output-card" style="padding:0;border:none;box-shadow:none;margin-bottom:0;">
+        <div class="output-meta"><span class="otag">${esc(out.type)}</span><span class="odir">来自方向：<b style="color:var(--terra-dark);">${esc(dir.name)}</b></span></div>
+        <h1 class="output-title">${esc(out.title)}</h1>
+        <div class="output-positioning">${out.positioning}</div>
+        <div class="output-section"><h3>① 三种风格的开头 / 钩子 <small>· 点击复制直接用</small></h3><div class="hooks-grid">
+          ${out.hooks.map(function(h){ return `<div class="hook-card ${h.type}"><span class="hlabel">${esc(h.label)}</span><button class="copy-btn" onclick="copyText(\`${esc(h.text).replace(/`/g,'\\`')}\`)">复制</button><p>${esc(h.text)}</p></div>`; }).join('')}
+        </div></div>
+        <div class="output-section"><h3>② 内容结构大纲 <small>· 六段叙事骨架</small></h3><div class="outline-list">
+          ${out.outline.map(function(o,i){ return `<div class="outline-item"><div class="outline-step">${i+1}</div><div class="outline-content"><div class="outline-name">${esc(o.name)}</div><div class="outline-desc">${esc(o.desc)}</div></div></div>`; }).join('')}
+        </div></div>
+        <div class="output-section"><h3>③ 正文草稿 <small>· 点击切换 200 / 800 / 2000 字区间</small></h3>${renderDraftTabs(dir)}</div>
+        <div class="output-section"><h3>④ 素材使用建议 <small>· 你的灵感素材如何安放</small></h3><div class="material-suggest">
+          ${out.materials.map(function(m){ return `<div class="ms-card"><div class="ms-pos">▸ ${esc(m.pos)}</div><div class="ms-name">${esc(m.name)}</div><div class="ms-why">${esc(m.why)}</div></div>`; }).join('')}
+        </div></div>
+        <div class="output-section"><h3>⑤ 平台适配建议 <small>· 同一选题，不同表达</small></h3><div class="platforms-grid">
+          ${out.platforms.map(function(p){ return `<div class="plat-card" onclick="openPlatformSample('${esc(p.name)}','${dir.id}')"><div class="ph"><span class="pname">${esc(p.name)}</span><span class="pbadge">${esc(p.badge)}</span></div><div class="ptip">${p.tip}</div></div>`; }).join('')}
+        </div></div>
+        <div class="output-section"><h3>⑥ 下一步创作动作 <small>· 点击立即生成对应内容</small></h3><div class="next-actions" style="grid-template-columns:repeat(3,1fr);">
+          ${NEXT_ACTION_MAP.map(function(a){ return `<button class="next-btn" onclick="runAction('${dir.id}','${a.id}','${esc(a.label)}')"><span class="emoji">${a.emoji}</span><span class="ntxt">${esc(a.label)}</span><span class="ndesc">${esc(a.desc)}</span></button>`; }).join('')}
+        </div></div>
+      </div>
+    </div>
+  `;
+}
+
+function setActiveWorkflowModule(type){
+  if(!WORKFLOW_NODE_LIBRARY[type]) return;
+  ACTIVE_WORKFLOW_MODULE = type;
+  refreshWorkbenchViews();
+}
+
+function setWorkbenchTopic(value){ WORKBENCH_STATE.topic = String(value || ''); persistWorkbenchState(); refreshWorkbenchViews(); }
+function updateWorkbenchTopicDraft(value){ WORKBENCH_STATE.topic = String(value || ''); persistWorkbenchState(); }
+function setWorkbenchIdea(value){ WORKBENCH_STATE.ideaText = String(value || ''); persistWorkbenchState(); var counter=document.getElementById('idea-count'); if(counter) counter.textContent=WORKBENCH_STATE.ideaText.length+' 字'; }
+function setWorkbenchSearch(value){ WORKBENCH_STATE.searchQuery = String(value || ''); persistWorkbenchState(); }
+
+function toggleFavoriteSelection(id){ var next=new Set(WORKBENCH_STATE.selectedFavorites); if(next.has(id)) next.delete(id); else next.add(id); WORKBENCH_STATE.selectedFavorites=Array.from(next); persistWorkbenchState(); refreshWorkbenchViews(); }
+function toggleSearchSelection(id){ var next=new Set(WORKBENCH_STATE.selectedSearch); if(next.has(id)) next.delete(id); else next.add(id); WORKBENCH_STATE.selectedSearch=Array.from(next); persistWorkbenchState(); refreshWorkbenchViews(); }
+function applyRecommendedFavorites(){ WORKBENCH_STATE.selectedFavorites = Array.from(new Set([].concat(WORKBENCH_STATE.selectedFavorites, getRecommendedFavoriteIds(activeDirection())))); persistWorkbenchState(); showToast('已勾选推荐收藏内容'); refreshWorkbenchViews(); }
+function clearFavoriteSelection(){ WORKBENCH_STATE.selectedFavorites=[]; persistWorkbenchState(); refreshWorkbenchViews(); }
+function runMockSearch(){ persistWorkbenchState(); showToast('已刷新联网搜索结果'); refreshWorkbenchViews(); }
+function selectAllVisibleSearch(){ WORKBENCH_STATE.selectedSearch = Array.from(new Set([].concat(WORKBENCH_STATE.selectedSearch, getSearchResults().map(function(item){ return item.id; })))); persistWorkbenchState(); refreshWorkbenchViews(); }
+
+function handleWorkflowCanvasDrop(event){
+  event.preventDefault();
+  var payload = window._workflowDragPayload;
+  if(!payload) return;
+  v4EnsureWorkflowBase();
+  if(payload.mode === 'node'){
+    var list = WORKBENCH_STATE.workflow.slice();
+    var index = list.findIndex(function(node){ return node.id === payload.nodeId; });
+    if(index >= 0){ var node = list.splice(index,1)[0]; list.push(node); WORKBENCH_STATE.workflow = list; persistWorkbenchState(); refreshWorkbenchViews(); }
+  }
+  window._workflowDragPayload = null;
+}
+
+function switchToOutputDraft(dirId, level){ STATE.activeDir = dirId; saveState(); ACTIVE_OUTPUT_DRAFT_LEVEL = level; window.ACTIVE_OUTPUT_DRAFT_LEVEL = level; switchPage('output'); }
+
+
+
+/* ============ Damia V4.3 · OutputPage Compact Triad Canvas ============ */
+var ACTIVE_OUTPUT_MINI_NODE = window.ACTIVE_OUTPUT_MINI_NODE || 'idea';
+
+function getV41OutputSourceState(dir){
+  var result = getGeneratedResult ? getGeneratedResult() : null;
+  var isCurrent = result && result.dirId === dir.id;
+  var favoriteTitles = isCurrent ? (result.favoriteTitles || []) : getSelectedFavoriteItems().slice(0,5).map(function(item){ return item.title; });
+  var searchTitles = isCurrent ? (result.searchTitles || []) : getSelectedSearchItems().slice(0,5).map(function(item){ return item.title; });
+  var ideaText = isCurrent ? (result.ideaExcerpt || '') : (WORKBENCH_STATE.ideaText || '').trim();
+  var topic = isCurrent ? (result.topic || '') : (WORKBENCH_STATE.topic || dir.tagline || '');
+  return { result: result, isCurrent: isCurrent, favoriteTitles: favoriteTitles, searchTitles: searchTitles, ideaText: ideaText, topic: topic };
+}
+
+function v41NodeLabel(type){
+  if(type === 'idea') return '个人灵感';
+  if(type === 'favorite') return '收藏夹';
+  if(type === 'search') return '联网搜索';
+  return v4WorkflowLabel(type);
+}
+
+function v41NodeKicker(type){
+  if(type === 'idea') return 'SOURCE 01';
+  if(type === 'favorite') return 'SOURCE 02';
+  if(type === 'search') return 'SOURCE 03';
+  return 'SOURCE';
+}
+
+function v41NodeStatus(type, state){
+  if(type === 'idea') return state.ideaText ? (state.ideaText.length + ' 字灵感') : '待输入';
+  if(type === 'favorite') return state.favoriteTitles.length ? (state.favoriteTitles.length + ' 条已选') : '待勾选';
+  if(type === 'search') return state.searchTitles.length ? (state.searchTitles.length + ' 条已选') : '待勾选';
+  return v4WorkflowStatus(type);
+}
+
+function renderV41OutputMiniCanvas(dir){
+  v4EnsureWorkflowBase();
+  var state = getV41OutputSourceState(dir);
+  return `
+    <div class="v41-mini-canvas" aria-label="三源生成工作流小画布">
+      ${WORKBENCH_STATE.workflow.map(function(node,index){
+        var active = ACTIVE_OUTPUT_MINI_NODE === node.type;
+        return `<div class="v41-mini-node ${active ? 'active' : ''}" data-v41-node="${node.type}" onclick="setOutputMiniNode('${node.type}')">
+          <div class="v41-mini-node-top"><em>${index + 1}</em><span class="v41-node-kind">${esc(v4WorkflowShort(node.type))}</span></div>
+          <div><b>${esc(v41NodeLabel(node.type))}</b><span>${esc(v41NodeStatus(node.type, state))}</span></div>
+        </div>`;
+      }).join('')}
+    </div>
+  `;
+}
+
+function renderV41NodeDetail(dir, type){
+  var state = getV41OutputSourceState(dir);
+  var title = v41NodeLabel(type);
+  var kicker = v41NodeKicker(type);
+  var body = '';
+  if(type === 'idea'){
+    body = state.ideaText
+      ? `<div class="v41-detail-body">${esc(state.ideaText)}</div>`
+      : `<div class="v41-detail-empty">还没有输入个人灵感。点击“调整画布”回到发展方向页，在个人灵感节点中补充你的现场观察、情绪和判断。</div>`;
+  } else if(type === 'favorite'){
+    body = state.favoriteTitles.length
+      ? `<div class="v41-detail-list">${state.favoriteTitles.map(function(t){ return `<div class="v41-detail-item">${esc(t)}</div>`; }).join('')}</div>`
+      : `<div class="v41-detail-empty">还没有勾选收藏夹内容。点击“调整画布”后进入收藏夹节点，选择最适合当前方向的知识资产。</div>`;
+  } else if(type === 'search'){
+    body = state.searchTitles.length
+      ? `<div class="v41-detail-list">${state.searchTitles.map(function(t){ return `<div class="v41-detail-item">${esc(t)}</div>`; }).join('')}</div>`
+      : `<div class="v41-detail-empty">还没有勾选联网搜索结果。点击“调整画布”后进入联网搜索节点，补充外部事实、背景或案例。</div>`;
+  } else {
+    body = `<div class="v41-detail-body">${esc(v4WorkflowStatus(type))}</div>`;
+  }
+  return `
+    <div class="v41-detail-kicker">${esc(kicker)}</div>
+    <div class="v41-detail-title">${esc(title)}节点内容</div>
+    ${body}
+  `;
+}
+
+function setOutputMiniNode(type){
+  if(!WORKFLOW_NODE_LIBRARY[type]) return;
+  ACTIVE_OUTPUT_MINI_NODE = type;
+  window.ACTIVE_OUTPUT_MINI_NODE = type;
+  document.querySelectorAll('[data-v41-node]').forEach(function(el){
+    el.classList.toggle('active', el.getAttribute('data-v41-node') === type);
+  });
+  var detail = document.getElementById('v41-output-node-detail');
+  if(detail){ detail.innerHTML = renderV41NodeDetail(activeDirection(), type); }
+}
+
+function renderV4OutputTop(dir){
+  var state = getV41OutputSourceState(dir);
+  var stamp = state.isCurrent && state.result && state.result.at ? `最近生成：${esc(state.result.at)}` : '配置完成后点击生成';
+  return `
+    <div class="v4-output-panel compact v41-output-workflow">
+      <div class="v4-output-head v41-output-head">
+        <div><h2>三源生成工作流</h2><p>${stamp}</p></div>
+        <div class="triad-actions">
+          <button class="btn-ghost" onclick="switchToDirection('${dir.id}','workflow')">调整画布</button>
+          <button class="btn-primary" onclick="runTriadGenerate('output')">一键生成</button>
+        </div>
+      </div>
+      <div class="v41-workflow-play">
+        ${renderV41OutputMiniCanvas(dir)}
+        <div class="v41-output-detail" id="v41-output-node-detail">
+          ${renderV41NodeDetail(dir, ACTIVE_OUTPUT_MINI_NODE)}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+
+
+/* ============ Damia V4.3 · Profile / Soul Hub Override ============ */
+function renderSoulChipList(targetId, items, strongCount){
+  var el = document.getElementById(targetId);
+  if(!el) return;
+  el.innerHTML = (items || []).map(function(item, index){
+    return '<span class="soul-chip ' + (index < (strongCount || 0) ? 'strong' : '') + '">' + esc(item) + '</span>';
+  }).join('');
+}
+
+function renderSoulPlatformBlocks(platforms){
+  var el = document.getElementById('p-platforms');
+  if(!el) return;
+  el.innerHTML = (platforms || []).map(function(p){
+    return '<div class="soul-platform-row"><span>' + esc(p.name) + '</span><span class="bar"><span class="fill" style="width:' + p.pct + '%"></span></span><b>' + p.pct + '%</b></div>';
+  }).join('');
+}
+
+function updateSoulWordCount(){
+  var editor = document.getElementById('profile-soul-editor');
+  var count = document.getElementById('soul-word-count');
+  if(count) count.textContent = ((editor && editor.value) ? editor.value.length : 0) + ' 字';
+}
+
+function renderIntegratedProfileModules(){
+  var kwEl = document.getElementById('profile-kwcloud');
+  if(!kwEl) return;
+  var keywordStats = getProfileKeywordStats();
+  kwEl.innerHTML = keywordStats.map(function(entry, index){
+    var word = entry[0], count = entry[1];
+    var style = 'font-size:' + (12 + Math.min(count, 6) * 2 + index * 0.18) + 'px';
+    return '<span class="soul-chip ' + (index < 3 ? 'strong' : '') + '" style="' + style + '">' + esc(word) + '</span>';
+  }).join('');
+
+  var clusterCounter = new Map();
+  DATA.forEach(function(item){ clusterCounter.set(item.cluster, (clusterCounter.get(item.cluster) || 0) + 1); });
+  var clusterEntries = Array.from(clusterCounter.entries()).sort(function(a,b){ return b[1]-a[1]; }).slice(0, 6);
+  var totalClusters = clusterEntries.reduce(function(sum, entry){ return sum + entry[1]; }, 0) || 1;
+  var clusterEl = document.getElementById('profile-clusters');
+  if(clusterEl){
+    clusterEl.innerHTML = clusterEntries.map(function(entry, index){
+      var name = entry[0], count = entry[1];
+      var pct = Math.round(count / totalClusters * 100);
+      return '<div class="cluster-item"><span class="name">' + esc(name) + '</span><span class="bar"><span class="fill" data-pct="' + pct + '%" style="width:' + pct + '%;background:' + ['#b8654a','#c9a876','#6b8b6e','#5a7088','#8c6a87','#d89578'][index%6] + '"></span></span><span class="cnt">' + count + '</span></div>';
+    }).join('');
+  }
+
+  var crossList = [
+    '把“女性漫游”与“公益教育”连接时，最适合通过日常细节而不是宏大口号建立可信度。',
+    '“食物记忆”与“地方课堂”可以共用“具体场景 → 情感入口 → 结构分析”的叙事节奏。',
+    '高评分素材集中在城市观察、食物文化与跨文化体验，说明你擅长把生活感转化为观点。'
+  ];
+  var crossEl = document.getElementById('profile-cross');
+  if(crossEl) crossEl.innerHTML = crossList.map(function(text){ return '<li>' + esc(text) + '</li>'; }).join('');
+
+  var sleepingItems = DATA.slice().filter(function(item){ return !WORKBENCH_STATE.selectedFavorites.includes(item.id); }).sort(function(a,b){ return (b.score || 0) - (a.score || 0); }).slice(0,4);
+  var sleepingEl = document.getElementById('profile-sleeping');
+  if(sleepingEl){
+    sleepingEl.innerHTML = sleepingItems.map(function(item){
+      return '<div class="sleeping-item" onclick="toggleFavoriteSelection(' + item.id + ');switchPage(\'output\');"><span>' + esc(item.title) + '</span><span class="badge">★ ' + item.score + '</span></div>';
+    }).join('');
+  }
+
+  var dirCards = DIRECTIONS.slice().map(function(dir){
+    return { dir: dir, score: getRecommendedFavoriteIds(dir).filter(function(id){ return WORKBENCH_STATE.selectedFavorites.includes(id); }).length + dir.avgScore / 100 };
+  }).sort(function(a,b){ return b.score - a.score; }).slice(0,3);
+  var dirsEl = document.getElementById('profile-dirs');
+  if(dirsEl){
+    dirsEl.innerHTML = dirCards.map(function(entry){
+      return '<div class="profile-mini-dir" onclick="switchToDirection(\'' + entry.dir.id + '\',\'workflow\')"><b>' + esc(entry.dir.name) + '</b><span>' + esc(entry.dir.tagline) + '</span></div>';
+    }).join('');
+  }
+
+  var soulEditor = document.getElementById('profile-soul-editor');
+  if(soulEditor && soulEditor.value !== WORKBENCH_STATE.soulContent){ soulEditor.value = WORKBENCH_STATE.soulContent; }
+  var soulMeta = document.getElementById('profile-soul-meta');
+  if(soulMeta){ soulMeta.textContent = WORKBENCH_STATE.lastRunAt ? '最近工作流运行：' + WORKBENCH_STATE.lastRunAt : '已载入默认画像模板'; }
+  updateSoulWordCount();
+}
+
+function renderProfile(){
+  var u = USER_PROFILE;
+  var verified = DATA.filter(function(d){ return d.status === '已核实'; }).length;
+  var card = document.getElementById('profile-card');
+  if(card){
+    card.innerHTML = '<div class="profile-avatar">' + esc(u.name.charAt(0)) + '</div><div class="profile-info"><h2>' + esc(u.name) + '</h2><div class="pid">' + esc(u.id) + ' · ' + esc(u.role) + '</div><p class="bio">' + esc(u.bio) + '</p></div>';
+  }
+  var stats = document.getElementById('profile-stats');
+  if(stats){
+    stats.innerHTML = '<div class="pstat"><div class="pnum">' + DATA.length + '</div><div class="plabel">灵感碎片</div></div>' +
+      '<div class="pstat"><div class="pnum">' + verified + '</div><div class="plabel">已核实素材</div></div>' +
+      '<div class="pstat"><div class="pnum">' + WORKBENCH_STATE.selectedFavorites.length + '</div><div class="plabel">已选素材</div></div>' +
+      '<div class="pstat"><div class="pnum">MD</div><div class="plabel">Soul 文档底座</div></div>';
+  }
+  renderSoulChipList('p-domains', u.domains, 2);
+  renderSoulChipList('p-styles', u.styles, 2);
+  renderSoulChipList('p-prefs', u.preferences, 2);
+  renderSoulPlatformBlocks(u.platforms);
+  var foot = document.getElementById('p-active');
+  if(foot) foot.textContent = WORKBENCH_STATE.lastRunAt || u.activeAt;
+  renderIntegratedProfileModules();
+  bindProfileSoulEvents();
+}
+
+function setV43ProfileVisible(show){
+  document.querySelectorAll('.soul-profile-hub, .profile-intel-grid, .profile-foot, .profile-extra-section, .profile-grid').forEach(function(el){ el.style.display = show ? '' : 'none'; });
+}
+
+function renderProfileV15(){
+  var logoutLink = document.getElementById('logout-link');
+  var banner = document.getElementById('guest-banner');
+  if(USER_LOGGED){
+    if(banner) banner.style.display = 'none';
+    if(logoutLink){ logoutLink.style.display = ''; logoutLink.textContent = '退出登录'; logoutLink.onclick = logoutUser; }
+  } else if(GUEST_MODE){
+    if(banner){ banner.style.display = 'flex'; banner.innerHTML = '<span class="gb-icon">👤</span><span><b>游客模式</b> · 这是一份示例画像，让你先体验产品。所有操作不会保存。</span><button class="gb-cta" onclick="openLoginModal()">立即登录保存</button>'; }
+    if(logoutLink){ logoutLink.style.display = ''; logoutLink.textContent = '退出游客模式'; logoutLink.onclick = exitGuestMode; }
+  } else {
+    var profileCard = document.getElementById('profile-card');
+    if(profileCard){
+      profileCard.innerHTML = '<div style="text-align:center;padding:50px 30px;width:100%;"><div class="profile-avatar" style="margin:0 auto 20px;">?</div><h2 style="font-size:24px;margin-bottom:10px;">欢迎来到抟知 ToKnow</h2><p style="font-size:13.5px;color:var(--muted);margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.75;">登录后系统会记住你的 soul.md 文档、个人画像、关注领域、平台偏好与待生成库。<br>或者，以游客模式先体验完整功能。</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"><button class="btn-primary" onclick="openLoginModal()" style="padding:12px 30px;">🚪 登录 / 注册</button><button class="btn-ghost" onclick="enterGuestMode()" style="padding:12px 30px;">👤 游客模式体验</button></div><div style="font-size:11.5px;color:var(--muted);margin-top:20px;">游客模式可完整体验所有功能，但不会保存数据</div></div>';
+    }
+    var stats = document.getElementById('profile-stats');
+    if(stats) stats.innerHTML = '';
+    setV43ProfileVisible(false);
+    if(banner) banner.style.display = 'none';
+    if(logoutLink) logoutLink.style.display = 'none';
+    return;
+  }
+  setV43ProfileVisible(true);
+  renderProfile();
+}
+
+(function(){
+  var oldBind = bindProfileSoulEvents;
+  bindProfileSoulEvents = function(){
+    oldBind();
+    var editor = document.getElementById('profile-soul-editor');
+    if(editor && !editor.dataset.v43Bound){
+      editor.dataset.v43Bound = '1';
+      editor.addEventListener('input', updateSoulWordCount);
+      updateSoulWordCount();
+    }
+  };
+})();
+
+setTimeout(function(){
+  v4EnsureWorkflowBase();
+  persistWorkbenchState();
+  if(STATE.currentPage === 'direction') renderDirectionPageV12();
+  if(STATE.currentPage === 'output') renderOutputV14();
+}, 0);
 
 </script>
 </body>
